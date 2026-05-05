@@ -24,7 +24,7 @@ const cards = [
     description:
       "Carbon accounting, water management, decarbonization, and Net Zero roadmap planning.",
     href: "/sustainability",
-    image: "/What We Do all img/sustainabyte.png",
+    image: "/What We Do all img/sustainabyte.webp",
   },
 ];
 
@@ -33,7 +33,7 @@ export default function WhatWeDo() {
     <section className="py-16 sm:py-24 relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/What We Do all img/bgimg.png"
+          src="/What We Do all img/bgimg.webp"
           alt="Background"
           fill
           className="object-cover"
@@ -87,7 +87,7 @@ export default function WhatWeDo() {
 
                 {/* Dark Gradient Overlay for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B3E] via-[#0D1B3E]/60 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
-                
+
                 {/* Green accent tint on hover */}
                 <div className="absolute inset-0 bg-[#3DD68C] opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
 

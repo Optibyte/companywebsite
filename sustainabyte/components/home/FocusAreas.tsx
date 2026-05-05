@@ -9,12 +9,12 @@ const categories = [
   {
     title: "Industries",
     images: [
-      { src: "/Industries/Factories.jpg",        name: "Factories"       },
-      { src: "/Industries/Warehouses.jpg",        name: "Warehouses"      },
-      { src: "/Industries/Power Plants.jpg",      name: "Power Plants"    },
-      { src: "/Industries/Chemical Plants.jpg",   name: "Chemical Plants" },
-      { src: "/Industries/Industry Parks.png",    name: "Industry Parks"  },
-      { src: "/Industries/Twilight.jpg",          name: "Twilight Plants" },
+      { src: "/Industries/Factories.webp",        name: "Factories"       },
+      { src: "/Industries/Warehouses.webp",        name: "Warehouses"      },
+      { src: "/Industries/Power Plants.webp",      name: "Power Plants"    },
+      { src: "/Industries/Chemical Plants.webp",   name: "Chemical Plants" },
+      { src: "/Industries/Industry Parks.webp",    name: "Industry Parks"  },
+      { src: "/Industries/Twilight.webp",          name: "Twilight Plants" },
     ],
   },
   {
@@ -25,7 +25,7 @@ const categories = [
       { src: "/Commercial Buildings/Shopping-Malls-300x199.webp",   name: "Shopping Malls" },
       { src: "/Commercial Buildings/Hotels-1-300x200.webp",         name: "Hotels"         },
       { src: "/Commercial Buildings/Resorts.webp",                  name: "Resorts"        },
-      { src: "/Commercial Buildings/Educational-Institutions.jpeg", name: "Educational Institutions" },
+      { src: "/Commercial Buildings/Educational-Institutions.webp", name: "Educational Institutions" },
     ],
   },
   {

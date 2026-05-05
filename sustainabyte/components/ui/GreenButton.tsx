@@ -25,10 +25,10 @@ export default function GreenButton({
 
   const variants = {
     primary:
-      "bg-[#3DD68C] text-[#0D1B3E] hover:bg-[#2bc478] hover:shadow-[0_0_30px_rgba(61,214,140,0.4)]",
+      "bg-gradient-to-r from-[#3DD68C] to-[#27A37B] text-[#0D1B3E] hover:from-[#2bc478] hover:to-[#1a8a60] shadow-[0_10px_25px_rgba(61,214,140,0.2)] hover:shadow-[0_15px_35px_rgba(61,214,140,0.4)]",
     outline:
-      "border-2 border-[#3DD68C] text-[#3DD68C] hover:bg-[#3DD68C] hover:text-[#0D1B3E]",
-    dark: "bg-[#1A3A4A] text-white hover:bg-[#1A2D5A] hover:shadow-lg",
+      "border-2 border-[#3DD68C] text-[#3DD68C] hover:bg-gradient-to-r hover:from-[#3DD68C] hover:to-[#27A37B] hover:text-[#0D1B3E] hover:border-transparent",
+    dark: "bg-gradient-to-br from-[#1A3A4A] to-[#0D1B3E] text-white hover:from-[#1A2D5A] hover:to-[#0A1128] shadow-lg hover:shadow-xl",
   };
 
   const classes = `${baseStyles} ${variants[variant]} ${className}`;

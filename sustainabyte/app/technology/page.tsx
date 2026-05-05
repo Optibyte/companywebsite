@@ -15,8 +15,8 @@ const techFeatures = [
 
 export default function TechnologyPage() {
   return (
-    <div className="pt-[72px]">
-      <section className="py-16 sm:py-24 bg-[#0D1B3E] relative overflow-hidden">
+    <div>
+      <section className="pt-32 pb-16 sm:pt-40 sm:pb-24 bg-[#0D1B3E] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(61,214,140,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(61,214,140,0.5) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">

@@ -73,7 +73,7 @@ export default function StatsBar() {
     <section className="relative z-20">
       {/* Dark blue background band covering the top half of this section */}
       <div className="absolute top-0 left-0 right-0 h-[60%] bg-[#0D1B3E]" />
-      
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-12 pb-12">
         <motion.div
           ref={ref}
