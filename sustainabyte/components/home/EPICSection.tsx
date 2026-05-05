@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const epicPills = [
-  { label: "Efficient", color: "bg-[#236B8E]" },
-  { label: "Predictive", color: "bg-[#279178]" },
-  { label: "Intelligent", color: "bg-[#29A36A]" },
-  { label: "Controlled", color: "bg-[#27A37B]" },
+  { label: "Efficient", color: "from-[#193F70] to-[#236B8E]" },
+  { label: "Predictive", color: "from-[#1a7a60] to-[#279178]" },
+  { label: "Intelligent", color: "from-[#248a58] to-[#29A36A]" },
+  { label: "Controlled", color: "from-[#228a6a] to-[#27A37B]" },
 ];
 
 const commitmentCards = [
@@ -16,14 +16,14 @@ const commitmentCards = [
     title: "Net Zero Targets",
     description:
       "Aligning your operations with global net zero commitments through measurable goals and verified pathways.",
-    image: "/net zero img.png",
+    image: "/net zero img.webp",
     accent: "#04572fff",
   },
   {
     title: "Decarbonization",
     description:
       "Systematic reduction of carbon emissions through intelligent energy management and optimization.",
-    image: "/Decarbonization.jpg",
+    image: "/Decarbonization.webp",
     accent: "#083063ff",
   },
 ];
@@ -136,7 +136,7 @@ function CommitmentCard({
         animate={{ scale: hovered ? 1.1 : 1 }}
         transition={{ duration: 0.25 }}
       >
-
+        ESG
       </motion.div>
     </motion.div>
   );
@@ -184,7 +184,7 @@ const Particles = () => {
 
 export default function EPICSection() {
   return (
-    <section className="py-16 sm:py-24 bg-white relative z-10 overflow-hidden">
+    <section className="py-20 sm:py-32 bg-gradient-to-b from-white via-white to-[#f0f9ff] relative z-10 overflow-hidden">
       <Particles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Tagline */}
@@ -193,7 +193,7 @@ export default function EPICSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-lg sm:text-xl md:text-2xl text-[#193F70] italic mb-6 sm:mb-8 font-[family-name:var(--font-dm-sans)]"
+          className="text-lg sm:text-xl md:text-2xl text-[#193F70] italic mb-10 sm:mb-16 font-[family-name:var(--font-dm-sans)]"
         >
           your facility deserves to be{" "}
           <motion.span 
@@ -201,14 +201,26 @@ export default function EPICSection() {
             whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.5 }}
-            className="inline-block text-[#3DD68C] font-bold not-italic text-2xl sm:text-3xl md:text-4xl font-[family-name:var(--font-sora)]"
+            className="inline-block bg-gradient-to-r from-[#3DD68C] to-[#27A37B] bg-clip-text text-transparent font-bold not-italic text-2xl sm:text-3xl md:text-5xl font-[family-name:var(--font-sora)] relative"
           >
             EPIC
+            <motion.span
+              className="absolute -inset-2 bg-[#3DD68C]/20 blur-xl rounded-full -z-10"
+              animate={{
+                opacity: [0.2, 0.5, 0.2],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
           </motion.span>
         </motion.p>
 
         {/* EPIC Pills */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-10 mb-12 sm:mb-20">
           {epicPills.map((pill, i) => (
             <motion.div
               key={pill.label}
@@ -229,12 +241,21 @@ export default function EPICSection() {
 
               <motion.div
                 initial="initial"
+                animate="animate"
                 whileHover="hover"
                 variants={{
                   initial: { scale: 1, y: 0 },
-                  hover: { scale: 1.05, y: -4, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                  animate: {
+                    y: [0, -6, 0],
+                    transition: {
+                      duration: 3 + i * 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }
+                  },
+                  hover: { scale: 1.08, y: -10, transition: { type: "spring", stiffness: 400, damping: 15 } }
                 }}
-                className={`relative overflow-hidden px-6 sm:px-10 py-3 sm:py-4 rounded text-white font-[family-name:var(--font-sora)] font-medium text-sm sm:text-base tracking-wider cursor-default shadow-md ${pill.color}`}
+                className={`relative overflow-hidden px-8 sm:px-12 py-4 sm:py-5 rounded-xl text-white font-[family-name:var(--font-sora)] font-bold text-sm sm:text-lg tracking-widest cursor-default shadow-lg bg-gradient-to-br ${pill.color} border border-white/10`}
               >
                 {/* Deepen on hover */}
                 <motion.div
@@ -280,11 +301,11 @@ export default function EPICSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#193F70] text-left max-w-4xl mx-auto mb-10 sm:mb-14 px-4">
+          <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#193F70] text-left max-w-4xl mx-auto mb-14 sm:mb-20 px-4">
             Commitment to
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 max-w-4xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-20 max-w-5xl mx-auto px-4">
             {commitmentCards.map((card, i) => (
               <CommitmentCard key={card.title} card={card} index={i} />
             ))}
