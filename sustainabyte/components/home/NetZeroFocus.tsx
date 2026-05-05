@@ -65,7 +65,7 @@ export default function NetZeroFocus() {
       {/* ── Immersive Full-Section Background ── */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
-          src="/Net Zero Focus.1.png"
+          src="/Net Zero Focus.1.webp"
           alt="Net Zero Focus Background"
           fill
           className="object-cover opacity-80"

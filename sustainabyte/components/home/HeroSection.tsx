@@ -12,7 +12,7 @@ export default function HeroSection() {
         <motion.div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/lending page.png')",
+            backgroundImage: "url('/lending page.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -150,7 +150,7 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right side is intentionally left blank because the background image (lending page.png) 
+          {/* Right side is intentionally left blank because the background image (lending page.webp) 
               contains the complex visual elements (like the Net Zero glowing UI) on the right half. */}
           <div className="hidden lg:block"></div>
         </div>

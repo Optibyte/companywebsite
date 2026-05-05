@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const clientLogos = [
-  { src: "/clients/Client-Logo-1-150x120.png", alt: "Client 1" },
+  { src: "/clients/Client-Logo-1-150x120.webp", alt: "Client 1" },
   { src: "/clients/Client-Logo-2-300x126.webp", alt: "Client 2" },
   { src: "/clients/Client-Logo-3-298x300.webp", alt: "Client 3" },
   { src: "/clients/Client-Logo-4-300x220.webp", alt: "Client 4" },

@@ -11,8 +11,8 @@ import FAQSection from "@/components/home/FAQSection";
 export default function Home() {
   return (
     <>
-      <HeroSection /> 
-        <StatsBar />
+      <HeroSection />
+      <StatsBar />
       <EPICSection />
       <TrustedBy />
       <NetZeroFocus />

@@ -89,9 +89,8 @@ export default function FAQSection() {
                   {faq.q}
                 </span>
                 <div
-                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    openIndex === i ? "bg-[#3DD68C]" : "bg-gray-100"
-                  }`}
+                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === i ? "bg-[#3DD68C]" : "bg-gray-100"
+                    }`}
                 >
                   {openIndex === i ? (
                     <X className="w-4 h-4 text-white" />

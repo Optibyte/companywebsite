@@ -15,6 +15,7 @@ type NavLink = {
     gridCols?: number;
     columns: {
       title: string;
+      href?: string;
       items: { name: string; href: string }[];
     }[];
   };
@@ -30,6 +31,7 @@ const navLinks: NavLink[] = [
       columns: [
         {
           title: "Energy Efficiency and Consulting",
+          href: "/energy/efficiency-consulting",
           items: [
             { name: "Equip-Ops Analytics", href: "/energy#equip-ops" },
             { name: "Compressed Air Leakage Audits", href: "/energy#compressed-air" },
@@ -42,15 +44,17 @@ const navLinks: NavLink[] = [
         },
         {
           title: "Energy Analytics",
+          href: "/energy/analytics",
           items: [
-            { name: "Utility Data Analytics", href: "/energy#utility" },
-            { name: "BMS Data Analytics", href: "/energy#bms" },
-            { name: "Solar Data Analytics", href: "/energy#solar" },
-            { name: "Design & Development of Analytical Systems", href: "/energy#design" },
+            { name: "Utility Data Analytics", href: "/energy/analytics#utility" },
+            { name: "BMS Data Analytics", href: "/energy/analytics#bms" },
+            { name: "Solar Data Analytics", href: "/energy/analytics#solar" },
+            { name: "Design & Development of Analytical Systems", href: "/energy/analytics#design" },
           ]
         },
         {
           title: "Energy Management Solutions",
+          href: "/energy/management-solutions",
           items: [
             { name: "ISO 50001 System Implementation Support", href: "/energy#iso50001" },
             { name: "ISO 50002 System Implementation Support", href: "/energy#iso50002" },
@@ -229,8 +233,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled
-          ? "bg-[#0D1B3E]/90 backdrop-blur-xl shadow-lg border-b border-white/5"
-          : "bg-transparent"
+        ? "bg-[#0D1B3E]/90 backdrop-blur-xl shadow-lg border-b border-white/5"
+        : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -260,18 +264,16 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-[13px] xl:text-sm transition-colors duration-200 font-medium border-b-2 ${
-                    activeDropdown === link.name
+                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-[13px] xl:text-sm transition-colors duration-200 font-medium border-b-2 ${activeDropdown === link.name
                       ? "text-[#3DD68C] border-[#3DD68C]"
                       : "text-white border-transparent hover:text-white/80"
-                  }`}
+                    }`}
                 >
                   {link.name}
                   {(link.dropdown || link.megaMenu) && (
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        activeDropdown === link.name ? "rotate-180" : ""
-                      }`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === link.name ? "rotate-180" : ""
+                        }`}
                     />
                   )}
                 </Link>
@@ -348,7 +350,7 @@ export default function Navbar() {
 
       {/* Mega Menu Overlay */}
       <AnimatePresence>
-        {navLinks.map((link) => 
+        {navLinks.map((link) =>
           link.megaMenu && activeDropdown === link.name && (
             <motion.div
               key={link.name}
@@ -362,7 +364,7 @@ export default function Navbar() {
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-6">
                 {/* Close Button */}
-                <button 
+                <button
                   onClick={() => setActiveDropdown(null)}
                   className="absolute top-6 right-4 sm:right-6 lg:right-8 text-white/70 hover:text-white border border-white/30 rounded p-1 transition-colors"
                 >
@@ -375,20 +377,29 @@ export default function Navbar() {
                 </h3>
 
                 {/* Columns */}
-                <div className={`grid grid-cols-1 gap-8 md:gap-12 ${
-                  link.megaMenu.gridCols === 4 ? "md:grid-cols-4" : 
-                  link.megaMenu.gridCols === 2 ? "md:grid-cols-2" : 
-                  "md:grid-cols-3"
-                }`}>
+                <div className={`grid grid-cols-1 gap-8 md:gap-12 ${link.megaMenu.gridCols === 4 ? "md:grid-cols-4" :
+                    link.megaMenu.gridCols === 2 ? "md:grid-cols-2" :
+                      "md:grid-cols-3"
+                  }`}>
                   {link.megaMenu.columns.map((col, idx) => (
                     <div key={idx}>
-                      <h4 className="text-[17px] font-bold text-white border-b border-[#3DD68C]/80 pb-3 mb-5">
-                        {col.title}
-                      </h4>
+                      {col.href ? (
+                        <Link
+                          href={col.href}
+                          className="block text-[17px] font-bold text-white border-b border-[#3DD68C]/80 pb-3 mb-5 hover:text-[#3DD68C] transition-colors"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {col.title}
+                        </Link>
+                      ) : (
+                        <h4 className="text-[17px] font-bold text-white border-b border-[#3DD68C]/80 pb-3 mb-5">
+                          {col.title}
+                        </h4>
+                      )}
                       <ul className="space-y-4">
                         {col.items.map((item, itemIdx) => (
                           <li key={itemIdx}>
-                            <Link 
+                            <Link
                               href={item.href}
                               className="text-[15px] text-[#B0BEC5] hover:text-[#3DD68C] transition-colors block"
                               onClick={() => setActiveDropdown(null)}

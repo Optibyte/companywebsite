@@ -18,8 +18,8 @@ const team = [
 
 export default function CompanyPage() {
   return (
-    <div className="pt-[72px]">
-      <section className="py-16 sm:py-24 bg-[#0D1B3E]">
+    <div>
+      <section className="pt-32 pb-16 sm:pt-40 sm:pb-24 bg-[#0D1B3E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-[#3DD68C]/10 text-[#3DD68C] border border-[#3DD68C]/20 mb-4 sm:mb-6">
