@@ -1,7 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Zap, BarChart3, FileSearch, Activity, Gauge, TrendingDown } from "lucide-react";
+import { 
+  BarChart3, 
+  Activity, 
+  TrendingDown, 
+  ArrowUpRight, 
+  CheckCircle2, 
+  PieChart, 
+  ShieldCheck, 
+  Leaf, 
+  Settings 
+} from "lucide-react";
 import GreenButton from "@/components/ui/GreenButton";
 
 export default function EnergyPage() {
@@ -105,9 +116,9 @@ export default function EnergyPage() {
             viewport={{ once: true }}
             className="mt-24"
           >
-            <a href="#services" className="inline-block px-12 py-5 bg-[#4DB846] text-white text-xl font-bold rounded-full hover:bg-[#3d9a37] transition-all transform hover:scale-105 shadow-xl shadow-[#4DB846]/30">
+            <GreenButton href="#services" className="text-xl px-12 py-5 font-bold">
               Explore Our Services
-            </a>
+            </GreenButton>
           </motion.div>
         </div>
       </section>
@@ -162,7 +173,7 @@ export default function EnergyPage() {
                 className="flex flex-col items-center text-center group"
               >
                 <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center mb-4 relative group-hover:border-[#4DB846]/50 transition-all duration-500">
-                  <div className="absolute inset-0 rounded-full border-t-2 border-[#4DB846] animate-spin-slow opacity-0 group-hover:opacity-100" />
+                  <div className="absolute inset-0 rounded-full border-t-2 border-[#4DB846] animate-rotate-slow opacity-0 group-hover:opacity-100" />
                   <div className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#4DB846]/10 transition-colors">
                     {item.icon}
                   </div>

@@ -275,11 +275,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-<<<<<<< HEAD
                   className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold border-b-2 ${activeDropdown === link.name
-=======
-                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-[13px] xl:text-sm transition-colors duration-200 font-medium border-b-2 ${activeDropdown === link.name
->>>>>>> 1da4c5df07750b6033907370be55d2c82eb553b0
                       ? "text-[#3DD68C] border-[#3DD68C]"
                       : "text-white border-transparent hover:text-white/80"
                     }`}

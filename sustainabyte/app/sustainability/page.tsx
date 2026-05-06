@@ -1,14 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-<<<<<<< HEAD
 import { Leaf, BarChart3, FileText, Target, TreePine, Recycle, ArrowUpRight, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-=======
-import { Leaf, BarChart3, FileText, Target, TreePine, Recycle, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
->>>>>>> 1da4c5df07750b6033907370be55d2c82eb553b0
 import GreenButton from "@/components/ui/GreenButton";
 
 const services = [
@@ -88,7 +83,6 @@ export default function SustainabilityPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((s, i) => (
-<<<<<<< HEAD
               <Link key={i} href={s.href}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -119,38 +113,6 @@ export default function SustainabilityPage() {
                   </motion.div>
                 </motion.div>
               </Link>
-=======
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -12 }}
-                className="p-8 rounded-[2.5rem] bg-white border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(61,214,140,0.1)] transition-all duration-500 group relative overflow-hidden h-full"
-              >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-[#3DD68C]/5 rounded-bl-[4rem] group-hover:bg-[#3DD68C]/10 transition-colors" />
-
-                <motion.div
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-                  className="relative z-10"
-                >
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-[#3DD68C] transition-all duration-500 shadow-lg">
-                    <s.icon className="w-7 h-7 text-[#3DD68C] group-hover:text-white transition-colors" />
-                  </div>
-
-                  <h3 className="font-[family-name:var(--font-sora)] text-xl font-bold text-[#0D1B3E] mb-4 group-hover:text-[#3DD68C] transition-colors">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-700 transition-colors">{s.description}</p>
-
-                  <div className="mt-8 pt-6 border-t border-gray-50 flex items-center gap-2 text-[#3DD68C] font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-500">
-                    <span>Learn more</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </div>
-                </motion.div>
-              </motion.div>
-
->>>>>>> 1da4c5df07750b6033907370be55d2c82eb553b0
             ))}
           </div>
         </div>
