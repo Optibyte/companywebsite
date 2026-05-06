@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Zap, BarChart3, ShieldCheck, Database, Leaf, Globe, Cpu, BookOpen, Users } from "lucide-react";
 
 type NavLink = {
   name: string;
@@ -56,10 +56,10 @@ const navLinks: NavLink[] = [
           title: "Energy Management Solutions",
           href: "/energy/management-solutions",
           items: [
-            { name: "ISO 50001 System Implementation Support", href: "/energy#iso50001" },
-            { name: "ISO 50002 System Implementation Support", href: "/energy#iso50002" },
-            { name: "Measurement & Verification (IPMVP)", href: "/energy#ipmvp" },
-            { name: "Digitisation for savings tracking", href: "/energy#digitisation" },
+            { name: "ISO 50001 System Implementation Support", href: "/energy/management-solutions#iso-50001" },
+            { name: "ISO 50002 System Implementation Support", href: "/energy/management-solutions#iso-50002" },
+            { name: "Measurement & Verification (IPMVP)", href: "/energy/management-solutions#ipmvp" },
+            { name: "Digitisation for savings tracking", href: "/energy/management-solutions#digitalisation" },
           ]
         }
       ]
@@ -74,19 +74,30 @@ const navLinks: NavLink[] = [
       columns: [
         {
           title: "Carbon Accounting",
+          href: "/sustainability/carbon-accounting",
           items: [
-            { name: "GHG Protocol", href: "/sustainability#ghg" },
-            { name: "ISO 14064", href: "/sustainability#iso14064" },
-            { name: "CDP Reporting", href: "/sustainability#cdp" },
+            { name: "GHG Protocol", href: "/sustainability/carbon-accounting#ghg" },
+            { name: "ISO 14064", href: "/sustainability/carbon-accounting#iso14064" },
+            { name: "CDP Reporting", href: "/sustainability/carbon-accounting#cdp" },
           ]
         },
         {
           title: "Water Management",
-          items: []
+          href: "/sustainability/water-management",
+          items: [
+            { name: "Key Objectives", href: "/sustainability/water-management#objectives" },
+            { name: "Conservation Strategies", href: "/sustainability/water-management#strategies" },
+            { name: "Audit Journey", href: "/sustainability/water-management#timeline" },
+          ]
         },
         {
           title: "Decarbonization",
-          items: []
+          href: "/sustainability/decarbonization",
+          items: [
+            { name: "Target the Right Asset", href: "/sustainability/decarbonization#approach" },
+            { name: "Measurable Results", href: "/sustainability/decarbonization#results" },
+            { name: "Immediate Impact", href: "/sustainability/decarbonization#impact" },
+          ]
         },
         {
           title: "Net Zero RoadMap",
@@ -264,7 +275,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-[13px] xl:text-sm transition-colors duration-200 font-medium border-b-2 ${activeDropdown === link.name
+                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold border-b-2 ${activeDropdown === link.name
                       ? "text-[#3DD68C] border-[#3DD68C]"
                       : "text-white border-transparent hover:text-white/80"
                     }`}
@@ -358,52 +369,65 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 right-0 bg-[#0A1633] border-t-[3px] border-[#3DD68C] shadow-2xl z-40 pb-12"
+              className="absolute top-full left-0 right-0 bg-[#0D1B3E]/95 backdrop-blur-3xl border-t border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-40 pb-16 pt-12 overflow-hidden"
               onMouseEnter={() => handleMouseEnter(link.name)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-6">
+              {/* Decorative background element */}
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#4DB846]/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#4DB846]/5 rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none" />
+
+              <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Close Button */}
                 <button
                   onClick={() => setActiveDropdown(null)}
-                  className="absolute top-6 right-4 sm:right-6 lg:right-8 text-white/70 hover:text-white border border-white/30 rounded p-1 transition-colors"
+                  className="absolute -top-4 right-0 text-white/40 hover:text-white hover:bg-white/10 rounded-full p-2 transition-all duration-300"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
-                {/* Title */}
-                <h3 className="text-center text-[22px] font-semibold text-white mb-8 tracking-wide">
-                  {link.megaMenu.title}
-                </h3>
-
                 {/* Columns */}
-                <div className={`grid grid-cols-1 gap-8 md:gap-12 ${link.megaMenu.gridCols === 4 ? "md:grid-cols-4" :
+                <div className={`grid grid-cols-1 gap-12 ${link.megaMenu.gridCols === 4 ? "md:grid-cols-4" :
                     link.megaMenu.gridCols === 2 ? "md:grid-cols-2" :
                       "md:grid-cols-3"
                   }`}>
                   {link.megaMenu.columns.map((col, idx) => (
-                    <div key={idx}>
-                      {col.href ? (
-                        <Link
-                          href={col.href}
-                          className="block text-[17px] font-bold text-white border-b border-[#3DD68C]/80 pb-3 mb-5 hover:text-[#3DD68C] transition-colors"
-                          onClick={() => setActiveDropdown(null)}
-                        >
-                          {col.title}
-                        </Link>
-                      ) : (
-                        <h4 className="text-[17px] font-bold text-white border-b border-[#3DD68C]/80 pb-3 mb-5">
-                          {col.title}
-                        </h4>
-                      )}
-                      <ul className="space-y-4">
+                    <div key={idx} className="group/col">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4DB846]/20 to-[#3DD68C]/5 border border-white/10 flex items-center justify-center group-hover/col:border-[#4DB846]/40 transition-colors duration-500">
+                          {col.title.includes("Consulting") || col.title.includes("Accounting") ? <Zap className="w-5 h-5 text-[#4DB846]" /> :
+                           col.title.includes("Analytics") || col.title.includes("Water") ? <BarChart3 className="w-5 h-5 text-[#4DB846]" /> :
+                           col.title.includes("Management") || col.title.includes("Decarbonization") ? <ShieldCheck className="w-5 h-5 text-[#4DB846]" /> :
+                           col.title.includes("Software") || col.title.includes("Net Zero") ? <Cpu className="w-5 h-5 text-[#4DB846]" /> :
+                           col.title.includes("IOT") ? <Database className="w-5 h-5 text-[#4DB846]" /> :
+                           col.title.includes("Blogs") ? <BookOpen className="w-5 h-5 text-[#4DB846]" /> :
+                           col.title.includes("About") ? <Users className="w-5 h-5 text-[#4DB846]" /> :
+                           <Globe className="w-5 h-5 text-[#4DB846]" />}
+                        </div>
+                        {col.href ? (
+                          <Link
+                            href={col.href}
+                            className="text-xl font-black text-white hover:text-[#4DB846] transition-colors duration-300"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {col.title}
+                          </Link>
+                        ) : (
+                          <h4 className="text-xl font-black text-white">
+                            {col.title}
+                          </h4>
+                        )}
+                      </div>
+                      
+                      <ul className="space-y-4 pl-1">
                         {col.items.map((item, itemIdx) => (
                           <li key={itemIdx}>
                             <Link
                               href={item.href}
-                              className="text-[15px] text-[#B0BEC5] hover:text-[#3DD68C] transition-colors block"
+                              className="group/link flex items-center gap-2 text-[16px] text-gray-300 hover:text-[#4DB846] transition-all duration-300"
                               onClick={() => setActiveDropdown(null)}
                             >
+                              <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover/link:bg-[#4DB846] group-hover/link:scale-125 transition-all duration-300" />
                               {item.name}
                             </Link>
                           </li>

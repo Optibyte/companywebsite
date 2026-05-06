@@ -24,30 +24,30 @@ export default function AnalyticsPage() {
   return (
     <div className="bg-[#0D1B3E] min-h-screen text-white overflow-x-hidden">
       {/* Premium Hero Section */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* We can use a placeholder image for the hero or reuse an existing one until we generate a specific one */}
           <Image
-            src="/energy/Energy Analytics/Energy-Analytics-BG.webp"
+            src="/energy/Energy Analytics/Energy Analytics1.png"
             alt="Energy Analytics"
             fill
-            className="object-cover opacity-100"
+            className="object-cover"
             priority
           />
-          {/* Subtle gradient so the text is still somewhat readable, but the image shines through */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E]/80 via-[#0D1B3E]/20 to-[#0D1B3E]/80" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 flex items-center justify-center min-h-[40vh]">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full text-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="max-w-5xl mx-auto"
           >
-            <h1 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black text-[#4DB846] leading-[1.1]">
+          
+            <h1 className="font-[family-name:var(--font-sora)] text-6xl md:text-[7rem] font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1] mb-8">
               Energy Analytics
             </h1>
+          
           </motion.div>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function AnalyticsPage() {
       <section id="analytics-services" className="py-24 bg-white relative scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-[family-name:var(--font-sora)] text-3xl md:text-5xl font-black text-[#0D1B3E] mb-5">Our Core Capabilities</h2>
+            <h2 className="font-[family-name:var(--font-sora)] text-3xl md:text-5xl font-black text-[#0D1B3E] mb-5">Our Core <span className="bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent">Capabilities</span></h2>
             <p className="text-gray-500 text-base max-w-2xl mx-auto">Explore our end-to-end data analytics ecosystem through our specialized insight frameworks.</p>
             <div className="w-20 h-1.5 bg-[#4DB846] mx-auto mt-6 rounded-full" />
           </div>
@@ -201,7 +201,7 @@ export default function AnalyticsPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[family-name:var(--font-sora)] text-4xl md:text-5xl font-black mb-8 leading-tight">
-              Ready to Unlock <span className="text-[#4DB846]">Data-Driven</span> Performance?
+              Ready to Unlock <span className="bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent">Data-Driven</span> Performance?
             </h2>
             <p className="text-xl text-gray-300 mb-12 font-light">
               Connect with our analytics team to build the insight infrastructure your facility needs.
