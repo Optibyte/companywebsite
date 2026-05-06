@@ -43,11 +43,11 @@ export default function AnalyticsPage() {
             transition={{ duration: 1 }}
             className="max-w-5xl mx-auto"
           >
-          
+
             <h1 className="font-[family-name:var(--font-sora)] text-6xl md:text-[7rem] font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1] mb-8">
               Energy Analytics
             </h1>
-          
+
           </motion.div>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function AnalyticsPage() {
                     </div>
                   </motion.div>
                 </div>
-                
+
                 {/* Full-width dark blue separator for all except the last item */}
                 {idx < 3 && (
                   <div className="w-screen relative left-1/2 -translate-x-1/2 h-16 bg-[#0D1B3E] mt-24" />

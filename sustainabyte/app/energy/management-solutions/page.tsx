@@ -113,7 +113,7 @@ export default function EnergyManagementSolutionsPage() {
                     className="flex-1"
                   >
                     <span className="text-[#4DB846] font-bold text-sm tracking-widest uppercase mb-4 block">{feature.subtitle}</span>
-            <h3 className="text-4xl md:text-5xl font-black text-[#0D1B3E] mb-8 leading-tight group-hover:text-[#4DB846] transition-colors duration-500">{feature.title}</h3>
+                    <h3 className="text-4xl md:text-5xl font-black text-[#0D1B3E] mb-8 leading-tight group-hover:text-[#4DB846] transition-colors duration-500">{feature.title}</h3>
                     <p className="text-gray-600 text-lg mb-12 leading-relaxed">{feature.desc}</p>
 
                     <div className="space-y-8 mb-12">
@@ -160,7 +160,7 @@ export default function EnergyManagementSolutionsPage() {
                     </div>
                   </motion.div>
                 </div>
-                
+
                 {/* Full-width dark blue separator for all except the last item */}
                 {idx < 3 && (
                   <div className="w-screen relative left-1/2 -translate-x-1/2 h-16 bg-[#0D1B3E] mt-24" />
@@ -178,7 +178,7 @@ export default function EnergyManagementSolutionsPage() {
             <h2 className="font-[family-name:var(--font-sora)] text-3xl md:text-5xl font-black text-[#0D1B3E] mb-4">Explore Our Energy Pillars</h2>
             <div className="w-24 h-1.5 bg-[#4DB846] mx-auto rounded-full" />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               {
@@ -197,11 +197,11 @@ export default function EnergyManagementSolutionsPage() {
               }
             ].map((pillar, idx) => (
               <Link key={idx} href={pillar.href} className="group relative rounded-3xl overflow-hidden aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
-                <Image 
-                  src={pillar.img} 
-                  alt={pillar.title} 
-                  fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.7] group-hover:brightness-[0.8]" 
+                <Image
+                  src={pillar.img}
+                  alt={pillar.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.7] group-hover:brightness-[0.8]"
                 />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-[#0D1B3E] via-transparent to-transparent">
                   <span className="text-[#4DB846] text-sm font-bold tracking-widest uppercase mb-2">{pillar.label}</span>

@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { 
-  BarChart3, 
-  Activity, 
-  TrendingDown, 
-  ArrowUpRight, 
-  CheckCircle2, 
-  PieChart, 
-  ShieldCheck, 
-  Leaf, 
-  Settings 
+import {
+  BarChart3,
+  Activity,
+  TrendingDown,
+  ArrowUpRight,
+  CheckCircle2,
+  PieChart,
+  ShieldCheck,
+  Leaf,
+  Settings
 } from "lucide-react";
 import GreenButton from "@/components/ui/GreenButton";
 
