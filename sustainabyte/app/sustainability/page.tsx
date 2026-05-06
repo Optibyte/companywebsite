@@ -7,7 +7,7 @@ import Link from "next/link";
 import GreenButton from "@/components/ui/GreenButton";
 
 const services = [
-  { icon: Target, title: "Net Zero Roadmap", description: "Customized pathway planning to achieve your net zero emissions targets with verifiable milestones.", href: "/sustainability#net-zero" },
+  { icon: Target, title: "Net Zero Roadmap", description: "Customized pathway planning to achieve your net zero emissions targets with verifiable milestones.", href: "/sustainability/net-zero-roadmap" },
   { icon: BarChart3, title: "Carbon Accounting", description: "Accurate, compliant, and audit-ready emissions reporting aligned with GHG Protocol and ISO 14064.", href: "/sustainability/carbon-accounting" },
   { icon: Zap, title: "Decarbonization", description: "Energy-led carbon reduction pathways for industrial assets and commercial facilities.", href: "/sustainability/decarbonization" },
   { icon: FileText, title: "ESG Reporting", description: "Automated ESG compliance reporting aligned with GRI, TCFD, and other global frameworks.", href: "/sustainability#esg" },

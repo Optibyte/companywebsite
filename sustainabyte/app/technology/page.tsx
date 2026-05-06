@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Cpu, Wifi, BarChart3, Shield, Cloud, Layers } from "lucide-react";
+import Link from "next/link";
 import GreenButton from "@/components/ui/GreenButton";
 
 const techFeatures = [
@@ -41,20 +42,22 @@ export default function TechnologyPage() {
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20">
             {[
-              { name: "Optibyte", desc: "AI-powered energy optimization platform that continuously learns from your facility data to reduce consumption and costs.", features: ["Real-time optimization", "Predictive analytics", "Automated controls"] },
-              { name: "Inbyte", desc: "Comprehensive energy monitoring and data intelligence platform for granular visibility into your energy landscape.", features: ["Equipment-level monitoring", "Custom dashboards", "Automated reporting"] },
+              { name: "Optibyte", href: "/technology/optibyte", desc: "AI-powered energy optimization platform that continuously learns from your facility data to reduce consumption and costs.", features: ["Real-time optimization", "Predictive analytics", "Automated controls"] },
+              { name: "Inbyte", href: "/technology/inbyte", desc: "Comprehensive energy monitoring and data intelligence platform for granular visibility into your energy landscape.", features: ["Equipment-level monitoring", "Custom dashboards", "Automated reporting"] },
             ].map((p, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="p-6 sm:p-10 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group">
-                <h3 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl font-bold text-[#0D1B3E] mb-4 group-hover:text-[#3DD68C] transition-colors">{p.name}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{p.desc}</p>
-                <ul className="space-y-2">
-                  {p.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-[#3DD68C] rounded-full" />{f}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              <Link key={i} href={p.href}>
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="p-6 sm:p-10 rounded-2xl border border-gray-100 hover:shadow-xl transition-all duration-300 group h-full cursor-pointer">
+                  <h3 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl font-bold text-[#0D1B3E] mb-4 group-hover:text-[#3DD68C] transition-colors">{p.name}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{p.desc}</p>
+                  <ul className="space-y-2">
+                    {p.features.map((f, j) => (
+                      <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 bg-[#3DD68C] rounded-full" />{f}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </Link>
             ))}
           </div>
           <h2 className="text-center font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#0D1B3E] mb-10 sm:mb-14">Technology <span className="text-[#3DD68C]">Stack</span></h2>

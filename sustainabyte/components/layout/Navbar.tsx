@@ -101,7 +101,12 @@ const navLinks: NavLink[] = [
         },
         {
           title: "Net Zero RoadMap",
-          items: []
+          href: "/sustainability/net-zero-roadmap",
+          items: [
+            { name: "Baseline & Target Setting", href: "/sustainability/net-zero-roadmap#baseline" },
+            { name: "Science-Aligned Actions", href: "/sustainability/net-zero-roadmap#science" },
+            { name: "Performance Monitoring", href: "/sustainability/net-zero-roadmap#monitoring" },
+          ]
         }
       ]
     }
@@ -116,7 +121,7 @@ const navLinks: NavLink[] = [
         {
           title: "Software",
           items: [
-            { name: "Optibyte", href: "/technology#optibyte" },
+            { name: "Optibyte", href: "/technology/optibyte" },
             { name: "Fixbyte", href: "/technology#fixbyte" },
             { name: "Inbyte", href: "/technology#inbyte" },
             { name: "Fusionbyte", href: "/technology#fusionbyte" },
@@ -276,8 +281,8 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold border-b-2 ${activeDropdown === link.name
-                      ? "text-[#3DD68C] border-[#3DD68C]"
-                      : "text-white border-transparent hover:text-white/80"
+                    ? "text-[#3DD68C] border-[#3DD68C]"
+                    : "text-white border-transparent hover:text-white/80"
                     }`}
                 >
                   {link.name}
@@ -388,21 +393,21 @@ export default function Navbar() {
 
                 {/* Columns */}
                 <div className={`grid grid-cols-1 gap-12 ${link.megaMenu.gridCols === 4 ? "md:grid-cols-4" :
-                    link.megaMenu.gridCols === 2 ? "md:grid-cols-2" :
-                      "md:grid-cols-3"
+                  link.megaMenu.gridCols === 2 ? "md:grid-cols-2" :
+                    "md:grid-cols-3"
                   }`}>
                   {link.megaMenu.columns.map((col, idx) => (
                     <div key={idx} className="group/col">
                       <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4DB846]/20 to-[#3DD68C]/5 border border-white/10 flex items-center justify-center group-hover/col:border-[#4DB846]/40 transition-colors duration-500">
                           {col.title.includes("Consulting") || col.title.includes("Accounting") ? <Zap className="w-5 h-5 text-[#4DB846]" /> :
-                           col.title.includes("Analytics") || col.title.includes("Water") ? <BarChart3 className="w-5 h-5 text-[#4DB846]" /> :
-                           col.title.includes("Management") || col.title.includes("Decarbonization") ? <ShieldCheck className="w-5 h-5 text-[#4DB846]" /> :
-                           col.title.includes("Software") || col.title.includes("Net Zero") ? <Cpu className="w-5 h-5 text-[#4DB846]" /> :
-                           col.title.includes("IOT") ? <Database className="w-5 h-5 text-[#4DB846]" /> :
-                           col.title.includes("Blogs") ? <BookOpen className="w-5 h-5 text-[#4DB846]" /> :
-                           col.title.includes("About") ? <Users className="w-5 h-5 text-[#4DB846]" /> :
-                           <Globe className="w-5 h-5 text-[#4DB846]" />}
+                            col.title.includes("Analytics") || col.title.includes("Water") ? <BarChart3 className="w-5 h-5 text-[#4DB846]" /> :
+                              col.title.includes("Management") || col.title.includes("Decarbonization") ? <ShieldCheck className="w-5 h-5 text-[#4DB846]" /> :
+                                col.title.includes("Software") || col.title.includes("Net Zero") ? <Cpu className="w-5 h-5 text-[#4DB846]" /> :
+                                  col.title.includes("IOT") ? <Database className="w-5 h-5 text-[#4DB846]" /> :
+                                    col.title.includes("Blogs") ? <BookOpen className="w-5 h-5 text-[#4DB846]" /> :
+                                      col.title.includes("About") ? <Users className="w-5 h-5 text-[#4DB846]" /> :
+                                        <Globe className="w-5 h-5 text-[#4DB846]" />}
                         </div>
                         {col.href ? (
                           <Link
@@ -418,7 +423,7 @@ export default function Navbar() {
                           </h4>
                         )}
                       </div>
-                      
+
                       <ul className="space-y-4 pl-1">
                         {col.items.map((item, itemIdx) => (
                           <li key={itemIdx}>
