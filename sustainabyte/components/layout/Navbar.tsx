@@ -122,10 +122,10 @@ const navLinks: NavLink[] = [
           title: "Software",
           items: [
             { name: "Optibyte", href: "/technology/optibyte" },
-            { name: "Fixbyte", href: "/technology#fixbyte" },
-            { name: "Inbyte", href: "/technology#inbyte" },
-            { name: "Fusionbyte", href: "/technology#fusionbyte" },
-            { name: "Digiweld", href: "/technology#digiweld" },
+            { name: "Fixbyte", href: "/technology/fixbyte" },
+            { name: "Inbyte", href: "/technology/inbyte" },
+            { name: "Fusionbyte", href: "/technology/fusionbyte" },
+            { name: "Digiweld", href: "/technology/digiweld" },
           ]
         },
         {

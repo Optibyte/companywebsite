@@ -40,9 +40,10 @@ export default function TechnologyPage() {
             <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#0D1B3E] mb-4">Our <span className="text-[#3DD68C]">Products</span></h2>
             <p className="text-gray-600 max-w-2xl mx-auto">Two flagship products designed for comprehensive energy management</p>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-14 sm:mb-20">
             {[
               { name: "Optibyte", href: "/technology/optibyte", desc: "AI-powered energy optimization platform that continuously learns from your facility data to reduce consumption and costs.", features: ["Real-time optimization", "Predictive analytics", "Automated controls"] },
+              { name: "Fixbyte", href: "/technology/fixbyte", desc: "Mobile-first CMMS for asset and maintenance management, enabling real-time visibility and paperless operations.", features: ["Work Order Management", "QR Code Asset Tracking", "KPI Dashboards"] },
               { name: "Inbyte", href: "/technology/inbyte", desc: "Comprehensive energy monitoring and data intelligence platform for granular visibility into your energy landscape.", features: ["Equipment-level monitoring", "Custom dashboards", "Automated reporting"] },
             ].map((p, i) => (
               <Link key={i} href={p.href}>
