@@ -477,7 +477,7 @@ function FlipEquipmentCard({ eq, index }: { eq: any, index: number }) {
                 src={eq.image}
                 alt={eq.name}
                 fill
-                className="object-contain p-6"
+                className="object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-[#0D1B3E] via-[#0D1B3E]/80 to-transparent">
                 <h4 className="text-xl font-black text-white">{eq.name}</h4>

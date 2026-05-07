@@ -16,7 +16,8 @@ const footerSections = [
   {
     title: "Our Solutions",
     links: [
-      { name: "Optibyte", href: "/technology" },
+      { name: "Optibyte", href: "/technology/optibyte" },
+      { name: "Fixbyte", href: "/technology/fixbyte" },
       { name: "Inbyte", href: "/technology#inbyte" },
       { name: "Energy", href: "/energy" },
       { name: "Sustainability", href: "/sustainability" },
