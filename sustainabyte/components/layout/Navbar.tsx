@@ -116,7 +116,7 @@ const navLinks: NavLink[] = [
     href: "/technology",
     megaMenu: {
       title: "Technology",
-      gridCols: 2,
+      gridCols: 3,
       columns: [
         {
           title: "Software",
@@ -137,6 +137,11 @@ const navLinks: NavLink[] = [
             { name: "OptiedgeCPM", href: "/technology#optiedgecpm" },
             { name: "OptiedgeCAM", href: "/technology#optiedgecam" },
             { name: "OptiedgeDM", href: "/technology#optiedgedm" },
+          ]
+        }, {
+          title: "AI",
+          items: [
+            { name: "AI Capabilities", href: "/technology/ai" },
           ]
         }
       ]
