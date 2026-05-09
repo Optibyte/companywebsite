@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Leaf, BarChart3, FileText, Target, TreePine, Recycle, ArrowUpRight, Zap } from "lucide-react";
+import { Leaf, BarChart3, FileText, Target, TreePine, Recycle, ArrowUpRight, Zap, BookOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GreenButton from "@/components/ui/GreenButton";
@@ -14,6 +14,7 @@ const services = [
   { icon: TreePine, title: "Green Certification", description: "Support for LEED, IGBC, and other green building certification processes.", href: "/sustainability#green-cert" },
   { icon: Recycle, title: "Waste Reduction", description: "Comprehensive waste management strategies integrated with your energy optimization goals.", href: "/sustainability#waste" },
   { icon: Leaf, title: "Sustainability Strategy", description: "End-to-end sustainability consulting to align your operations with global sustainability goals.", href: "/sustainability#strategy" },
+  { icon: BookOpen, title: "Sustainability Insights", description: "Deep dives into industrial AI, carbon reduction strategies, and smart utility management.", href: "/sustainability/insights" },
 ];
 
 export default function SustainabilityPage() {

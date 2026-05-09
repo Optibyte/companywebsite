@@ -12,9 +12,10 @@ export default function HeroSection() {
         <motion.div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/lending page.webp')",
+            backgroundImage: "url('/lending%20page.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
           animate={{
             scale: [1, 1.05, 1],
