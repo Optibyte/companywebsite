@@ -156,11 +156,15 @@ const navLinks: NavLink[] = [
       columns: [
         {
           title: "Blogs",
-          items: []
+          items: [
+            { name: "Sustainability Insights", href: "/sustainability/insights" }
+          ]
         },
         {
           title: "News",
-          items: []
+          items: [
+            { name: "Latest News", href: "/news" }
+          ]
         }
       ]
     }
@@ -174,14 +178,17 @@ const navLinks: NavLink[] = [
       columns: [
         {
           title: "About Us",
+          href: "/company",
           items: []
         },
         {
           title: "Clients",
+          href: "/company#clients",
           items: []
         },
         {
           title: "Careers",
+          href: "/careers",
           items: []
         }
       ]

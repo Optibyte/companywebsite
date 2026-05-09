@@ -2,108 +2,174 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { 
+  Phone, 
+  Mail, 
+  MapPin
+} from "lucide-react";
+import Image from "next/image";
 import GreenButton from "@/components/ui/GreenButton";
-
-const contactInfo = [
-  { icon: Phone, label: "Phone", lines: ["+91 83770 07638", "+91 73059 54384"] },
-  { icon: Mail, label: "Email", lines: ["info@sustainabyte.ai"] },
-  { icon: MapPin, label: "Address", lines: ["Chennai, Tamil Nadu, India"] },
-  { icon: Clock, label: "Working Hours", lines: ["Monday to Friday"] },
-];
+import toast from "react-hot-toast";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    organization: "",
+    mobile: "",
+    message: ""
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setIsSubmitting(true);
+    const loadingToast = toast.loading("Sending your message...");
+
+    const form = e.currentTarget as HTMLFormElement;
+    const data = {
+      type: "contact",
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      organization: (form.elements.namedItem("organization") as HTMLInputElement).value,
+      mobile: (form.elements.namedItem("mobile") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! We will contact you soon.", { id: loadingToast });
+        form.reset();
+      } else {
+        toast.error("Something went wrong. Please try again.", { id: loadingToast });
+      }
+    } catch (error) {
+      toast.error("Error sending message. Check your connection.", { id: loadingToast });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="pt-[72px]">
-      {/* Hero */}
-      <section className="py-16 sm:py-24 bg-[#0D1B3E] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px]" style={{ background: "radial-gradient(circle, rgba(61,214,140,0.06) 0%, transparent 70%)" }} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium bg-[#3DD68C]/10 text-[#3DD68C] border border-[#3DD68C]/20 mb-4 sm:mb-6">
-              <MessageCircle className="w-4 h-4" /> Get In Touch
-            </span>
-            <h1 className="font-[family-name:var(--font-sora)] text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
-              Contact <span className="text-[#3DD68C]">Us</span>
-            </h1>
-            <p className="text-[#B0BEC5] text-base sm:text-lg leading-relaxed">Ready to make your facility EPIC? Get in touch with our team to discuss your energy efficiency and sustainability goals.</p>
-          </motion.div>
-        </div>
+    <div>
+      {/* ── HERO SECTION ── */}
+      <section className="relative h-[450px] flex items-center justify-center overflow-hidden">
+        <Image 
+          src="/Contact%20Us/Contact-Us-BG-scaled.webp"
+          alt="Contact Us Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-[#0D1B3E]/60 backdrop-blur-sm" />
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10 font-[family-name:var(--font-sora)] text-5xl md:text-7xl font-bold text-white text-center"
+        >
+          Contact Us
+        </motion.h1>
       </section>
 
-      {/* Contact Form + Info */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            {/* Form */}
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#0D1B3E] mb-8">Send us a message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                    <input id="firstName" type="text" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3DD68C] focus:outline-none focus:ring-2 focus:ring-[#3DD68C]/20 transition-all bg-[#F5F7FA] text-[#0D1B3E]" />
+      {/* ── MAIN CONTENT: LOCATIONS & FORM ── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-20">
+            
+            {/* LEFT: OUR LOCATIONS */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-12"
+            >
+              <div>
+                <h2 className="font-[family-name:var(--font-sora)] text-4xl font-bold text-[#0D1B3E] mb-10">Our Locations</h2>
+                
+                {/* Map Placeholder/Iframe */}
+                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl mb-10">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.2345!2d80.17!3d12.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f0000000000%3A0x0!2sMadambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-[#3DD68C]" />
+                    </div>
+                    <p className="text-gray-600 font-medium text-lg">Madambakkam, Chennai, Tamil Nadu, India</p>
                   </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                    <input id="lastName" type="text" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3DD68C] focus:outline-none focus:ring-2 focus:ring-[#3DD68C]/20 transition-all bg-[#F5F7FA] text-[#0D1B3E]" />
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-[#3DD68C]" />
+                    </div>
+                    <p className="text-gray-600 font-medium text-lg">info@sustainabyte.ai</p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-[#3DD68C]" />
+                    </div>
+                    <p className="text-gray-600 font-medium text-lg">+91 8377007638, +917305954384</p>
                   </div>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                  <input id="email" type="email" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3DD68C] focus:outline-none focus:ring-2 focus:ring-[#3DD68C]/20 transition-all bg-[#F5F7FA] text-[#0D1B3E]" />
-                </div>
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">Company</label>
-                  <input id="company" type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3DD68C] focus:outline-none focus:ring-2 focus:ring-[#3DD68C]/20 transition-all bg-[#F5F7FA] text-[#0D1B3E]" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea id="message" rows={5} required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#3DD68C] focus:outline-none focus:ring-2 focus:ring-[#3DD68C]/20 transition-all bg-[#F5F7FA] text-[#0D1B3E] resize-none" />
-                </div>
-                <GreenButton type="submit" variant="primary">
-                  <Send className="w-4 h-4" />
-                  {submitted ? "Message Sent!" : "Send Message"}
-                </GreenButton>
-              </form>
+              </div>
             </motion.div>
 
-            {/* Contact Info */}
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="font-[family-name:var(--font-sora)] text-2xl font-bold text-[#0D1B3E] mb-8">Contact Information</h2>
-              <div className="space-y-8 mb-12">
-                {contactInfo.map((info, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-[#3DD68C]" />
-                    </div>
-                    <div>
-                      <h3 className="font-[family-name:var(--font-sora)] font-semibold text-[#0D1B3E] mb-1">{info.label}</h3>
-                      {info.lines.map((line, j) => (
-                        <p key={j} className="text-gray-600 text-sm">{line}</p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 rounded-[3rem] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100"
+            >
+              <h2 className="font-[family-name:var(--font-sora)] text-4xl font-bold text-[#0D1B3E] mb-4">Get In Touch</h2>
+              <p className="text-gray-500 mb-10 text-lg">Fill out the form below and our team will get back to you within 24 hours</p>
 
-              {/* WhatsApp CTA */}
-              <div className="p-6 sm:p-8 rounded-2xl bg-[#0D1B3E] text-center">
-                <h3 className="font-[family-name:var(--font-sora)] text-xl font-bold text-white mb-3">Prefer WhatsApp?</h3>
-                <p className="text-[#B0BEC5] text-sm mb-6">Chat with us directly for quick responses</p>
-                <GreenButton href="https://wa.me/918377007638" variant="primary">
-                  <MessageCircle className="w-5 h-5" />
-                  Chat on WhatsApp
-                </GreenButton>
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-[#0D1B3E]">Name*</label>
+                    <input name="name" type="text" required className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-[#0D1B3E]">Email*</label>
+                    <input name="email" type="email" required className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-[#0D1B3E]">Organization Name*</label>
+                  <input name="organization" type="text" required className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-[#0D1B3E]">Mobile Number</label>
+                  <input name="mobile" type="tel" className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-[#0D1B3E]">Message</label>
+                  <textarea name="message" rows={4} className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all resize-none"></textarea>
+                </div>
+                <div className="pt-4">
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className={`w-full py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'}`}
+                  >
+                    {isSubmitting ? "Sending..." : "Send"}
+                  </button>
+                </div>
+              </form>
             </motion.div>
           </div>
         </div>

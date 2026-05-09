@@ -12,6 +12,9 @@ interface GreenButtonProps {
   type?: "button" | "submit";
 }
 
+const MotionComponent = motion.create("button");
+const MotionLink = motion.create(Link);
+
 export default function GreenButton({
   children,
   href,
@@ -32,9 +35,6 @@ export default function GreenButton({
   };
 
   const classes = `${baseStyles} ${variants[variant]} ${className}`;
-
-  const MotionComponent = motion.create("button");
-  const MotionLink = motion.create(Link);
 
   if (href) {
     return (

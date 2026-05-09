@@ -11,6 +11,7 @@ const footerSections = [
       { name: "About Us", href: "/company" },
       { name: "Clients", href: "/company#clients" },
       { name: "Careers", href: "/company#careers" },
+      { name: "Insights", href: "/sustainability/insights" },
     ],
   },
   {
