@@ -11,7 +11,27 @@ import {
   PieChart,
   ShieldCheck,
   Leaf,
-  Settings
+  Settings,
+  Gauge,
+  Zap,
+  Search,
+  Wind,
+  MapPin,
+  Calculator,
+  TrendingUp,
+  Thermometer,
+  Eye,
+  Flame,
+  Scan,
+  Droplets,
+  Building2,
+  ClipboardList,
+  Award,
+  ShieldAlert,
+  Video,
+  Waves,
+  LineChart,
+  Cpu
 } from "lucide-react";
 import GreenButton from "@/components/ui/GreenButton";
 
@@ -181,6 +201,169 @@ export default function EnergyPage() {
                 <h4 className="text-lg font-bold text-white mb-2 leading-tight min-h-[3rem] flex items-center justify-center">{item.title}</h4>
                 <p className="text-[#B0BEC5] text-[10px] leading-relaxed font-light px-1">{item.desc}</p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Capabilities Section */}
+      <section id="services" className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-24">
+            <h2 className="font-[family-name:var(--font-sora)] text-4xl md:text-5xl font-bold text-[#0D1B3E] mb-6">
+              Our Core <span className="text-[#4DB846]">Capabilities</span>
+            </h2>
+            <div className="w-32 h-1.5 bg-[#4DB846] mx-auto rounded-full mb-8" />
+            <p className="text-[#0D1B3E]/70 text-xl max-w-3xl mx-auto">
+              Precision-driven energy audits and consulting services to transform your industrial efficiency
+            </p>
+          </div>
+
+          <div className="space-y-40">
+            {[
+              {
+                title: "Equip-Ops Analytics",
+                description: "We conduct in-depth diagnostics of all critical energy-consuming equipment such as chillers, compressors, boilers, pumps, conveyors and more to identify inefficiencies",
+                image: "/energy/Energy Efficiency and Consulting/Equip-Ops-Analytics-1024x1024.webp",
+                features: [
+                  { name: "Equipment-Level Benchmarking", desc: "Each asset is analyzed using metrics like COP, delta-T, kW/TR, and run-hour efficiency", icon: <Gauge /> },
+                  { name: "Root Cause Analysis", desc: "Existing data and logic are reviewed to trace performance issues to specific faults or misalignments", icon: <Search /> },
+                  { name: "Optimization Recommendations", desc: "Clear, actionable steps are suggested to enhance performance, extend lifespan, and reduce load mismatches", icon: <Zap /> }
+                ],
+                cta: "Book a Performance Check"
+              },
+              {
+                title: "Compressed Air System Performance and Leakage Audits",
+                description: "Compressed air systems often suffer from hidden leaks, causing significant energy loss. We specialize in identifying, quantifying and mapping those leaks for corrective action",
+                iot: "IoT Solution - OptiEdgeCAM (compressed air manager)",
+                image: "/energy/Energy Efficiency and Consulting/Compressed-Air-System-1024x1024.webp",
+                features: [
+                  { name: "Leak Mapping & Tagging", desc: "We use ultrasonic detectors and flow tools to scan the air network and tag leak points", icon: <MapPin /> },
+                  { name: "Quantification of Losses", desc: "Each Leak's airflow loss and associated energy cost are calculated and categorized", icon: <Calculator /> },
+                  { name: "Cost Saving Insights", desc: "Recommendations include repair priorities and preventive actions for long-term savings", icon: <TrendingUp /> }
+                ],
+                cta: "Book a Performance Check"
+              },
+              {
+                title: "Chiller Performance & Reliability",
+                description: "We analyze chiller behavior across different loads and weather conditions to identify energy wastage and reliability issues",
+                image: "/energy/Energy Efficiency and Consulting/Chiller-Performance-768x768.webp",
+                features: [
+                  { name: "System-Wide Monitoring", desc: "Parameters like chilled/ condensed water temperature, delta-T, and sequencing logic are tracked and correlated with demand", icon: <Thermometer /> },
+                  { name: "Proactive Optimization", desc: "Recommendation include sequencing changes, setpoint resets, and alert configuration for early fault detection", icon: <Eye /> },
+                  { name: "Performance Benchmarking", desc: "Performance is benchmarked using kW/TR and EER against industry baselines", icon: <BarChart3 /> }
+                ],
+                cta: "Book your Chiller Audit"
+              },
+              {
+                title: "Boiler Performance Audit",
+                description: "We evaluate steam systems to enhance combustion performance, reduce fuel consumption, and minimize distribution losses",
+                image: "/energy/Energy Efficiency and Consulting/Boiler-Performance-1024x1024.webp",
+                features: [
+                  { name: "Thermal Diagnostics", desc: "Flue gas analysis, steam trap surveys, and heat loss inspections are conducted", icon: <Scan /> },
+                  { name: "Root Cause Analysis", desc: "Combustion tuning and control schemes for part-load and startup behavior are reviewed", icon: <Flame /> },
+                  { name: "Steam System Optimization", desc: "Proposals include condensate recovery, insulation fixes, and burner efficiency improvements", icon: <Droplets /> }
+                ],
+                cta: "Book a Performance Audit"
+              },
+              {
+                title: "ASHRAE Level 1 & 2 Audits",
+                description: "We specialize in providing ASHARE Level 1 and 2 audits that help you achieve top-tier energy performance standards",
+                image: "/energy/Energy Efficiency and Consulting/ASHRAE-Level-1-2-768x768.webp",
+                features: [
+                  { name: "Level 1 Audit", desc: "A preliminary assessment based on utility bills and basic walkthroughs to identify low-cost opportunities", icon: <ClipboardList /> },
+                  { name: "Level 2 Audit", desc: "Adds detailed diagnostics, load analysis, and feasibility studies for CapEx-driven improvements", icon: <Building2 /> },
+                  { name: "Investment-Grade Insights", desc: "Audit reports include ROI analysis and phased implementation strategies", icon: <TrendingUp /> },
+                  { name: "ASHRAE Compliance", desc: "Audits conducted by experienced professionals to meet highest standards", icon: <Award /> }
+                ],
+                cta: "Book your Audit"
+              },
+              {
+                title: "Electrical Safety Audits",
+                description: "We evaluate the reliability, safety, and regulatory compliance of your electrical infrastructure",
+                image: "/energy/Energy Efficiency and Consulting/Electrical-Safety-Audits-1024x1024.webp",
+                features: [
+                  { name: "System Inspections", desc: "Assess panels, cable routing, earthing, breaker settings, and distribution architecture", icon: <ShieldAlert /> },
+                  { name: "Thermal Imaging & Fault Detection", desc: "Thermographic scans detect loose connections, unbalanced loads, and insulation faults", icon: <Video /> },
+                  { name: "Risk Reduction Strategy", desc: "Reports help reduce fire risks, increase uptime, and fulfill statutory audit requirements", icon: <ShieldCheck /> }
+                ],
+                cta: "Request Visit"
+              },
+              {
+                title: "Power Quality Analysis",
+                description: "We assess power quality disturbances that affect sensitive equipment and overall system efficiency",
+                image: "/energy/Energy Efficiency and Consulting/Power-Quality-Analysis-768x768.webp",
+                features: [
+                  { name: "Real-Time Data Collection", desc: "Install high-frequency analyzers to capture harmonics, sags, swells and transients", icon: <Waves /> },
+                  { name: "Distortion Analysis", desc: "Analyze waveform deviations, voltage imbalances, and non-linear loads", icon: <LineChart /> },
+                  { name: "Performance Recommendations", desc: "Insights to connect poor PF, reduce utility penalties, and safeguard equipment longevity", icon: <Cpu /> }
+                ],
+                cta: "Book your Audit"
+              }
+            ].map((capability, index) => (
+              <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}>
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex-1 w-full"
+                >
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-[#4DB846]/10 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-[#0D1B3E]/5">
+                      <Image
+                        src={capability.image}
+                        alt={capability.title}
+                        width={1024}
+                        height={1024}
+                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex-1 space-y-8"
+                >
+                  <div className="space-y-4">
+                    <h3 className="font-[family-name:var(--font-sora)] text-3xl md:text-4xl font-bold text-[#0D1B3E] leading-tight">
+                      {capability.title}
+                    </h3>
+                    <p className="text-[#0D1B3E]/70 text-lg leading-relaxed">
+                      {capability.description}
+                    </p>
+                    {capability.iot && (
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#4DB846]/10 text-[#4DB846] rounded-lg font-bold text-sm">
+                        <Activity className="w-4 h-4" />
+                        {capability.iot}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-6">
+                    {capability.features.map((feature, fIndex) => (
+                      <div key={fIndex} className="flex gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white border border-[#4DB846]/20 flex items-center justify-center shadow-sm text-[#4DB846]">
+                          {feature.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-[#0D1B3E] text-lg mb-1">{feature.name}</h4>
+                          <p className="text-[#0D1B3E]/60 leading-relaxed">{feature.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="pt-4">
+                    <GreenButton className="shadow-none px-8 py-4">
+                      {capability.cta}
+                    </GreenButton>
+                  </div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>

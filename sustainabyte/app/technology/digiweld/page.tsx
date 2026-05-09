@@ -388,70 +388,7 @@ export default function DigiWeldPage() {
         </div>
       </section>
 
-      {/* Driving Real Results Section */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-24">
-            <motion.span 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[#4DB846] font-black tracking-[0.3em] uppercase mb-4 block"
-            >
-              The Impact
-            </motion.span>
-            <h2 className="text-5xl md:text-7xl font-black text-[#0D1B3E] mb-8">Driving Real Results</h2>
-            <div className="w-32 h-2 bg-[#4DB846] mx-auto rounded-full" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {[
-              {
-                title: "Lower downtime through checklist-driven preventive actions",
-                icon: ShieldCheck,
-                color: "from-[#4DB846]/20 to-transparent"
-              },
-              {
-                title: "Boost productivity with clear KPI dashboards",
-                icon: LayoutDashboard,
-                color: "from-[#3DD68C]/20 to-transparent"
-              },
-              {
-                title: "Reduce manual errors and improve resource allocation",
-                icon: CheckCircle2,
-                color: "from-[#4DB846]/20 to-transparent"
-              },
-              {
-                title: "Real-time visibility into maintenance operations",
-                icon: Activity,
-                color: "from-[#3DD68C]/20 to-transparent"
-              }
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.8 }}
-                className="glass-card p-10 rounded-[2.5rem] flex gap-8 items-center group hover:-translate-y-2 transition-all duration-500"
-              >
-                <div className="w-20 h-20 rounded-full bg-white shadow-md border border-gray-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:border-[#4DB846]/40 transition-all duration-500">
-                  <item.icon className="w-10 h-10 text-[#4DB846]" />
-                </div>
-                <div>
-                  <h3 className="text-3xl font-black text-[#0D1B3E] leading-tight mb-2 group-hover:text-[#4DB846] transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="flex items-center gap-2 text-[#4DB846] font-bold text-sm opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    Learn more <ArrowUpRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+   
       {/* CTA Section */}
       <section id="demo" className="py-32 bg-[#0D1B3E] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#4DB846]/10 rounded-full blur-[150px] -mr-[400px] -mt-[400px]" />

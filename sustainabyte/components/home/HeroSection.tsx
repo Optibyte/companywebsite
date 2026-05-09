@@ -68,10 +68,18 @@ export default function HeroSection() {
               transition={{ duration: 0.5 }}
               className="mb-6 sm:mb-8"
             >
-              <span className="relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium bg-[#0A1128] text-[#00FFAA] border border-[#00FFAA] group overflow-visible"
-                    style={{
-                      boxShadow: "0 0 20px rgba(0,255,170,0.4), 0 0 40px rgba(0,255,170,0.2), 0 0 80px rgba(0,255,170,0.1), inset 0 0 15px rgba(0,255,170,0.3)"
-                    }}>
+              <motion.span 
+                animate={{ y: [-4, 4] }}
+                transition={{ 
+                  duration: 2.5, 
+                  repeat: Infinity, 
+                  repeatType: "reverse", 
+                  ease: "easeInOut" 
+                }}
+                className="relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium bg-[#0A1128] text-[#00FFAA] border border-[#00FFAA] group overflow-visible"
+                style={{
+                  boxShadow: "0 0 20px rgba(0,255,170,0.4), 0 0 40px rgba(0,255,170,0.2), 0 0 80px rgba(0,255,170,0.1), inset 0 0 15px rgba(0,255,170,0.3)"
+                }}>
                 
                 {/* Floating Particles Orbit Container */}
                 <div className="absolute inset-[-15px] pointer-events-none" style={{ animation: "rotate-slow 10s linear infinite" }}>
@@ -94,7 +102,7 @@ export default function HeroSection() {
                   </span>
                   AI-Powered Energy Intelligence
                 </span>
-              </span>
+              </motion.span>
             </motion.div>
 
             <motion.h1
