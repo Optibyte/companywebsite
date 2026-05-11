@@ -1,17 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { 
   Phone, 
   Mail, 
-  MapPin
+  MapPin,
+  MessageSquare,
+  Building,
+  User,
+  ArrowRight,
+  Globe
 } from "lucide-react";
 import Image from "next/image";
-import GreenButton from "@/components/ui/GreenButton";
 import toast from "react-hot-toast";
 
-export default function ContactPage() {
+function ContactForm() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,6 +25,13 @@ export default function ContactPage() {
     mobile: "",
     message: ""
   });
+
+  useEffect(() => {
+    const emailParam = searchParams.get('email');
+    if (emailParam) {
+      setFormData(prev => ({ ...prev, email: emailParam }));
+    }
+  }, [searchParams]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -47,6 +60,7 @@ export default function ContactPage() {
       if (response.ok) {
         toast.success("Message sent successfully! We will contact you soon.", { id: loadingToast });
         form.reset();
+        setFormData({ name: "", email: "", organization: "", mobile: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.", { id: loadingToast });
       }
@@ -58,30 +72,135 @@ export default function ContactPage() {
   };
 
   return (
-    <div>
+    <motion.div 
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-[3rem] p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden"
+    >
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#3DD68C]/5 rounded-full blur-3xl -mr-32 -mt-32" />
+      
+      <div className="relative z-10">
+        <h2 className="font-sora text-4xl font-bold text-[#0D1B3E] mb-4">Get In Touch</h2>
+        <p className="text-gray-500 mb-10 text-lg">Fill out the form below and our team will get back to you within 24 hours</p>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+                <User className="w-3.5 h-3.5 text-[#3DD68C]" /> Full Name*
+              </label>
+              <input 
+                name="name" 
+                type="text" 
+                required 
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+                placeholder="John Doe"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#3DD68C]" /> Email Address*
+              </label>
+              <input 
+                name="email" 
+                type="email" 
+                required 
+                value={formData.email}
+                onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+                placeholder="john@example.com"
+              />
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+                <Building className="w-3.5 h-3.5 text-[#3DD68C]" /> Organization Name*
+              </label>
+              <input 
+                name="organization" 
+                type="text" 
+                required 
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+                placeholder="Company Inc."
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#3DD68C]" /> Mobile Number
+              </label>
+              <input 
+                name="mobile" 
+                type="tel" 
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+                placeholder="+91 XXXXX XXXXX"
+              />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+              <MessageSquare className="w-3.5 h-3.5 text-[#3DD68C]" /> Your Message
+            </label>
+            <textarea 
+              name="message" 
+              rows={4} 
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all resize-none placeholder:text-gray-400" 
+              placeholder="How can we help you achieve your sustainability goals?"
+            ></textarea>
+          </div>
+          <div className="pt-4">
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={`w-full py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(61,214,140,0.3)] hover:shadow-[0_15px_40px_rgba(61,214,140,0.4)] flex items-center justify-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'}`}
+            >
+              {isSubmitting ? "Sending Intelligence..." : "Send Message"}
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </form>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <div className="bg-white min-h-screen">
       {/* ── HERO SECTION ── */}
-      <section className="relative h-[450px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-[#0D1B3E]">
         <Image 
           src="/Contact%20Us/Contact-Us-BG-scaled.webp"
           alt="Contact Us Background"
           fill
-          className="object-cover"
+          className="object-cover opacity-60"
           priority
         />
-        <div className="absolute inset-0 bg-[#0D1B3E]/60 backdrop-blur-sm" />
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative z-10 font-[family-name:var(--font-sora)] text-5xl md:text-7xl font-bold text-white text-center"
-        >
-          Contact Us
-        </motion.h1>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E] via-[#0D1B3E]/60 to-transparent z-10" />
+        <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em] uppercase bg-[#3DD68C]/10 text-[#3DD68C] border border-[#3DD68C]/20 mb-8">
+              <Globe className="w-4 h-4" /> Global Intelligence Network
+            </span>
+            <h1 className="font-sora text-5xl md:text-8xl font-bold text-white mb-6 leading-tight">
+              Get In <br/><span className="text-[#3DD68C]">Touch</span>
+            </h1>
+            <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+              Whether you're looking to optimize energy, scale AI operations, or build a sustainable future, our experts are ready to collaborate.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── MAIN CONTENT: LOCATIONS & FORM ── */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20">
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
             
             {/* LEFT: OUR LOCATIONS */}
             <motion.div 
@@ -91,10 +210,11 @@ export default function ContactPage() {
               className="space-y-12"
             >
               <div>
-                <h2 className="font-[family-name:var(--font-sora)] text-4xl font-bold text-[#0D1B3E] mb-10">Our Locations</h2>
+                <span className="text-[#3DD68C] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Corporate HQ</span>
+                <h2 className="font-sora text-4xl md:text-5xl font-bold text-[#0D1B3E] mb-10">Our Global Presence</h2>
                 
-                {/* Map Placeholder/Iframe */}
-                <div className="relative w-full aspect-video rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl mb-10">
+                {/* Map Iframe */}
+                <div className="relative w-full aspect-video rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl mb-12 group">
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.2345!2d80.17!3d12.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f0000000000%3A0x0!2sMadambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
                     width="100%" 
@@ -102,75 +222,42 @@ export default function ContactPage() {
                     style={{ border: 0 }} 
                     allowFullScreen 
                     loading="lazy"
+                    className="grayscale hover:grayscale-0 transition-all duration-700"
                   />
+                  <div className="absolute inset-0 pointer-events-none border-[12px] border-white/50 rounded-[3rem]" />
                 </div>
 
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-[#3DD68C]" />
+                <div className="grid sm:grid-cols-2 gap-8">
+                  <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group">
+                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
+                      <MapPin className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
                     </div>
-                    <p className="text-gray-600 font-medium text-lg">Madambakkam, Chennai, Tamil Nadu, India</p>
+                    <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Location</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">Madambakkam, Chennai,<br/>Tamil Nadu, India</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-[#3DD68C]" />
+                  <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group">
+                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
+                      <Mail className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
                     </div>
-                    <p className="text-gray-600 font-medium text-lg">info@sustainabyte.ai</p>
+                    <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Email Us</h3>
+                    <p className="text-gray-500 text-sm">info@sustainabyte.ai<br/>support@sustainabyte.ai</p>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#3DD68C]/10 flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-[#3DD68C]" />
+                  <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group sm:col-span-2">
+                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
+                      <Phone className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
                     </div>
-                    <p className="text-gray-600 font-medium text-lg">+91 8377007638, +917305954384</p>
+                    <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Call Support</h3>
+                    <p className="text-gray-500 text-sm">+91 83770 07638, +91 73059 54384</p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 rounded-[3rem] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-gray-100"
-            >
-              <h2 className="font-[family-name:var(--font-sora)] text-4xl font-bold text-[#0D1B3E] mb-4">Get In Touch</h2>
-              <p className="text-gray-500 mb-10 text-lg">Fill out the form below and our team will get back to you within 24 hours</p>
+            {/* RIGHT: CONTACT FORM */}
+            <Suspense fallback={<div className="h-[600px] bg-gray-50 animate-pulse rounded-[3rem]" />}>
+              <ContactForm />
+            </Suspense>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-[#0D1B3E]">Name*</label>
-                    <input name="name" type="text" required className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-[#0D1B3E]">Email*</label>
-                    <input name="email" type="email" required className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-[#0D1B3E]">Organization Name*</label>
-                  <input name="organization" type="text" required className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-[#0D1B3E]">Mobile Number</label>
-                  <input name="mobile" type="tel" className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-[#0D1B3E]">Message</label>
-                  <textarea name="message" rows={4} className="w-full bg-white border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] transition-all resize-none"></textarea>
-                </div>
-                <div className="pt-4">
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className={`w-full py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'}`}
-                  >
-                    {isSubmitting ? "Sending..." : "Send"}
-                  </button>
-                </div>
-              </form>
-            </motion.div>
           </div>
         </div>
       </section>

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const footerSections = [
   {
@@ -40,6 +42,14 @@ const itemVariants = {
 };
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const router = useRouter();
+
+  const handleSubscribe = () => {
+    if (email) {
+      router.push(`/contact?email=${encodeURIComponent(email)}`);
+    }
+  };
   return (
     <footer className="bg-white text-[#0D1B3E]">
       {/* Newsletter Banner */}
@@ -68,11 +78,14 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 md:w-72 px-5 py-3 rounded-full border border-white/20 text-sm focus:outline-none focus:border-[#3DD68C] transition-colors bg-white/10 text-white placeholder-white/50"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={handleSubscribe}
                 className="px-6 py-3 bg-[#3DD68C] text-[#0D1B3E] rounded-full text-sm font-semibold hover:bg-[#2bc478] transition-all duration-300 hover:shadow-[0_0_20px_rgba(61,214,140,0.3)] whitespace-nowrap"
               >
                 Subscribe
