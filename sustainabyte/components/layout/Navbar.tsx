@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Zap, BarChart3, ShieldCheck, Database, Leaf, Globe, Cpu, BookOpen, Users } from "lucide-react";
 
 type NavLink = {
@@ -238,10 +239,16 @@ function DropdownMenu({
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const isActive = (href: string) => {
+    if (href === "/" && pathname !== "/") return false;
+    return pathname.startsWith(href);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -292,16 +299,18 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold border-b-2 ${activeDropdown === link.name
-                    ? "text-[#3DD68C] border-[#3DD68C]"
-                    : "text-white border-transparent hover:text-white/80"
-                    }`}
+                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold border-b-2 ${
+                    activeDropdown === link.name || isActive(link.href)
+                      ? "text-[#3DD68C] border-[#3DD68C]"
+                      : "text-white border-transparent hover:text-white/80"
+                  }`}
                 >
                   {link.name}
                   {(link.dropdown || link.megaMenu) && (
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === link.name ? "rotate-180" : ""
-                        }`}
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        activeDropdown === link.name ? "rotate-180" : ""
+                      }`}
                     />
                   )}
                 </Link>
@@ -350,7 +359,9 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="block py-3.5 text-lg text-white/70 hover:text-[#3DD68C] transition-colors border-b border-white/5 font-medium"
+                    className={`block py-3.5 text-lg transition-colors border-b border-white/5 font-medium ${
+                      isActive(link.href) ? "text-[#3DD68C]" : "text-white/70 hover:text-[#3DD68C]"
+                    }`}
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.name}

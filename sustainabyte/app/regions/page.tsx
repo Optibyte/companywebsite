@@ -84,15 +84,14 @@ const RegionCard = ({ region, index }: { region: Region, index: number }) => {
         <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#3DD68C]/20 transition-colors mb-4">
           <Icon className="w-7 h-7 text-[#3DD68C]" />
         </div>
-        <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border ${
-          isActive 
-            ? 'bg-[#3DD68C]/10 text-[#2ba86b] border-[#3DD68C]/30' 
-            : region.status === 'Expanding'
+        <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border ${isActive
+          ? 'bg-[#3DD68C]/10 text-[#2ba86b] border-[#3DD68C]/30'
+          : region.status === 'Expanding'
             ? 'bg-blue-50 text-blue-600 border-blue-100'
             : region.status === 'Coming Soon'
-            ? 'bg-yellow-50 text-yellow-600 border-yellow-100'
-            : 'bg-gray-100 text-gray-500 border-gray-200'
-        }`}>
+              ? 'bg-yellow-50 text-yellow-600 border-yellow-100'
+              : 'bg-gray-100 text-gray-500 border-gray-200'
+          }`}>
           <StatusIcon className="w-3 h-3" />
           {region.status}
         </div>
@@ -134,31 +133,55 @@ export default function RegionsPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* ── SECTION 1: HERO ── */}
-      <section className="relative min-h-[70vh] flex items-center pt-24 overflow-hidden bg-[#0D1B3E]">
-        {/* Animated Background Assets */}
+      <section className="relative pt-40 pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-[50vw] h-full opacity-40">
-            <motion.div
-              animate={{ 
-                rotate: 360,
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                duration: 60, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
-              className="relative w-full h-full"
-            >
-              <Image 
-                src="/Regions/2b earth.png" 
-                alt="Global Network" 
-                fill
-                className="object-contain opacity-60"
-              />
-            </motion.div>
+          <Image
+            src="/Regions/2b earth.png"
+            alt="Regions Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E] via-[#0D1B3E]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E]/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 mesh-gradient opacity-10" />
+
+          {/* Location Markers (Green Dots) */}
+          <div className="absolute inset-0 z-20">
+            {[
+              // South India
+              { top: "46%", left: "70.5%", label: "Chennai" },
+              { top: "45%", left: "69.7%", label: "Coimbatore" },
+          
+
+              // West India
+            
+         
+             
+            
+              // Others
+            
+            ].map((marker, i) => (
+              <motion.div
+                key={i}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 1 + (i * 0.05), duration: 0.5 }}
+                className="absolute w-2 h-2 -translate-x-1/2 -translate-y-1/2 group/marker"
+                style={{ top: marker.top, left: marker.left }}
+              >
+                {/* Outer Glow */}
+                <div className="absolute inset-0 bg-[#3DD68C] rounded-full animate-ping opacity-40" />
+                {/* Inner Dot */}
+                <div className="absolute inset-[1px] bg-[#3DD68C] rounded-full shadow-[0_0_6px_#3DD68C]" />
+
+                {/* Tooltip Label */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1 bg-[#0D1B3E]/90 backdrop-blur-md rounded-lg border border-white/10 opacity-0 group-hover/marker:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-30">
+                  <span className="text-[10px] font-bold text-white uppercase tracking-wider">{marker.label}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
-          <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#3DD68C]/20 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2" />
         </div>
 
         {/* Content */}
@@ -170,7 +193,7 @@ export default function RegionsPage() {
             className="max-w-4xl"
           >
             <h1 className="font-sora text-5xl md:text-8xl font-bold mb-8 leading-tight text-white">
-              Where We <br/><span className="text-[#3DD68C]">Operate</span>
+              Where We <br /><span className="text-[#3DD68C]">Operate</span>
             </h1>
             <p className="text-gray-200 text-sm md:text-lg leading-relaxed mb-10 max-w-3xl">
               Currently serving clients across India with an expanding footprint across Southeast Asia and the Middle East through AI-powered industrial intelligence, energy optimization, and sustainability solutions.
@@ -185,7 +208,7 @@ export default function RegionsPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="max-w-2xl">
               <span className="text-[#3DD68C] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Regional Footprint</span>
-              <h2 className="font-sora text-4xl md:text-5xl font-bold text-[#0D1B3E]">Expanding Intelligence <br/>Across Borders</h2>
+              <h2 className="font-sora text-4xl md:text-5xl font-bold text-[#0D1B3E]">Expanding Intelligence <br />Across Borders</h2>
             </div>
             <p className="text-gray-500 text-lg max-w-md">
               We strategically expand our presence to where industrial challenges meet sustainable opportunities.
@@ -212,9 +235,9 @@ export default function RegionsPage() {
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#3DD68C]/10 rounded-full blur-[80px] -mr-32 -mt-32 transition-all duration-700 group-hover:bg-[#3DD68C]/20" />
               <div className="w-16 h-16 relative mb-8 rounded-full overflow-hidden border-2 border-[#3DD68C]/20 group-hover:border-[#3DD68C]/50 transition-colors shadow-lg mx-auto">
-                <Image 
-                  src="/Regions/2b earth.png" 
-                  alt="Global Commitment" 
+                <Image
+                  src="/Regions/2b earth.png"
+                  alt="Global Commitment"
                   fill
                   className="object-cover scale-150 group-hover:scale-125 transition-transform duration-700"
                 />
@@ -239,7 +262,7 @@ export default function RegionsPage() {
                 Our regional teams work closely with clients to deliver scalable, data-driven, and future-ready industrial solutions with continuous innovation and dedicated support.
               </p>
               <div className="flex justify-center">
-                <Link 
+                <Link
                   href="/contact"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-[#3DD68C] text-[#0D1B3E] hover:text-white rounded-xl font-bold transition-all border border-gray-200 hover:border-transparent group/btn shadow-sm"
                 >
@@ -252,29 +275,7 @@ export default function RegionsPage() {
         </div>
       </section>
 
-      {/* ── SECTION 4: CTA ── */}
-      <section className="py-24 bg-[#0D1B3E] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#3DD68C] blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2" />
-        </div>
-        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-          <h2 className="font-sora text-3xl md:text-5xl font-bold text-white mb-8">Join our growing network of sustainable industrial partners.</h2>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Link 
-              href="/contact" 
-              className="px-10 py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-[0_4px_14px_0_rgba(61,214,140,0.39)]"
-            >
-              Partner With Us
-            </Link>
-            <Link 
-              href="/technology" 
-              className="px-10 py-5 bg-transparent border-2 border-white/20 hover:border-[#3DD68C] text-white rounded-xl font-bold text-lg transition-all"
-            >
-              Explore Technology
-            </Link>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

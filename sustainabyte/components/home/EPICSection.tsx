@@ -184,7 +184,7 @@ const Particles = () => {
 
 export default function EPICSection() {
   return (
-    <section className="py-20 sm:py-32 bg-gradient-to-b from-white via-white to-[#f0f9ff] relative z-10 overflow-hidden">
+    <section id="howitworks" className="py-20 sm:py-32 bg-gradient-to-b from-white via-white to-[#f0f9ff] relative z-10 overflow-hidden">
       <Particles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Tagline */}
@@ -196,7 +196,7 @@ export default function EPICSection() {
           className="text-lg sm:text-xl md:text-2xl text-[#193F70] italic mb-10 sm:mb-16 font-[family-name:var(--font-dm-sans)]"
         >
           your facility deserves to be{" "}
-          <motion.span 
+          <motion.span
             initial={{ scale: 0, rotate: -20, opacity: 0 }}
             whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
             viewport={{ once: true }}
