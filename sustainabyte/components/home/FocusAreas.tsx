@@ -45,7 +45,7 @@ export default function FocusAreas() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section className="py-16 sm:py-24 bg-[#0D1B3E]">
+    <section id="sectors" className="py-16 sm:py-24 bg-[#0D1B3E]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.h2

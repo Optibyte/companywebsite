@@ -153,7 +153,7 @@ function ContactForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-full py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(61,214,140,0.3)] hover:shadow-[0_15px_40px_rgba(61,214,140,0.4)] flex items-center justify-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'}`}
+              className={`w-full py-5 bg-[#3DD68C] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(61,214,140,0.3)] flex items-center justify-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               {isSubmitting ? "Sending Intelligence..." : "Send Message"}
               <ArrowRight className="w-5 h-5" />
@@ -169,15 +169,15 @@ export default function ContactPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* ── HERO SECTION ── */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-[#0D1B3E]">
+      <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden">
         <Image
           src="/Contact%20Us/Contact-Us-BG-scaled.webp"
           alt="Contact Us Background"
           fill
-          className="object-cover opacity-60"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E] via-[#0D1B3E]/60 to-transparent z-10" />
+        <div className="absolute inset-0 bg-black/20 z-10" />
         <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -218,32 +218,40 @@ export default function ContactPage() {
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
-                    className="grayscale hover:grayscale-0 transition-all duration-700"
+                    className="transition-all duration-700"
                   />
                   <div className="absolute inset-0 pointer-events-none border-[12px] border-white/50 rounded-[3rem]" />
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-8">
-                  <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group">
-                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
-                      <MapPin className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
+                <div className="space-y-0 border-t border-gray-100">
+                  <div className="py-8 border-b border-gray-100 flex gap-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center shrink-0">
+                      <MapPin className="w-6 h-6 text-[#3DD68C]" />
                     </div>
-                    <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Location</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">Madambakkam, Chennai,<br />Tamil Nadu, India</p>
+                    <div>
+                      <h3 className="font-sora font-bold text-[#0D1B3E] mb-2 uppercase text-xs tracking-wider">Location</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">Madambakkam, Chennai, Tamil Nadu, India</p>
+                    </div>
                   </div>
-                  <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group">
-                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
-                      <Mail className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
+                  
+                  <div className="py-8 border-b border-gray-100 flex gap-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center shrink-0">
+                      <Mail className="w-6 h-6 text-[#3DD68C]" />
                     </div>
-                    <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Email Us</h3>
-                    <p className="text-gray-500 text-sm">info@sustainabyte.ai<br />support@sustainabyte.ai</p>
+                    <div>
+                      <h3 className="font-sora font-bold text-[#0D1B3E] mb-2 uppercase text-xs tracking-wider">Email Us</h3>
+                      <p className="text-gray-500 text-sm">info@sustainabyte.ai, support@sustainabyte.ai</p>
+                    </div>
                   </div>
-                  <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group sm:col-span-2">
-                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
-                      <Phone className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
+                  
+                  <div className="py-8 border-b border-gray-100 flex gap-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center shrink-0">
+                      <Phone className="w-6 h-6 text-[#3DD68C]" />
                     </div>
-                    <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Call Support</h3>
-                    <p className="text-gray-500 text-sm">+91 83770 07638, +91 73059 54384</p>
+                    <div>
+                      <h3 className="font-sora font-bold text-[#0D1B3E] mb-2 uppercase text-xs tracking-wider">Call Support</h3>
+                      <p className="text-gray-500 text-sm">+91 83770 07638, +91 73059 54384</p>
+                    </div>
                   </div>
                 </div>
               </div>
