@@ -20,27 +20,27 @@ export async function POST(req: Request) {
       data.experience = formData.get("experience") || "";
       data.mobile = formData.get("mobile") || "";
       data.message = formData.get("message") || "";
-      
+
       const file = formData.get("resume") as File;
       if (file && file.size > 0) {
         const buffer = Buffer.from(await file.arrayBuffer());
         const filename = `${Date.now()}-${file.name.replace(/\s+/g, "_")}`;
         const uploadDir = path.join(process.cwd(), "public", "uploads");
-        
+
         // Ensure directory exists
         if (!fs.existsSync(uploadDir)) {
           fs.mkdirSync(uploadDir, { recursive: true });
         }
-        
+
         const filePath = path.join(uploadDir, filename);
         await writeFile(filePath, buffer);
-        
+
         attachments.push({
           filename: file.name,
           content: buffer,
           contentType: file.type
         });
-        
+
         data.resumePath = `/uploads/${filename}`;
       }
     } else {
@@ -100,9 +100,9 @@ export async function POST(req: Request) {
 
     await transporter.sendMail(mailOptions);
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       message: "Email sent successfully",
-      resumeUrl: data.resumePath 
+      resumeUrl: data.resumePath
     }, { status: 200 });
   } catch (error: any) {
     console.error("Error sending email:", error);

@@ -68,14 +68,14 @@ export default function CareersPage() {
 
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData();
-    
+
     formData.append("type", "career");
     formData.append("name", (form.elements.namedItem("applicant-name") as HTMLInputElement).value);
     formData.append("email", (form.elements.namedItem("applicant-email") as HTMLInputElement).value);
     formData.append("position", (form.elements.namedItem("applying-position") as HTMLSelectElement).value);
     formData.append("experience", (form.elements.namedItem("experience") as HTMLSelectElement).value);
     formData.append("message", (form.elements.namedItem("cover-letter") as HTMLTextAreaElement).value);
-    
+
     const fileInput = form.querySelector('#resume-upload') as HTMLInputElement;
     if (fileInput.files && fileInput.files[0]) {
       formData.append("resume", fileInput.files[0]);
@@ -301,7 +301,7 @@ export default function CareersPage() {
           <div className="absolute bottom-1/2 right-1/4 w-96 h-96 bg-blue-500 blur-[120px] rounded-full" />
         </div>
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="font-[family-name:var(--font-sora)] text-3xl md:text-5xl font-bold text-white mb-8 italic"
@@ -340,7 +340,7 @@ export default function CareersPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-700">Applying Position</label>
-                  <select 
+                  <select
                     name="applying-position"
                     value={selectedPosition}
                     onChange={(e) => setSelectedPosition(e.target.value)}
@@ -390,8 +390,8 @@ export default function CareersPage() {
                 </div>
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={isSubmitting}
                 className={`w-full mt-4 py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-[0_4px_14px_0_rgba(61,214,140,0.39)] hover:shadow-[0_6px_20px_rgba(61,214,140,0.23)] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'}`}
               >
@@ -405,7 +405,7 @@ export default function CareersPage() {
       <section className="py-24 bg-white relative overflow-hidden border-t border-gray-100">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#3DD68C]/5 blur-[120px] rounded-full -mr-48 -mt-48" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full -ml-48 -mb-48" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
             {[
