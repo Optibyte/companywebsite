@@ -3,9 +3,9 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { 
-  Phone, 
-  Mail, 
+import {
+  Phone,
+  Mail,
   MapPin,
   MessageSquare,
   Building,
@@ -72,14 +72,14 @@ function ContactForm() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, x: 30 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       className="bg-white rounded-[3rem] p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#3DD68C]/5 rounded-full blur-3xl -mr-32 -mt-32" />
-      
+
       <div className="relative z-10">
         <h2 className="font-sora text-4xl font-bold text-[#0D1B3E] mb-4">Get In Touch</h2>
         <p className="text-gray-500 mb-10 text-lg">Fill out the form below and our team will get back to you within 24 hours</p>
@@ -90,11 +90,11 @@ function ContactForm() {
               <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
                 <User className="w-3.5 h-3.5 text-[#3DD68C]" /> Full Name*
               </label>
-              <input 
-                name="name" 
-                type="text" 
-                required 
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+              <input
+                name="name"
+                type="text"
+                required
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
                 placeholder="John Doe"
               />
             </div>
@@ -102,13 +102,13 @@ function ContactForm() {
               <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#3DD68C]" /> Email Address*
               </label>
-              <input 
-                name="email" 
-                type="email" 
-                required 
+              <input
+                name="email"
+                type="email"
+                required
                 value={formData.email}
                 onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
                 placeholder="john@example.com"
               />
             </div>
@@ -118,11 +118,11 @@ function ContactForm() {
               <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
                 <Building className="w-3.5 h-3.5 text-[#3DD68C]" /> Organization Name*
               </label>
-              <input 
-                name="organization" 
-                type="text" 
-                required 
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+              <input
+                name="organization"
+                type="text"
+                required
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
                 placeholder="Company Inc."
               />
             </div>
@@ -130,10 +130,10 @@ function ContactForm() {
               <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-[#3DD68C]" /> Mobile Number
               </label>
-              <input 
-                name="mobile" 
-                type="tel" 
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400" 
+              <input
+                name="mobile"
+                type="tel"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
                 placeholder="+91 XXXXX XXXXX"
               />
             </div>
@@ -142,16 +142,16 @@ function ContactForm() {
             <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
               <MessageSquare className="w-3.5 h-3.5 text-[#3DD68C]" /> Your Message
             </label>
-            <textarea 
-              name="message" 
-              rows={4} 
-              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all resize-none placeholder:text-gray-400" 
+            <textarea
+              name="message"
+              rows={4}
+              className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all resize-none placeholder:text-gray-400"
               placeholder="How can we help you achieve your sustainability goals?"
             ></textarea>
           </div>
           <div className="pt-4">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={isSubmitting}
               className={`w-full py-5 bg-[#3DD68C] hover:bg-[#2bc478] text-[#0D1B3E] rounded-xl font-bold text-lg transition-all shadow-[0_10px_30px_rgba(61,214,140,0.3)] hover:shadow-[0_15px_40px_rgba(61,214,140,0.4)] flex items-center justify-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:-translate-y-1'}`}
             >
@@ -170,7 +170,7 @@ export default function ContactPage() {
     <div className="bg-white min-h-screen">
       {/* ── HERO SECTION ── */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-[#0D1B3E]">
-        <Image 
+        <Image
           src="/Contact%20Us/Contact-Us-BG-scaled.webp"
           alt="Contact Us Background"
           fill
@@ -184,15 +184,11 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em] uppercase bg-[#3DD68C]/10 text-[#3DD68C] border border-[#3DD68C]/20 mb-8">
-              <Globe className="w-4 h-4" /> Global Intelligence Network
-            </span>
+         
             <h1 className="font-sora text-5xl md:text-8xl font-bold text-white mb-6 leading-tight">
-              Get In <br/><span className="text-[#3DD68C]">Touch</span>
+              <span className="text-[#3DD68C]">Contact</span> Us
             </h1>
-            <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
-              Whether you're looking to optimize energy, scale AI operations, or build a sustainable future, our experts are ready to collaborate.
-            </p>
+        
           </motion.div>
         </div>
       </section>
@@ -201,9 +197,9 @@ export default function ContactPage() {
       <section className="py-32 bg-white relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-start">
-            
+
             {/* LEFT: OUR LOCATIONS */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -212,15 +208,15 @@ export default function ContactPage() {
               <div>
                 <span className="text-[#3DD68C] font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Corporate HQ</span>
                 <h2 className="font-sora text-4xl md:text-5xl font-bold text-[#0D1B3E] mb-10">Our Global Presence</h2>
-                
+
                 {/* Map Iframe */}
                 <div className="relative w-full aspect-video rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl mb-12 group">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.2345!2d80.17!3d12.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f0000000000%3A0x0!2sMadambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.2345!2d80.17!3d12.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f0000000000%3A0x0!2sMadambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
                     loading="lazy"
                     className="grayscale hover:grayscale-0 transition-all duration-700"
                   />
@@ -233,14 +229,14 @@ export default function ContactPage() {
                       <MapPin className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Location</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">Madambakkam, Chennai,<br/>Tamil Nadu, India</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">Madambakkam, Chennai,<br />Tamil Nadu, India</p>
                   </div>
                   <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group">
                     <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">
                       <Mail className="w-6 h-6 text-[#3DD68C] group-hover:text-white transition-colors" />
                     </div>
                     <h3 className="font-sora font-bold text-[#0D1B3E] mb-2">Email Us</h3>
-                    <p className="text-gray-500 text-sm">info@sustainabyte.ai<br/>support@sustainabyte.ai</p>
+                    <p className="text-gray-500 text-sm">info@sustainabyte.ai<br />support@sustainabyte.ai</p>
                   </div>
                   <div className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#3DD68C]/30 transition-colors group sm:col-span-2">
                     <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center mb-6 group-hover:bg-[#3DD68C] transition-colors">

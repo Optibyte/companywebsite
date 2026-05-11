@@ -55,11 +55,19 @@ export default function CareersPage() {
     setSelectedPosition(position);
     const element = document.getElementById('apply');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 100; // Offset for header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,13 +80,14 @@ export default function CareersPage() {
     formData.append("type", "career");
     formData.append("name", (form.elements.namedItem("applicant-name") as HTMLInputElement).value);
     formData.append("email", (form.elements.namedItem("applicant-email") as HTMLInputElement).value);
+    formData.append("mobile", (form.elements.namedItem("mobile") as HTMLInputElement).value);
     formData.append("position", (form.elements.namedItem("applying-position") as HTMLSelectElement).value);
     formData.append("experience", (form.elements.namedItem("experience") as HTMLSelectElement).value);
+    formData.append("linkedin", (form.elements.namedItem("linkedin-url") as HTMLInputElement).value);
     formData.append("message", (form.elements.namedItem("cover-letter") as HTMLTextAreaElement).value);
 
-    const fileInput = form.querySelector('#resume-upload') as HTMLInputElement;
-    if (fileInput.files && fileInput.files[0]) {
-      formData.append("resume", fileInput.files[0]);
+    if (selectedFile) {
+      formData.append("resume", selectedFile);
     }
 
     try {
@@ -91,6 +100,7 @@ export default function CareersPage() {
         toast.success("Application submitted successfully!", { id: loadingToast });
         form.reset();
         setSelectedPosition("");
+        setSelectedFile(null);
       } else {
         const errorData = await response.json();
         toast.error(errorData.error || "Something went wrong.", { id: loadingToast });
@@ -326,14 +336,19 @@ export default function CareersPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Full Name</label>
+                <input name="applicant-name" type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] placeholder-gray-400 focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all" placeholder="John Doe" />
+              </div>
+
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-700">Full Name</label>
-                  <input name="applicant-name" type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] placeholder-gray-400 focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all" placeholder="John Doe" />
-                </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-700">Email Address</label>
                   <input name="applicant-email" type="email" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] placeholder-gray-400 focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all" placeholder="john@example.com" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700">Mobile Number</label>
+                  <input name="mobile" type="tel" required className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] placeholder-gray-400 focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all" placeholder="+91 98765 43210" />
                 </div>
               </div>
 
@@ -378,15 +393,43 @@ export default function CareersPage() {
 
               <div className="space-y-2">
                 <label className="text-sm font-bold text-gray-700">Upload Resume</label>
-                <div className="w-full border-2 border-dashed border-gray-200 rounded-2xl p-10 text-center hover:border-[#3DD68C] transition-all bg-gray-50 hover:bg-gray-100 cursor-pointer flex flex-col items-center justify-center group">
-                  <div className="w-14 h-14 rounded-full bg-[#3DD68C]/10 flex items-center justify-center mb-4 group-hover:bg-[#3DD68C]/20 transition-colors">
-                    <Upload className="w-7 h-7 text-[#3DD68C]" />
+                <div
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`w-full border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer flex flex-col items-center justify-center group ${selectedFile ? 'border-[#3DD68C] bg-[#3DD68C]/5' : 'border-gray-200 bg-gray-50 hover:border-[#3DD68C] hover:bg-gray-100'}`}
+                >
+                  <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-colors ${selectedFile ? 'bg-[#3DD68C] text-white' : 'bg-[#3DD68C]/10 text-[#3DD68C] group-hover:bg-[#3DD68C]/20'}`}>
+                    <Upload className="w-7 h-7" />
                   </div>
-                  <input type="file" required className="hidden" id="resume-upload" />
-                  <label htmlFor="resume-upload" className="cursor-pointer">
-                    <p className="text-[#0D1B3E] font-bold mb-2">Click to upload or drag and drop</p>
-                    <p className="text-sm text-gray-500">PDF, DOC, DOCX (Max 5MB)</p>
-                  </label>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    required={!selectedFile}
+                    onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
+                    className="hidden"
+                    id="resume-upload"
+                    accept=".pdf,.doc,.docx"
+                  />
+                  <div>
+                    <p className="text-[#0D1B3E] font-bold mb-2">
+                      {selectedFile ? selectedFile.name : "Click to upload or drag and drop"}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {selectedFile ? `${(selectedFile.size / 1024 / 1024).toFixed(2)} MB` : "PDF, DOC, DOCX (Max 5MB)"}
+                    </p>
+                  </div>
+                  {selectedFile && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedFile(null);
+                        if (fileInputRef.current) fileInputRef.current.value = "";
+                      }}
+                      className="mt-4 text-xs font-bold text-red-500 hover:text-red-600 transition-colors uppercase tracking-wider"
+                    >
+                      Remove File
+                    </button>
+                  )}
                 </div>
               </div>
 

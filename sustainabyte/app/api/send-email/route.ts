@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { writeFile } from "fs/promises";
 import path from "path";
-import fs from "fs";
 
 export async function POST(req: Request) {
   try {
@@ -19,29 +17,18 @@ export async function POST(req: Request) {
       data.position = formData.get("position") || "";
       data.experience = formData.get("experience") || "";
       data.mobile = formData.get("mobile") || "";
+      data.linkedin = formData.get("linkedin") || "";
       data.message = formData.get("message") || "";
 
       const file = formData.get("resume") as File;
       if (file && file.size > 0) {
         const buffer = Buffer.from(await file.arrayBuffer());
-        const filename = `${Date.now()}-${file.name.replace(/\s+/g, "_")}`;
-        const uploadDir = path.join(process.cwd(), "public", "uploads");
-
-        // Ensure directory exists
-        if (!fs.existsSync(uploadDir)) {
-          fs.mkdirSync(uploadDir, { recursive: true });
-        }
-
-        const filePath = path.join(uploadDir, filename);
-        await writeFile(filePath, buffer);
-
+        
         attachments.push({
           filename: file.name,
           content: buffer,
           contentType: file.type
         });
-
-        data.resumePath = `/uploads/${filename}`;
       }
     } else {
       data = await req.json();
@@ -81,11 +68,12 @@ export async function POST(req: Request) {
           <h2 style="color: #0D1B3E;">New Job Application</h2>
           <p><strong>Name:</strong> ${data.name}</p>
           <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Mobile:</strong> ${data.mobile || "N/A"}</p>
           <p><strong>Position:</strong> ${data.position}</p>
           <p><strong>Experience:</strong> ${data.experience}</p>
+          <p><strong>LinkedIn:</strong> <a href="${data.linkedin}">${data.linkedin}</a></p>
           <p><strong>Message/Cover Letter:</strong></p>
           <div style="background: #f9f9f9; padding: 15px; border-radius: 5px;">${data.message || "No message provided."}</div>
-          ${data.resumePath ? `<p style="margin-top: 20px; font-weight: bold;">Resume stored at: <a href="http://localhost:3000${data.resumePath}">${data.resumePath}</a></p>` : ""}
         </div>
       `;
     }
@@ -101,8 +89,7 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({
-      message: "Email sent successfully",
-      resumeUrl: data.resumePath
+      message: "Email sent successfully"
     }, { status: 200 });
   } catch (error: any) {
     console.error("Error sending email:", error);
