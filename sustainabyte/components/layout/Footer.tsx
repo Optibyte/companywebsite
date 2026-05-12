@@ -12,7 +12,7 @@ const footerSections = [
     links: [
       { name: "About Us", href: "/company" },
       { name: "Clients", href: "/company#clients" },
-      { name: "Careers", href: "/company#careers" },
+      { name: "Careers", href: "/careers" },
       { name: "Insights", href: "/sustainability/insights" },
     ],
   },
@@ -21,9 +21,10 @@ const footerSections = [
     links: [
       { name: "Optibyte", href: "/technology/optibyte" },
       { name: "Fixbyte", href: "/technology/fixbyte" },
-      { name: "Inbyte", href: "/technology#inbyte" },
+      { name: "Inbyte", href: "/technology/inbyte" },
       { name: "Energy", href: "/energy" },
-      { name: "Sustainability", href: "/sustainability" },
+      
+   
     ],
   },
 ];

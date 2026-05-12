@@ -42,7 +42,7 @@ export default function TrustedBy() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.5 }}
           className="text-center text-gray-400 text-sm sm:text-base mt-3 max-w-xl mx-auto"
         >
           Powering sustainable energy management for leading organizations worldwide
