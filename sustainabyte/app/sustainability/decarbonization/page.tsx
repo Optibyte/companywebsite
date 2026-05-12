@@ -27,7 +27,7 @@ export default function DecarbonizationPage() {
       <section className="relative pt-48 pb-32 overflow-hidden bg-[#0D1B3E] text-white">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/sustanaibility/Decarbonization/Decarbonizationbg.png"
+            src="/sustanaibility/Decarbonization/Decarbonizationbg.webp"
             alt="Decarbonization Background"
             fill
             className="object-cover opacity-60"
@@ -231,7 +231,7 @@ export default function DecarbonizationPage() {
             {/* Image Gallery */}
             <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { src: "/sustanaibility/Decarbonization/MR-2.png", initialY: -80 },
+                { src: "/sustanaibility/Decarbonization/MR-2.webp", initialY: -80 },
                 { src: "/sustanaibility/Decarbonization/Measurable-Results-1-768x432.webp", initialY: 80 },
                 { src: "/sustanaibility/Decarbonization/MR-3.webp", initialY: -80 }
               ].map((item, i) => (
@@ -296,7 +296,7 @@ export default function DecarbonizationPage() {
               {[
                 { src: "/sustanaibility/Decarbonization/II-3-768x768.webp", initialY: -80 },
                 { src: "/sustanaibility/Decarbonization/Immediate-Impact-1-768x768.webp", initialY: 80 },
-                { src: "/sustanaibility/Decarbonization/MR-2.png", initialY: -80 }
+                { src: "/sustanaibility/Decarbonization/MR-2.webp", initialY: -80 }
               ].map((item, i) => (
                 <motion.div
                   key={i}

@@ -23,8 +23,8 @@ import GreenButton from "@/components/ui/GreenButton";
 export default function FusionBytePage() {
   const [activeImage, setActiveImage] = useState(0);
   const dashboardImages = [
-    "/technology/FusionByte/byte1.png",
-    "/technology/FusionByte/byte3.png"
+    "/technology/FusionByte/byte1.webp",
+    "/technology/FusionByte/byte3.webp"
   ];
 
   useEffect(() => {

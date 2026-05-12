@@ -12,7 +12,7 @@ export default function HeroSection() {
         <motion.div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/Net%20Zero.png')",
+            backgroundImage: "url('/Net%20Zero.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

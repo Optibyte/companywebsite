@@ -111,7 +111,7 @@ export default function WaterManagementPage() {
       {/* 1. Hero Section */}
       <section className="relative h-[90vh] flex items-center overflow-hidden pt-48">
         <Image 
-          src="/sustanaibility/Optimize waterbg.png" 
+          src="/sustanaibility/Optimize waterbg.webp" 
           alt="Water Management Hero" 
           fill 
           className="object-cover"

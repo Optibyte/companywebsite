@@ -55,7 +55,7 @@ export default function InsightsPage() {
         {/* Pure Background Image - No overlays or opacity filters */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/blogs/Untitled-design.png"
+            src="/blogs/Untitled-design.webp"
             alt="Sustainability Insights Background"
             fill
             className="object-cover"

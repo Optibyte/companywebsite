@@ -143,7 +143,7 @@ export default function InBytePage() {
               <div className="absolute -inset-10 bg-[#4DB846]/10 rounded-full blur-[100px]" />
               <div className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)] border-8 border-white float-anim">
                 <Image
-                  src="/technology/inbyte/inbyte.png"
+                  src="/technology/inbyte/inbyte.webp"
                   alt="InByte Dashboard"
                   width={1200}
                   height={800}

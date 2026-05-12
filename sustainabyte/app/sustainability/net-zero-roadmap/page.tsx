@@ -107,7 +107,7 @@ export default function NetZeroRoadmapPage() {
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/sustanaibility/NET ZERO Roadmap bg.png"
+            src="/sustanaibility/NET ZERO Roadmap bg.webp"
             alt="Net Zero Roadmap Background"
             fill
             className="object-cover opacity-60"
