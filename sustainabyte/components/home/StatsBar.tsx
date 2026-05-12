@@ -32,13 +32,13 @@ function useCountUp(end: number, duration: number = 2000, startCounting: boolean
 const stats = [
   {
     icon: Users,
-    value: 15,
+    value: 25,
     suffix: "+",
     label: "Clients",
   },
   {
     icon: Settings,
-    value: 10,
+    value: 15,
     suffix: "+",
     label: "Equipments Categories",
   },

@@ -60,7 +60,7 @@
 }
 
 .animate-marquee {
-  animation: scroll-marquee 3.5s linear infinite;
+  animation: scroll-marquee 35s linear infinite;
 }
 
 .animate-marquee:hover {

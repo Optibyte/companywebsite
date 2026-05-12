@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const epicPills = [
@@ -16,128 +15,79 @@ const commitmentCards = [
     title: "Net Zero Targets",
     description:
       "Aligning your operations with global net zero commitments through measurable goals and verified pathways.",
-    image: "/net zero img.webp",
+    image: "/Net-zero targets.webp",
     accent: "#04572fff",
   },
   {
     title: "Decarbonization",
     description:
       "Systematic reduction of carbon emissions through intelligent energy management and optimization.",
-    image: "/Decarbonization.webp",
+    image: "/Decarbonizationbg.webp",
     accent: "#083063ff",
   },
 ];
 
-function CommitmentCard({
+function CommitmentRow({
   card,
   index,
 }: {
   card: (typeof commitmentCards)[number];
   index: number;
 }) {
-  const [hovered, setHovered] = useState(false);
+  const isEven = index % 2 === 0;
 
   return (
     <motion.div
       key={card.title}
-      initial={{ opacity: 0, y: 60, scale: 0.93 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.2,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      className="relative rounded-2xl overflow-hidden cursor-pointer"
-      style={{ boxShadow: "0 8px 32px rgba(25,63,112,0.15)" }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={`flex flex-col ${
+        isEven ? "md:flex-row" : "md:flex-row-reverse"
+      } items-center gap-10 md:gap-16 mb-20 md:mb-32`}
     >
-      {/* Background Image with zoom */}
-      <div className="relative w-full h-64 sm:h-72 overflow-hidden">
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 relative">
         <motion.div
-          className="absolute inset-0"
-          animate={{ scale: hovered ? 1.08 : 1 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="relative rounded-[2rem] overflow-hidden"
+          style={{ 
+            boxShadow: "0 20px 40px rgba(25,63,112,0.12)",
+          }}
         >
-          <Image
-            src={card.image}
-            alt={card.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, 50vw"
-            style={{ filter: "brightness(1.25) saturate(1.2)" }}
-          />
+          <div className="relative h-[300px] sm:h-[400px] w-full bg-white flex items-center justify-center p-6">
+            <Image
+              src={card.image}
+              alt={card.title}
+              fill
+              className="object-contain p-4"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </motion.div>
-
-        {/* Light wash — keeps image bright, subtle vignette only at bottom */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(10,20,40,0.72) 28%, rgba(255,255,255,0.08) 100%)",
-          }}
-        />
-
-        {/* Accent colour tint on hover */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{ opacity: hovered ? 0.18 : 0 }}
-          transition={{ duration: 0.4 }}
-          style={{ background: card.accent }}
-        />
-
-        {/* Glow border overlay */}
-        <motion.div
-          className="absolute inset-0 rounded-2xl pointer-events-none"
-          animate={{ opacity: hovered ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            boxShadow: `inset 0 0 0 2px ${card.accent}99`,
-          }}
-        />
       </div>
 
-      {/* Card content — absolutely positioned over image */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-        {/* Accent bar */}
+      {/* Text Section */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center text-left px-2 sm:px-6">
         <motion.div
-          className="h-[3px] rounded-full mb-4"
-          animate={{ width: hovered ? "5rem" : "2.5rem" }}
-          transition={{ duration: 0.35 }}
-          style={{ background: card.accent }}
-        />
-
-        <h3 className="font-[family-name:var(--font-sora)] text-xl sm:text-2xl font-bold text-white mb-2 drop-shadow-lg">
-          {card.title}
-        </h3>
-
-        {/* Description slides in */}
-        <AnimatePresence initial={false}>
-          {hovered && (
-            <motion.p
-              key="desc"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 6 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="text-gray-300 text-sm leading-relaxed"
-            >
-              {card.description}
-            </motion.p>
-          )}
-        </AnimatePresence>
+           initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+           whileInView={{ opacity: 1, x: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {/* ESG badge */}
+       
+          <h3 className="font-[family-name:var(--font-sora)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#193F70] mb-6 leading-tight">
+            {card.title}
+          </h3>
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 font-[family-name:var(--font-dm-sans)]">
+            {card.description}
+          </p>
+ 
+        </motion.div>
       </div>
-
-      {/* ESG badge */}
-      <motion.div
-        className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full text-xs font-semibold font-[family-name:var(--font-sora)] text-white"
-        style={{ background: `${card.accent}cc` }}
-        animate={{ scale: hovered ? 1.1 : 1 }}
-        transition={{ duration: 0.25 }}
-      >
-        ESG
-      </motion.div>
     </motion.div>
   );
 }
@@ -184,7 +134,7 @@ const Particles = () => {
 
 export default function EPICSection() {
   return (
-    <section id="howitworks" className="py-20 sm:py-32 bg-gradient-to-b from-white via-white to-[#f0f9ff] relative z-10 overflow-hidden">
+    <section id="howitworks" className="py-60 sm:py-2 bg-gradient-to-b from-white via-white to-[#f0f9ff] relative z-10 overflow-hidden">
       <Particles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Tagline */}
@@ -291,7 +241,7 @@ export default function EPICSection() {
           transition={{ duration: 0.6, delay: 1.6 }}
           className="text-[#193F70] text-xl sm:text-2xl font-medium mb-14 sm:mb-20"
         >
-          for higher performance
+          delivering higher performance and driving <span className="text-[#27A37B] font-bold">sustainable</span> growth.
         </motion.p>
 
         {/* Commitment Section */}
@@ -301,13 +251,13 @@ export default function EPICSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#193F70] text-left max-w-4xl mx-auto mb-14 sm:mb-20 px-4">
-            Commitment to
+          <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#193F70] text-center max-w-4xl mx-auto mb-14 sm:mb-20 px-4">
+            Our Commitment to a <span className="text-[#27A37B]">Sustainable</span> Future
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-20 max-w-5xl mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-1 sm:px-1 pb-1">
             {commitmentCards.map((card, i) => (
-              <CommitmentCard key={card.title} card={card} index={i} />
+              <CommitmentRow key={card.title} card={card} index={i} />
             ))}
           </div>
         </motion.div>

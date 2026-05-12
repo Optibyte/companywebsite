@@ -250,6 +250,26 @@ export default function Navbar() {
     return pathname.startsWith(href);
   };
 
+  // Checks if current page matches the nav item OR any of its dropdown/megaMenu children
+  const isNavActive = (link: NavLink): boolean => {
+    if (link.href === "/" && pathname !== "/") return false;
+    if (pathname.startsWith(link.href) && link.href !== "/") return true;
+    if (link.href === "/" && pathname === "/") return true;
+    // Check dropdown items
+    if (link.dropdown) {
+      return link.dropdown.some((item) => pathname.startsWith(item.href.split("#")[0]));
+    }
+    // Check megaMenu items
+    if (link.megaMenu) {
+      return link.megaMenu.columns.some((col) => {
+        const colHref = col.href?.split("#")[0];
+        if (colHref && pathname.startsWith(colHref)) return true;
+        return col.items.some((item) => pathname.startsWith(item.href.split("#")[0]));
+      });
+    }
+    return false;
+  };
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -297,23 +317,56 @@ export default function Navbar() {
                 }
                 onMouseLeave={handleMouseLeave}
               >
-                <Link
-                  href={link.href}
-                  className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold border-b-2 ${
-                    activeDropdown === link.name || isActive(link.href)
-                      ? "text-[#3DD68C] border-[#3DD68C]"
-                      : "text-white border-transparent hover:text-white/80"
-                  }`}
-                >
-                  {link.name}
-                  {(link.dropdown || link.megaMenu) && (
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        activeDropdown === link.name ? "rotate-180" : ""
+                {(link.dropdown || link.megaMenu) ? (
+                  <div className="flex flex-col items-center">
+                    <button
+                      className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${
+                        isNavActive(link) || activeDropdown === link.name
+                          ? "text-[#3DD68C]"
+                          : "text-white hover:text-white/80"
+                      }`}
+                      onClick={() =>
+                        setActiveDropdown(activeDropdown === link.name ? null : link.name)
+                      }
+                    >
+                      {link.name}
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          activeDropdown === link.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {/* Active underline indicator */}
+                    <span
+                      className={`block h-0.5 rounded-full transition-all duration-300 ${
+                        isNavActive(link) || activeDropdown === link.name
+                          ? "w-4/5 bg-[#3DD68C]"
+                          : "w-0 bg-transparent"
                       }`}
                     />
-                  )}
-                </Link>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center">
+                    <Link
+                      href={link.href}
+                      className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${
+                        isNavActive(link)
+                          ? "text-[#3DD68C]"
+                          : "text-white hover:text-white/80"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                    {/* Active underline indicator */}
+                    <span
+                      className={`block h-0.5 rounded-full transition-all duration-300 ${
+                        isNavActive(link)
+                          ? "w-4/5 bg-[#3DD68C]"
+                          : "w-0 bg-transparent"
+                      }`}
+                    />
+                  </div>
+                )}
                 {link.dropdown && (
                   <DropdownMenu
                     items={link.dropdown}
