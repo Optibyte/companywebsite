@@ -301,15 +301,15 @@ export default function EnergyPage() {
                 cta: "Book your Audit"
               }
             ].map((capability, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 id={capability.title.toLowerCase().includes("equip-ops") ? "equip-ops" :
-                    capability.title.toLowerCase().includes("compressed air") ? "compressed-air" :
+                  capability.title.toLowerCase().includes("compressed air") ? "compressed-air" :
                     capability.title.toLowerCase().includes("chiller") ? "chiller" :
-                    capability.title.toLowerCase().includes("boiler") ? "boiler" :
-                    capability.title.toLowerCase().includes("ashrae") ? "ashrae" :
-                    capability.title.toLowerCase().includes("electrical safety") ? "electrical" :
-                    capability.title.toLowerCase().includes("power quality") ? "power" : undefined}
+                      capability.title.toLowerCase().includes("boiler") ? "boiler" :
+                        capability.title.toLowerCase().includes("ashrae") ? "ashrae" :
+                          capability.title.toLowerCase().includes("electrical safety") ? "electrical" :
+                            capability.title.toLowerCase().includes("power quality") ? "power" : undefined}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}
               >
                 <motion.div
