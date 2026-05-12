@@ -119,7 +119,7 @@ export default function CareersPage() {
       <section className="relative pt-40 pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Careers/career 1.jpg"
+            src="/Careers/career 1.webp"
             alt="Careers Background"
             fill
             className="object-cover"

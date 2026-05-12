@@ -27,7 +27,7 @@ export default function AnalyticsPage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/energy/Energy Analytics/Energy Analytics1.png"
+            src="/energy/Energy Analytics/Energy Analytics1.webp"
             alt="Energy Analytics"
             fill
             className="object-cover"

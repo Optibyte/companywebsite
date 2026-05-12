@@ -50,13 +50,15 @@ export default function TrustedBy() {
       </div>
 
       {/* Marquee strip */}
-      <div className="relative">
+      <div className="relative overflow-hidden">
         {/* Left fade */}
         <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
         {/* Right fade */}
         <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-        <div className="flex animate-marquee gap-0">
+        <div 
+          className="flex gap-0 w-max animate-marquee hover:[animation-play-state:paused] cursor-pointer"
+        >
           {marqueeItems.map((logo, i) => (
             <div
               key={i}

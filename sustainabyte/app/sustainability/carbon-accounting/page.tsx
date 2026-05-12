@@ -149,7 +149,7 @@ export default function CarbonAccountingPage() {
       <section className="relative h-screen flex items-start overflow-hidden pt-40 bg-[#0D1B3E] text-white">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/sustanaibility/Carbon Accounting/Decarbonizationbg1.png"
+            src="/sustanaibility/Carbon Accounting/Decarbonizationbg1.webp"
             alt="Carbon Accounting"
             fill
             className="object-cover opacity-70"

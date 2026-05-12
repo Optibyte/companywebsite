@@ -24,10 +24,10 @@ import GreenButton from "@/components/ui/GreenButton";
 export default function DigiWeldPage() {
   const [activeImage, setActiveImage] = useState(0);
   const dashboardImages = [
-    "/technology/digiweld/dashboard.png",
-    "/technology/digiweld/bucks img.png",
-    "/technology/digiweld/mobile1.png",
-    "/technology/digiweld/mobile 2.png"
+    "/technology/digiweld/dashboard.webp",
+    "/technology/digiweld/bucks img.webp",
+    "/technology/digiweld/mobile1.webp",
+    "/technology/digiweld/mobile 2.webp"
   ];
 
   useEffect(() => {
@@ -96,7 +96,7 @@ export default function DigiWeldPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#0D1B3E]/60 z-10" />
           <Image
-            src="/technology/digiweld/digiwelbg.png"
+            src="/technology/digiweld/digiwelbg.webp"
             alt="DigiWeld Hero"
             fill
             className="object-cover object-center opacity-80 brightness-75"
@@ -324,7 +324,7 @@ export default function DigiWeldPage() {
             >
               <div className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.12)] border-[12px] border-white bg-white">
                 <Image
-                  src="/technology/digiweld/dashboard.png"
+                  src="/technology/digiweld/dashboard.webp"
                   alt="DigiWeld Production Intelligence"
                   width={800}
                   height={600}

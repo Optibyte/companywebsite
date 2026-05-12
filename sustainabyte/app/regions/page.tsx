@@ -136,7 +136,7 @@ export default function RegionsPage() {
       <section className="relative pt-40 pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Regions/2b earth.png"
+            src="/Regions/2b earth.webp"
             alt="Regions Background"
             fill
             className="object-cover"
@@ -236,7 +236,7 @@ export default function RegionsPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#3DD68C]/10 rounded-full blur-[80px] -mr-32 -mt-32 transition-all duration-700 group-hover:bg-[#3DD68C]/20" />
               <div className="w-16 h-16 relative mb-8 rounded-full overflow-hidden border-2 border-[#3DD68C]/20 group-hover:border-[#3DD68C]/50 transition-colors shadow-lg mx-auto">
                 <Image
-                  src="/Regions/2b earth.png"
+                  src="/Regions/2b earth.webp"
                   alt="Global Commitment"
                   fill
                   className="object-cover scale-150 group-hover:scale-125 transition-transform duration-700"

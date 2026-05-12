@@ -33,7 +33,7 @@ export default function NewsPage() {
         {/* Pure Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/news/news bg.jpg"
+            src="/news/news bg.webp"
             alt="News Background"
             fill
             className="object-cover"

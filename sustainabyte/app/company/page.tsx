@@ -149,7 +149,7 @@ export default function CompanyPage() {
       {/* ── Detailed Solutions ── */}
       <section className="py-24 bg-white space-y-24">
         <div className="max-w-6xl mx-auto px-6 space-y-24">
-          
+
           {/* Energy */}
           <motion.div id="energy" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1 text-center md:text-left">
@@ -228,7 +228,7 @@ export default function CompanyPage() {
       {/* ── Partnered With & Clients ── */}
       <section className="py-24 bg-white border-t border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 space-y-24 text-center">
-          
+
           {/* Partners */}
           <div>
             <h2 className="text-2xl font-bold text-[#0D1B3E] mb-12 inline-block border-b-2 border-[#3DA45C] pb-2">
@@ -261,15 +261,16 @@ export default function CompanyPage() {
 
         </div>
       </section>
-      
+
       {/* Add Custom Animation for Marquee */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 35s linear infinite;
+          animation: marquee 7s linear infinite;
         }
         .animate-marquee:hover {
           animation-play-state: paused;

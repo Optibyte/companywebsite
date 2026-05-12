@@ -198,7 +198,7 @@ export default function FixBytePage() {
               <div className="absolute -inset-10 bg-[#4DB846]/5 rounded-full blur-3xl" />
               <div className="relative">
                 <Image
-                  src="/technology/fixbyte/mobile view.png"
+                  src="/technology/fixbyte/mobile view.webp"
                   alt="FixByte Mobile Interface"
                   width={800}
                   height={1000}
@@ -275,7 +275,7 @@ export default function FixBytePage() {
               <div className="absolute -inset-4 bg-gradient-to-tr from-[#4DB846]/30 to-transparent rounded-[3rem] blur-2xl" />
               <div className="relative rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
                 <Image
-                  src="/technology/fixbyte/mobile apps.png"
+                  src="/technology/fixbyte/mobile apps.webp"
                   alt="FixByte Mobile Apps"
                   width={600}
                   height={800}

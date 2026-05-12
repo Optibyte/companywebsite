@@ -29,7 +29,7 @@ const industrialEquipment = [
   {
     name: "Boilers",
     icon: <Flame className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Boilers.png",
+    image: "/technology/Boilers.webp",
     details: [
       "Monitors fuel gas & fuel use",
       "Track steam output in real time",
@@ -39,7 +39,7 @@ const industrialEquipment = [
   {
     name: "Compressors",
     icon: <Wind className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Compressors.png",
+    image: "/technology/Compressors.webp",
     details: [
       "Tracks pressure, runtime, cycles",
       "Detects leaks, part-load issues",
@@ -49,7 +49,7 @@ const industrialEquipment = [
   {
     name: "Kilns",
     icon: <Activity className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Kilns.png",
+    image: "/technology/Kilns.webp",
     details: [
       "Maps temperature & heat loss",
       "Tracks fuel vs. output",
@@ -59,7 +59,7 @@ const industrialEquipment = [
   {
     name: "Furnaces",
     icon: <Flame className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Furnaces.png",
+    image: "/technology/Furnaces.webp",
     details: [
       "Logs temp & burner status",
       "Detects insulation loss",
@@ -72,7 +72,7 @@ const utilityEquipment = [
   {
     name: "Chiller Systems",
     icon: <Snowflake className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Chiller Systems.png",
+    image: "/technology/Chiller Systems.webp",
     details: [
       "Tracks CHWST, CHWRT, compressor cycles",
       "Auto setpoint tuning",
@@ -82,7 +82,7 @@ const utilityEquipment = [
   {
     name: "Pumps",
     icon: <Droplets className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Pumps.png",
+    image: "/technology/Pumps.webp",
     details: [
       "Monitors runtime, VFD speed",
       "Automates lead-lag",
@@ -92,7 +92,7 @@ const utilityEquipment = [
   {
     name: "Cooling Towers",
     icon: <Wind className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/Cooling Towers.png",
+    image: "/technology/Cooling Towers.webp",
     details: [
       "Wet bulb-based control",
       "Fan speed via VFD",
@@ -102,7 +102,7 @@ const utilityEquipment = [
   {
     name: "AHUs (Air Handling Units)",
     icon: <Fan className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/AHUs (Air Handling Units).png",
+    image: "/technology/AHUs (Air Handling Units).webp",
     details: [
       "Monitors air temperature and pressure",
       "Adjusts fan speed using VFD logic",
@@ -112,7 +112,7 @@ const utilityEquipment = [
   {
     name: "STP (Sewage Treatment)",
     icon: <Droplets className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/STP (Sewage Treatment).png",
+    image: "/technology/STP (Sewage Treatment).webp",
     details: [
       "Tracks sludge, levels, DO, BOD",
       "Compliance-ready reporting",
@@ -122,7 +122,7 @@ const utilityEquipment = [
   {
     name: "WTP (Water Treatment)",
     icon: <Droplets className="w-8 h-8 text-[#3DD68C]" />,
-    image: "/technology/WTP (Water Treatment).png",
+    image: "/technology/WTP (Water Treatment).webp",
     details: [
       "Logs flow, turbidity, TDS",
       "Monitors dosing efficiency",
@@ -136,7 +136,7 @@ export default function OptiBytePage() {
   const bgImages = [
     "/What We Do all img/Technology-768x768.webp",
     "/technology/Energy analysis  bg.webp",
-    "/technology/bg3.png"
+    "/technology/bg3.webp"
   ];
 
   useEffect(() => {
@@ -214,7 +214,7 @@ export default function OptiBytePage() {
               className="relative rounded-[2rem] overflow-hidden aspect-[16/11] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.2)] border border-gray-100 group bg-gray-50/30"
             >
               <Image
-                src="/technology/optibyteui.png"
+                src="/technology/optibyteui.webp"
                 alt="OptiByte Architecture Diagram"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -258,7 +258,7 @@ export default function OptiBytePage() {
 
       {/* Platform Session Showcase */}
       <section className="py-32 bg-[#0D1B3E] relative overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[url('/technology/fullimg.png')] bg-cover bg-center opacity-10 grayscale scale-110" />
+        <div className="absolute inset-0 bg-[url('/technology/fullimg.webp')] bg-cover bg-center opacity-10 grayscale scale-110" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E] via-transparent to-[#0D1B3E]" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -279,7 +279,7 @@ export default function OptiBytePage() {
           >
             <div className="rounded-[2.5rem] overflow-hidden border border-white/20">
               <Image
-                src="/technology/fullimg.png"
+                src="/technology/fullimg.webp"
                 alt="Full Platform Interface"
                 width={1920}
                 height={1080}
