@@ -1,12 +1,14 @@
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
 import StatsBar from "@/components/home/StatsBar";
-import TrustedBy from "@/components/home/TrustedBy";
-import EPICSection from "@/components/home/EPICSection";
-import NetZeroFocus from "@/components/home/NetZeroFocus";
-import FocusAreas from "@/components/home/FocusAreas";
-import GlobalGoals from "@/components/home/GlobalGoals";
-import WhatWeDo from "@/components/home/WhatWeDo";
-import FAQSection from "@/components/home/FAQSection";
+
+const EPICSection = dynamic(() => import("@/components/home/EPICSection"));
+const TrustedBy = dynamic(() => import("@/components/home/TrustedBy"));
+const NetZeroFocus = dynamic(() => import("@/components/home/NetZeroFocus"));
+const FocusAreas = dynamic(() => import("@/components/home/FocusAreas"));
+const GlobalGoals = dynamic(() => import("@/components/home/GlobalGoals"));
+const WhatWeDo = dynamic(() => import("@/components/home/WhatWeDo"));
+const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
 
 export default function Home() {
   return (

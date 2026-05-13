@@ -119,7 +119,7 @@ export default function CareersPage() {
       <section className="relative pt-40 pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/Careers/career 1.webp"
+            src="/Careers/career .webp"
             alt="Careers Background"
             fill
             className="object-cover"
@@ -327,9 +327,18 @@ export default function CareersPage() {
       </section>
 
       {/* ── SECTION 5: APPLY NOW FORM ── */}
-      <section className="py-24 bg-white" id="apply">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl mx-auto p-10 md:p-16 rounded-[3rem] bg-white border border-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
+      <section className="relative py-24 overflow-hidden" id="apply">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/Careers/career .webp"
+            alt="Apply Background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[#0D1B3E]/80 backdrop-blur-[2px]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="max-w-3xl mx-auto p-10 md:p-16 rounded-[3rem] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
             <div className="text-center mb-12">
               <h2 className="font-[family-name:var(--font-sora)] text-4xl font-bold text-[#0D1B3E] mb-4">Apply Now</h2>
               <p className="text-gray-500 text-lg">Send us your details and we'll get back to you soon.</p>

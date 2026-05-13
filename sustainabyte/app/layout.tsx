@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import ScrollProgressBar from "@/components/layout/ScrollProgressBar";
 import { Toaster } from "react-hot-toast";
+
+const Footer = dynamic(() => import("@/components/layout/Footer"));
 
 const sora = Sora({
   subsets: ["latin"],
@@ -40,7 +42,9 @@ export const metadata: Metadata = {
       "EPIC Facilities. Verified Savings. Net Zero Aligned.",
     type: "website",
   },
-};
+  icons: {
+    icon: "/icon.png?v=1",
+  } };
 
 export default function RootLayout({
   children,

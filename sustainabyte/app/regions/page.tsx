@@ -152,15 +152,15 @@ export default function RegionsPage() {
               // South India
               { top: "46%", left: "70.5%", label: "Chennai" },
               { top: "45%", left: "69.7%", label: "Coimbatore" },
-          
+
 
               // West India
-            
-         
-             
-            
+
+
+
+
               // Others
-            
+
             ].map((marker, i) => (
               <motion.div
                 key={i}

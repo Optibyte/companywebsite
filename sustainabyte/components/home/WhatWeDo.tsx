@@ -10,7 +10,7 @@ const cards = [
     description:
       "Energy efficiency consulting, analytics, and management solutions for industrial and commercial facilities.",
     href: "/energy",
-    image: "/What We Do all img/Energy-768x768.webp",
+    image: "/What We Do all img/energy.webp",
   },
   {
     title: "Technology",
@@ -24,7 +24,7 @@ const cards = [
     description:
       "Carbon accounting, water management, decarbonization, and Net Zero roadmap planning.",
     href: "/sustainability",
-    image: "/What We Do all img/sustainabyte.webp",
+    image: "/What We Do all img/sustainability.webp",
   },
 ];
 
