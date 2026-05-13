@@ -42,7 +42,9 @@ export const metadata: Metadata = {
       "EPIC Facilities. Verified Savings. Net Zero Aligned.",
     type: "website",
   },
-};
+  icons: {
+    icon: "/icon.png?v=1",
+  } };
 
 export default function RootLayout({
   children,
