@@ -335,7 +335,7 @@ export default function CareersPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#0D1B3E]/80 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gray-800/80 backdrop-blur-[2px]" />
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto p-10 md:p-16 rounded-[3rem] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.3)]">

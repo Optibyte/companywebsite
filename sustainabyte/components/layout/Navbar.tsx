@@ -143,6 +143,9 @@ const navLinks: NavLink[] = [
           title: "AI",
           items: [
             { name: "AI Capabilities", href: "/technology/ai" },
+            { name: "Digital Twin Intelligence", href: "/technology/ai#digital-twin" },
+            { name: "Smart Fault Detection & Diagnostics", href: "/technology/ai#fdd" },
+            { name: "AI Assistant", href: "/technology/ai#ai-assistant" },
           ]
         }
       ]
