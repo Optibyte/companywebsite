@@ -35,8 +35,8 @@ const categories = [
       { src: "/Retail Spaces/Supermarkets-300x200.webp",      name: "Supermarkets" },
       { src: "/Retail Spaces/Franchise-Outlets-300x200.webp",   name: "Franchise Outlets" },
       { src: "/Retail Spaces/Restaurants.webp",                name: "Restaurants" },
-      { src: "/Retail Spaces/Banks-scaled.webp",               name: "Banks" },
-      { src: "/Retail Spaces/Automobile-Showrooms.webp",       name: "Automobile Showrooms" },
+      { src: "/Retail Spaces/Banks.webp",               name: "Banks" },
+      { src: "/Retail Spaces/showerooms.webp",       name: "Automobile Showrooms" },
     ],
   },
 ];

@@ -16,7 +16,7 @@ const cards = [
     title: "Technology",
     description:
       "AI-powered platforms including OptiByte, InByte, and IoT solutions for intelligent energy management.",
-    href: "/technology",
+    href: "/technology/optibyte",
     image: "/What We Do all img/Technology-768x768.webp",
   },
   {
