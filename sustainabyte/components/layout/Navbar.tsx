@@ -131,13 +131,14 @@ const navLinks: NavLink[] = [
         },
         {
           title: "IOT Solutions",
+          href: "/technology/iot-solutions",
           items: [
-            { name: "OptiedgeW", href: "/technology#optiedgew" },
-            { name: "OptiedgeAC", href: "/technology#optiedgeac" },
-            { name: "OptiedgeCT", href: "/technology#optiedgect" },
-            { name: "OptiedgeCPM", href: "/technology#optiedgecpm" },
-            { name: "OptiedgeCAM", href: "/technology#optiedgecam" },
-            { name: "OptiedgeDM", href: "/technology#optiedgedm" },
+            { name: "OptiedgeW", href: "/technology/iot-solutions#optiedgew" },
+            { name: "OptiedgeAC", href: "/technology/iot-solutions#optiedgeac" },
+            { name: "OptiedgeCT", href: "/technology/iot-solutions#optiedgect" },
+            { name: "OptiedgeCPM", href: "/technology/iot-solutions#optiedgecpm" },
+            { name: "OptiedgeCAM", href: "/technology/iot-solutions#optiedgecam" },
+            { name: "OptiedgeDM", href: "/technology/iot-solutions#optiedgedm" },
           ]
         }, {
           title: "AI",
