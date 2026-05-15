@@ -22,7 +22,7 @@ const commitmentCards = [
     title: "Decarbonization",
     description:
       "Systematic reduction of carbon emissions through intelligent energy management and optimization.",
-    image: "/Decarbonizationbg.webp",
+    image: "/What We Do all img/co2.webp",
     accent: "#083063ff",
   },
 ];

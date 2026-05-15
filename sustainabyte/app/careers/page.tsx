@@ -461,7 +461,7 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon: Mail, title: "Email HR", detail: "careers@sustainabyte.ai", link: "mailto:careers@sustainabyte.ai" },
+              { icon: Mail, title: "Email HR", detail: "hr@sustainabyte.ai", link: "mailto:hr@sustainabyte.ai" },
               { icon: Phone, title: "Call Us", detail: "+91 83770 07638", link: "tel:+918377007638" },
               { icon: LinkedinIcon, title: "LinkedIn", detail: "Follow for updates", link: "https://linkedin.com/company/sustainabyte-ai/" }
             ].map((item, i) => (
