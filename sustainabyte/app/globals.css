@@ -34,6 +34,19 @@
     color: var(--color-text-primary);
     background-color: var(--color-primary);
     overflow-x: hidden;
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  /* Ensure all text content is selectable — override any inherited restrictions */
+  p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, label, blockquote {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
+  /* Decorative overlay divs (gradients, backgrounds, glows) should never block mouse events */
+  .absolute.inset-0:not([class*="z-10"]):not([class*="z-20"]):not(button):not(a):not([class*="flex-col"]):not([class*="items-center"]) {
+    pointer-events: none;
   }
 
   h1,
