@@ -67,7 +67,43 @@ export default function CareersPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const files = e.dataTransfer.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      const validTypes = [".pdf", ".doc", ".docx"];
+      const extension = file.name.substring(file.name.lastIndexOf(".")).toLowerCase();
+
+      if (validTypes.includes(extension)) {
+        if (file.size <= 5 * 1024 * 1024) {
+          setSelectedFile(file);
+        } else {
+          toast.error("File size exceeds 5MB limit.");
+        }
+      } else {
+        toast.error("Invalid file type. Please upload PDF, DOC, or DOCX.");
+      }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -404,9 +440,16 @@ export default function CareersPage() {
                 <label className="text-sm font-bold text-gray-700">Upload Resume</label>
                 <div
                   onClick={() => fileInputRef.current?.click()}
-                  className={`w-full border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer flex flex-col items-center justify-center group ${selectedFile ? 'border-[#3DD68C] bg-[#3DD68C]/5' : 'border-gray-200 bg-gray-50 hover:border-[#3DD68C] hover:bg-gray-100'}`}
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}
+                  className={`w-full border-2 border-dashed rounded-2xl p-10 text-center transition-all cursor-pointer flex flex-col items-center justify-center group ${
+                    isDragging || selectedFile
+                      ? "border-[#3DD68C] bg-[#3DD68C]/5"
+                      : "border-gray-200 bg-gray-50 hover:border-[#3DD68C] hover:bg-gray-100"
+                  }`}
                 >
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-colors ${selectedFile ? 'bg-[#3DD68C] text-white' : 'bg-[#3DD68C]/10 text-[#3DD68C] group-hover:bg-[#3DD68C]/20'}`}>
+                  <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-colors ${selectedFile || isDragging ? 'bg-[#3DD68C] text-white' : 'bg-[#3DD68C]/10 text-[#3DD68C] group-hover:bg-[#3DD68C]/20'}`}>
                     <Upload className="w-7 h-7" />
                   </div>
                   <input
