@@ -13,6 +13,7 @@ const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
 export default function Home() {
   return (
     <>
+    
       <HeroSection />
       <StatsBar />
       <EPICSection />
