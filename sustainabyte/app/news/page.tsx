@@ -15,7 +15,7 @@ const newsItems = [
     href: "#",
   },
   {
-    id: 2,
+    id: 2,  
     publishedBy: "INBAC Association",
     date: "October 2025",
     title: "INBAC features Sustainabyte's insights on Decarbonization and High-Performance Buildings",
