@@ -41,13 +41,10 @@ export default function NewsPage() {
       <section className="relative w-full min-h-[450px] flex items-center pt-32 pb-20 overflow-hidden bg-[#0D1B3E]">
         {/* Pure Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image
+          <img
             src="/news/news bg.webp"
             alt="News Background"
-            fill
-            className="object-cover"
-            priority
-            unoptimized
+            className="w-full h-full object-cover"
           />
         </div>
 
@@ -128,13 +125,10 @@ export default function NewsPage() {
               >
                 {/* Image */}
                 <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] overflow-hidden mb-6 bg-gray-100">
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.title}
-                    fill
-                    className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
 
