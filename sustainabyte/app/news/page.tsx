@@ -11,7 +11,7 @@ const newsItems = [
     date: "January 2026",
     title: "Sustainabyte to showcase AI-driven transformation at IRIS 2026 & DeepTech Summit",
     excerpt: "We are excited to be part of the 3rd Edition of the Industrial Research & Innovation Summit – IRIS 2026, showcasing the future of AI-driven industrial transformation. It is a proud moment for Sustainabyte Technologies to be featured at the DeepTech Summit 2026 alongside leading innovators and industry experts. Our focus remains on delivering intelligent solutions in Digital Twin, AI Analytics, Energy Optimization, and Smart Industrial Automation. This platform enables us to connect with visionary leaders shaping the next generation of sustainable technologies. IRIS 2026 reflects the growing importance of deep-tech innovation in transforming industries worldwide. We are honored to contribute toward building smarter, greener, and more efficient industrial ecosystems.",
-    image: "/news/srm.webp",
+    image: "/News/srm.webp",
     href: "#",
   },
   {
@@ -20,7 +20,7 @@ const newsItems = [
     date: "October 2025",
     title: "INBAC features Sustainabyte's insights on Decarbonization and High-Performance Buildings",
     excerpt: "INBAC BTB Magazine (October 2025 Edition) highlighted Arun Prasad, Founder of Sustainabyte Technologies, for his article on advancing buildings beyond compliance through data-led decarbonization. The feature explains how the EPIC framework helps optimize systems, enhance reliability, and reduce energy, water, and carbon impacts.",
-    image: "/news/INBAC-768x644.webp",
+    image: "/News/INBAC-768x644.webp",
     href: "#",
   },
   {
@@ -29,7 +29,7 @@ const newsItems = [
     date: "October 2025",
     title: "Sustainabyte featured by Frost & Sullivan for advancing intelligent energy management",
     excerpt: "Frost & Sullivan, a global leader in growth advisory and market intelligence, spotlighted Sustainabyte Technologies for its contribution to intelligent energy analytics and digital sustainability. The feature recognized our Founder and CEO Thanakarthik Kumar for leading the company's mission to make buildings Efficient, Predictive, Intelligent, and Controlled.",
-    image: "/news/Frost-Sullivan-768x492.webp",
+    image: "/News/Frost-Sullivan-768x492.webp",
     href: "#",
   },
 ];
@@ -41,10 +41,12 @@ export default function NewsPage() {
       <section className="relative w-full min-h-[450px] flex items-center pt-32 pb-20 overflow-hidden bg-[#0D1B3E]">
         {/* Pure Background Image */}
         <div className="absolute inset-0 z-0">
-          <img
-            src="/news/news bg.webp"
+          <Image
+            src="/News/news bg.webp"
             alt="News Background"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
 
@@ -125,10 +127,12 @@ export default function NewsPage() {
               >
                 {/* Image */}
                 <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] overflow-hidden mb-6 bg-gray-100">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                    fill
+                    className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
 
