@@ -11,16 +11,16 @@ const newsItems = [
     date: "January 2026",
     title: "Sustainabyte to showcase AI-driven transformation at IRIS 2026 & DeepTech Summit",
     excerpt: "We are excited to be part of the 3rd Edition of the Industrial Research & Innovation Summit – IRIS 2026, showcasing the future of AI-driven industrial transformation. It is a proud moment for Sustainabyte Technologies to be featured at the DeepTech Summit 2026 alongside leading innovators and industry experts. Our focus remains on delivering intelligent solutions in Digital Twin, AI Analytics, Energy Optimization, and Smart Industrial Automation. This platform enables us to connect with visionary leaders shaping the next generation of sustainable technologies. IRIS 2026 reflects the growing importance of deep-tech innovation in transforming industries worldwide. We are honored to contribute toward building smarter, greener, and more efficient industrial ecosystems.",
-  image: "/News/srm.webp",
+    image: "/News/srm.webp",
     href: "#",
   },
   {
-    id: 2,  
+    id: 2,
     publishedBy: "INBAC Association",
     date: "October 2025",
     title: "INBAC features Sustainabyte's insights on Decarbonization and High-Performance Buildings",
     excerpt: "INBAC BTB Magazine (October 2025 Edition) highlighted Arun Prasad, Founder of Sustainabyte Technologies, for his article on advancing buildings beyond compliance through data-led decarbonization. The feature explains how the EPIC framework helps optimize systems, enhance reliability, and reduce energy, water, and carbon impacts.",
-  image: "/News/INBAC-768x644.webp",
+    image: "/News/INBAC-768x644.webp",
     href: "#",
   },
   {
@@ -29,7 +29,7 @@ const newsItems = [
     date: "October 2025",
     title: "Sustainabyte featured by Frost & Sullivan for advancing intelligent energy management",
     excerpt: "Frost & Sullivan, a global leader in growth advisory and market intelligence, spotlighted Sustainabyte Technologies for its contribution to intelligent energy analytics and digital sustainability. The feature recognized our Founder and CEO Thanakarthik Kumar for leading the company's mission to make buildings Efficient, Predictive, Intelligent, and Controlled.",
-  image: "/News/Frost-Sullivan-768x492.webp",
+    image: "/News/Frost-Sullivan-768x492.webp",
     href: "#",
   },
 ];
