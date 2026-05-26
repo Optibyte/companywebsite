@@ -18,7 +18,8 @@ import {
   Activity,
   Layers,
   Search,
-  Monitor
+  Monitor,
+  Users
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -231,17 +232,20 @@ export default function OptiBytePage() {
                 Unlock <span className="text-[#3DD68C]">System-Level</span> Insights
               </h2>
               <p className="text-xl text-gray-600 mb-12 leading-relaxed">
-                Gain deep visibility into how your equipment behaves across seasons, zones, and operating conditions.
+                Gain deep visibility into how your equipment behaves across seasons, zones, and operating conditions with a high-performance feature suite.
               </p>
 
               <div className="space-y-8">
                 {[
-                  { icon: <Monitor className="w-6 h-6" />, title: "Real-time Dashboards", desc: "Interactive alerts and automated performance reports." },
-                  { icon: <Layers className="w-6 h-6" />, title: "Predictive Maintenance", desc: "Analyzing long-range data patterns to prevent failure." },
-                  { icon: <TrendingUp className="w-6 h-6" />, title: "Energy Benchmarks", desc: "Compare actual performance against theoretical baselines." }
+                  { icon: <Monitor className="w-6 h-6" />, title: "Real-Time Energy Monitoring", desc: "Live visualization of power loads, electrical parameters, and utility consumption patterns across your entire facility footprint." },
+                  { icon: <Layers className="w-6 h-6" />, title: "Equipment-Level Analytics", desc: "Granular diagnostics for HVAC, compressed air, boilers, and pumps to isolate inefficiencies down to individual mechanical assets." },
+                  { icon: <Zap className="w-6 h-6" />, title: "Chiller Plant KPIs", desc: "Track coefficient of performance (COP), specific energy consumption (kW/TR), and heat balance equations in real time." },
+                  { icon: <ShieldCheck className="w-6 h-6" />, title: "Alerts & Anomaly Detection", desc: "AI-driven diagnostics that immediately flag deviations, drift, low Delta-T syndrome, and equipment failures before they trigger shutdowns." },
+                  { icon: <BarChart3 className="w-6 h-6" />, title: "M&V Reporting (IPMVP)", desc: "Generate automated Measurement & Verification reports compliant with global IPMVP standards to verify exact CapEx/OpEx savings." },
+                  { icon: <Users className="w-6 h-6" />, title: "Role-Based Dashboards", desc: "Tailored viewports for facility heads, energy engineers, and corporate CXOs to track operational uptime and net-zero targets." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 items-start group">
-                    <div className="w-14 h-14 rounded-2xl bg-[#0D1B3E]/5 flex items-center justify-center text-[#3DD68C] group-hover:bg-[#3DD68C] group-hover:text-white transition-all duration-300">
+                    <div className="w-14 h-14 rounded-2xl bg-[#0D1B3E]/5 flex items-center justify-center text-[#3DD68C] group-hover:bg-[#3DD68C] group-hover:text-white transition-all duration-300 flex-shrink-0">
                       {item.icon}
                     </div>
                     <div>

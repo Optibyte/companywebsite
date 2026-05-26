@@ -43,9 +43,8 @@ function CommitmentRow({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`flex flex-col ${
-        isEven ? "md:flex-row" : "md:flex-row-reverse"
-      } items-center gap-10 md:gap-16 mb-20 md:mb-32`}
+      className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"
+        } items-center gap-10 md:gap-16 mb-20 md:mb-32`}
     >
       {/* Image Section */}
       <div className="w-full md:w-1/2 relative">
@@ -53,7 +52,7 @@ function CommitmentRow({
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="relative rounded-[2rem] overflow-hidden"
-          style={{ 
+          style={{
             boxShadow: "0 20px 40px rgba(25,63,112,0.12)",
           }}
         >
@@ -72,20 +71,20 @@ function CommitmentRow({
       {/* Text Section */}
       <div className="w-full md:w-1/2 flex flex-col justify-center text-left px-2 sm:px-6">
         <motion.div
-           initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           {/* ESG badge */}
-       
+
           <h3 className="font-[family-name:var(--font-sora)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#193F70] mb-6 leading-tight">
             {card.title}
           </h3>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 font-[family-name:var(--font-dm-sans)]">
             {card.description}
           </p>
- 
+
         </motion.div>
       </div>
     </motion.div>

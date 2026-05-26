@@ -22,7 +22,7 @@ import GreenButton from "@/components/ui/GreenButton";
 const products = [
   {
     id: "optiedgew",
-    name: "OptiedgeW",
+    name: "Optiedge Water",
     subtitle: "Smart Water Monitoring",
     description:
       "Real-time water consumption monitoring and leak detection for industrial and commercial facilities. Reduce water wastage with intelligent flow analysis and automated alerts.",
@@ -40,7 +40,7 @@ const products = [
   },
   {
     id: "optiedgeac",
-    name: "OptiedgeAC",
+    name: "Optiedge HVAC",
     subtitle: "HVAC & Air Quality Control",
     description:
       "Intelligent HVAC monitoring and control with indoor air quality tracking. Optimize energy consumption while maintaining optimal comfort and air quality standards.",
@@ -58,7 +58,7 @@ const products = [
   },
   {
     id: "optiedgect",
-    name: "OptiedgeCT",
+    name: "Optiedge Cooling Tower",
     subtitle: "Cooling Tower Intelligence",
     description:
       "Advanced cooling tower performance monitoring to maximise efficiency and prevent failures. Track water treatment, blowdown cycles, and thermal performance in real time.",
@@ -76,7 +76,7 @@ const products = [
   },
   {
     id: "optiedgecpm",
-    name: "OptiedgeCPM",
+    name: "Optiedge Chiller Plant Management",
     subtitle: "Chiller & Plant Monitoring",
     description:
       "Comprehensive chiller plant monitoring for maximum COP and system reliability. Get continuous visibility into compressor health, refrigerant levels, and energy consumption.",
@@ -94,7 +94,7 @@ const products = [
   },
   {
     id: "optiedgecam",
-    name: "OptiedgeCAM",
+    name: "Optiedge Compressed Air Manager",
     subtitle: "Compressed Air Monitoring",
     description:
       "End-to-end compressed air system monitoring to eliminate leaks and reduce energy waste. Measure flow, pressure, and dew point across your distribution network in real time.",
@@ -112,7 +112,7 @@ const products = [
   },
   {
     id: "optiedgedm",
-    name: "OptiedgeDM",
+    name: "Optiedge Demand Management",
     subtitle: "Demand Management",
     description:
       "Intelligent energy demand management to reduce peak load charges and optimise tariff utilisation. Prevent demand spikes with predictive load control and real-time alerts.",
