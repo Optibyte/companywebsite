@@ -24,7 +24,7 @@ export default function GreenButton({
   type = "button",
 }: GreenButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 cursor-pointer";
+    "inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap";
 
   const variants = {
     primary:

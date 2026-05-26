@@ -252,24 +252,24 @@ export default function InBytePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-16">
             {[
               {
-                title: "Automated Scoring",
-                desc: "Intelligent scoring across Disclosure, Awareness, Management, and Leadership levels.",
+                title: "Scope 1, 2 & 3 Carbon Accounting",
+                desc: "Thoroughly tracks and aggregates Scope 1, Scope 2, and supply-chain Scope 3 greenhouse gas emissions, keeping you audit-ready under the GHG Protocol and ISO 14064 standards.",
                 icon: "/technology/fixbyte/Automated-Scoring.svg"
               },
               {
-                title: "Industry Benchmarking",
-                desc: "Compare performance against industry leaders and top-performing organizations.",
-                icon: "/technology/fixbyte/Benchmark-1.svg"
+                title: "Multi-Framework ESG Reporting",
+                desc: "Full automated alignment with top global frameworks including CDP, BRSR (Business Responsibility & Sustainability Reporting), and Net-Zero Science-Based Target initiatives (SBTi).",
+                icon: "/technology/fixbyte/Framework.svg"
               },
               {
-                title: "Smart Recommendations",
-                desc: "AI-powered sector-specific improvements tailored to your industry.",
+                title: "AI Compliance Engine",
+                desc: "An intelligent document processing engine that automatically parses utility invoices, fuel logs, and procurement sheets to compile pristine audit trails without manual entries.",
                 icon: "/technology/fixbyte/Recommendation.svg"
               },
               {
-                title: "Framework Adaptation",
-                desc: "Automatically adapts to annual CDP framework changes without consultants.",
-                icon: "/technology/fixbyte/Framework.svg"
+                title: "Automatic System Updates",
+                desc: "Keeps up with annual changes in standard disclosure questionnaires, meaning zero dependency on high-fee third-party ESG consultants.",
+                icon: "/technology/fixbyte/Benchmark-1.svg"
               }
             ].map((cap, idx) => (
               <motion.div

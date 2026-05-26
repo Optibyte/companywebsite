@@ -5,13 +5,14 @@ import { motion, useInView } from "framer-motion";
 import { Users, Settings, Leaf } from "lucide-react";
 
 function useCountUp(end: number, duration: number = 2000, startCounting: boolean = false) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(end);
   const hasStarted = useRef(false);
 
   useEffect(() => {
     if (!startCounting || hasStarted.current) return;
     hasStarted.current = true;
 
+    setCount(0);
     const startTime = performance.now();
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime;
@@ -32,15 +33,15 @@ function useCountUp(end: number, duration: number = 2000, startCounting: boolean
 const stats = [
   {
     icon: Users,
-    value: 25,
+    value: 75,
     suffix: "+",
     label: "Clients",
   },
   {
     icon: Settings,
-    value: 15,
+    value: 25,
     suffix: "+",
-    label: "Equipments Categories",
+    label: "Equipment Categories",
   },
   {
     icon: Leaf,
@@ -70,7 +71,7 @@ export default function StatsBar() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section className="relative z-20">
+    <section className="relative z-20 bg-[#0B1E3D]">
       {/* Dark blue background band covering the top half of this section */}
       <div className="absolute top-0 left-0 right-0 h-[60%] bg-[#0D1B3E]" />
 

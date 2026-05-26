@@ -115,7 +115,7 @@ export default function FixBytePage() {
                 Mobile-First CMMS
               </div>
               <h1 className="text-7xl md:text-9xl font-black text-white mb-6 leading-tight">
-                Fix<span className="text-[#4DB846]">Byte</span>
+                Fixi<span className="text-[#4DB846]">Byte</span>
               </h1>
               <p className="text-3xl md:text-4xl text-gray-300 font-medium mb-10 leading-relaxed max-w-2xl">
                 The modern standard for <span className="text-white font-bold underline decoration-[#4DB846] underline-offset-8">Asset & Maintenance</span> management.

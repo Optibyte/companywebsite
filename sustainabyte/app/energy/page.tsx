@@ -267,49 +267,49 @@ export default function EnergyPage() {
                 cta: "Book a Performance Audit"
               },
               {
-                title: "ASHRAE Level 1 & 2 Audits",
-                description: "We specialize in providing ASHARE Level 1 and 2 audits that help you achieve top-tier energy performance standards",
+                title: "ASHRAE Level 1, 2, & 3 Energy Audits",
+                description: "We specialize in providing ASHRAE Level 1, 2, and 3 audits that deliver rigorous investment-grade profiles to justify your facility's CapEx/OpEx improvements with verified energy savings.",
                 image: "/energy/Energy Efficiency and Consulting/ASHRAE-Level-1-2-768x768.webp",
                 features: [
-                  { name: "Level 1 Audit", desc: "A preliminary assessment based on utility bills and basic walkthroughs to identify low-cost opportunities", icon: <ClipboardList /> },
-                  { name: "Level 2 Audit", desc: "Adds detailed diagnostics, load analysis, and feasibility studies for CapEx-driven improvements", icon: <Building2 /> },
-                  { name: "Investment-Grade Insights", desc: "Audit reports include ROI analysis and phased implementation strategies", icon: <TrendingUp /> },
-                  { name: "ASHRAE Compliance", desc: "Audits conducted by experienced professionals to meet highest standards", icon: <Award /> }
+                  { name: "Level 1 Walkthrough Audit", desc: "A preliminary assessment of utility bills and basic facility walkthroughs to identify low-cost/no-cost operational improvements.", icon: <ClipboardList /> },
+                  { name: "Level 2 Diagnostic Audit", desc: "In-depth energy consumption diagnostics, detailed end-use breakdowns, and feasibility calculations for capital measures.", icon: <Building2 /> },
+                  { name: "Level 3 Investment-Grade Audit", desc: "Highest tier modeling, rigorous transient simulation, and comprehensive cost-benefit analysis to fully secure CapEx investments.", icon: <TrendingUp /> },
+                  { name: "ASHRAE & Local Regulatory Compliance", desc: "Audits conducted by certified energy managers (CEMs) to comply with local municipality and global efficiency standards.", icon: <Award /> }
                 ],
                 cta: "Book your Audit"
               },
               {
-                title: "Electrical Safety Audits",
-                description: "We evaluate the reliability, safety, and regulatory compliance of your electrical infrastructure",
+                title: "ISO 50001/2 & M&V Validation (IPMVP)",
+                description: "Ensure continuous savings, structured compliance, and verified carbon accounting through standardized systems auditing and Measurement & Verification (M&V).",
+                image: "/energy/Energy Efficiency and Consulting/Power-Quality-Analysis-768x768.webp", // reutilize dynamic visual background
+                features: [
+                  { name: "ISO 50001 & 50002 Implementation", desc: "End-to-end guidance to design, deploy, and audit your Energy Management System (EnMS) to achieve prestigious ISO certifications.", icon: <ShieldCheck /> },
+                  { name: "IPMVP Savings Validation", desc: "Apply the International Performance Measurement and Verification Protocol (IPMVP) to mathematically isolate and prove actual savings.", icon: <Calculator /> },
+                  { name: "Decarbonization Tracking", desc: "Convert verified energy savings directly into Scope 1 & 2 greenhouse gas reduction numbers for ESG reporting.", icon: <Leaf /> }
+                ],
+                cta: "Implement ISO EnMS"
+              },
+              {
+                title: "Electrical Safety & Power Quality",
+                description: "Evaluate the reliability, safety, harmonics, and overall efficiency of your electrical distribution networks.",
                 image: "/energy/Energy Efficiency and Consulting/Electrical-Safety-Audits-1024x1024.webp",
                 features: [
-                  { name: "System Inspections", desc: "Assess panels, cable routing, earthing, breaker settings, and distribution architecture", icon: <ShieldAlert /> },
-                  { name: "Thermal Imaging & Fault Detection", desc: "Thermographic scans detect loose connections, unbalanced loads, and insulation faults", icon: <Video /> },
-                  { name: "Risk Reduction Strategy", desc: "Reports help reduce fire risks, increase uptime, and fulfill statutory audit requirements", icon: <ShieldCheck /> }
+                  { name: "Thermal Imaging & Hot-Spot Scans", desc: "Thermographic imaging to detect loose connections, overloaded circuits, and potential fire risks.", icon: <Video /> },
+                  { name: "Harmonics & Sag/Swell Analysis", desc: "Capture voltage sags, swells, transients, and waveform distortion affecting sensitive microprocessor equipment.", icon: <Waves /> },
+                  { name: "Utility Penalty Prevention", desc: "Specific recommendations to correct power factor (PF) lag, reduce penalty tariffs, and extend plant assets.", icon: <Cpu /> }
                 ],
                 cta: "Request Visit"
-              },
-              {
-                title: "Power Quality Analysis",
-                description: "We assess power quality disturbances that affect sensitive equipment and overall system efficiency",
-                image: "/energy/Energy Efficiency and Consulting/Power-Quality-Analysis-768x768.webp",
-                features: [
-                  { name: "Real-Time Data Collection", desc: "Install high-frequency analyzers to capture harmonics, sags, swells and transients", icon: <Waves /> },
-                  { name: "Distortion Analysis", desc: "Analyze waveform deviations, voltage imbalances, and non-linear loads", icon: <LineChart /> },
-                  { name: "Performance Recommendations", desc: "Insights to connect poor PF, reduce utility penalties, and safeguard equipment longevity", icon: <Cpu /> }
-                ],
-                cta: "Book your Audit"
               }
             ].map((capability, index) => (
               <div
                 key={index}
                 id={capability.title.toLowerCase().includes("equip-ops") ? "equip-ops" :
                   capability.title.toLowerCase().includes("compressed air") ? "compressed-air" :
-                    capability.title.toLowerCase().includes("chiller") ? "chiller" :
-                      capability.title.toLowerCase().includes("boiler") ? "boiler" :
-                        capability.title.toLowerCase().includes("ashrae") ? "ashrae" :
-                          capability.title.toLowerCase().includes("electrical safety") ? "electrical" :
-                            capability.title.toLowerCase().includes("power quality") ? "power" : undefined}
+                  capability.title.toLowerCase().includes("chiller") ? "chiller" :
+                  capability.title.toLowerCase().includes("boiler") ? "boiler" :
+                  capability.title.toLowerCase().includes("ashrae") ? "ashrae" :
+                  capability.title.toLowerCase().includes("iso") ? "iso-50001" :
+                  capability.title.toLowerCase().includes("electrical") ? "electrical" : undefined}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}
               >
                 <motion.div

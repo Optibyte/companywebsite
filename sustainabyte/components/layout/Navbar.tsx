@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Zap, BarChart3, ShieldCheck, Database, Leaf, Globe, Cpu, BookOpen, Users } from "lucide-react";
+import { Menu, X, ChevronDown, Zap, BarChart3, ShieldCheck, Database, Leaf, Globe, Cpu, BookOpen, Users, Brain, Newspaper, Handshake, Briefcase } from "lucide-react";
 
 type NavLink = {
   name: string;
@@ -122,9 +122,10 @@ const navLinks: NavLink[] = [
         {
           title: "Software",
           items: [
-            { name: "Optibyte", href: "/technology/optibyte" },
-            { name: "Fixbyte", href: "/technology/fixbyte" },
-            { name: "Inbyte", href: "/technology/inbyte" },
+            { name: "OptiByte (AIoT Energy)", href: "/technology/optibyte" },
+            { name: "CPM/CPO (Chiller Plant Manager)", href: "/technology/chiller-plant-manager" },
+            { name: "InByte (ESG & Sustainability)", href: "/technology/inbyte" },
+            { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
             { name: "Fusionbyte", href: "/technology/fusionbyte" },
             { name: "Digiweld", href: "/technology/digiweld" },
           ]
@@ -133,12 +134,12 @@ const navLinks: NavLink[] = [
           title: "IOT Solutions",
           href: "/technology/iot-solutions",
           items: [
-            { name: "OptiedgeW", href: "/technology/iot-solutions#optiedgew" },
-            { name: "OptiedgeAC", href: "/technology/iot-solutions#optiedgeac" },
-            { name: "OptiedgeCT", href: "/technology/iot-solutions#optiedgect" },
-            { name: "OptiedgeCPM", href: "/technology/iot-solutions#optiedgecpm" },
-            { name: "OptiedgeCAM", href: "/technology/iot-solutions#optiedgecam" },
-            { name: "OptiedgeDM", href: "/technology/iot-solutions#optiedgedm" },
+            { name: "Optiedge Water", href: "/technology/iot-solutions#optiedgew" },
+            { name: "Optiedge HVAC", href: "/technology/iot-solutions#optiedgeac" },
+            { name: "Optiedge Cooling Tower", href: "/technology/iot-solutions#optiedgect" },
+            { name: "Optiedge Chiller Plant Management", href: "/technology/iot-solutions#optiedgecpm" },
+            { name: "Optiedge Compressed Air Manager", href: "/technology/iot-solutions#optiedgecam" },
+            { name: "Optiedge Demand Management", href: "/technology/iot-solutions#optiedgedm" },
           ]
         }, {
           title: "AI",
@@ -179,7 +180,7 @@ const navLinks: NavLink[] = [
     href: "/company",
     megaMenu: {
       title: "Company",
-      gridCols: 3,
+      gridCols: 4,
       columns: [
         {
           title: "About Us",
@@ -194,6 +195,11 @@ const navLinks: NavLink[] = [
         {
           title: "Careers",
           href: "/careers",
+          items: []
+        },
+        {
+          title: "People",
+          href: "/people",
           items: []
         }
       ]
@@ -324,50 +330,45 @@ export default function Navbar() {
                 {(link.dropdown || link.megaMenu) ? (
                   <div className="flex flex-col items-center">
                     <button
-                      className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${
-                        isNavActive(link) || activeDropdown === link.name
+                      className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${isNavActive(link) || activeDropdown === link.name
                           ? "text-[#3DD68C]"
                           : "text-white hover:text-white/80"
-                      }`}
+                        }`}
                       onClick={() =>
                         setActiveDropdown(activeDropdown === link.name ? null : link.name)
                       }
                     >
                       {link.name}
                       <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          activeDropdown === link.name ? "rotate-180" : ""
-                        }`}
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === link.name ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
                     {/* Active underline indicator */}
                     <span
-                      className={`block h-0.5 rounded-full transition-all duration-300 ${
-                        isNavActive(link) || activeDropdown === link.name
+                      className={`block h-0.5 rounded-full transition-all duration-300 ${isNavActive(link) || activeDropdown === link.name
                           ? "w-4/5 bg-[#3DD68C]"
                           : "w-0 bg-transparent"
-                      }`}
+                        }`}
                     />
                   </div>
                 ) : (
                   <div className="flex flex-col items-center">
                     <Link
                       href={link.href}
-                      className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${
-                        isNavActive(link)
+                      className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${isNavActive(link)
                           ? "text-[#3DD68C]"
                           : "text-white hover:text-white/80"
-                      }`}
+                        }`}
                     >
                       {link.name}
                     </Link>
                     {/* Active underline indicator */}
                     <span
-                      className={`block h-0.5 rounded-full transition-all duration-300 ${
-                        isNavActive(link)
+                      className={`block h-0.5 rounded-full transition-all duration-300 ${isNavActive(link)
                           ? "w-4/5 bg-[#3DD68C]"
                           : "w-0 bg-transparent"
-                      }`}
+                        }`}
                     />
                   </div>
                 )}
@@ -416,9 +417,8 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`block py-3.5 text-lg transition-colors border-b border-white/5 font-medium ${
-                      isActive(link.href) ? "text-[#3DD68C]" : "text-white/70 hover:text-[#3DD68C]"
-                    }`}
+                    className={`block py-3.5 text-lg transition-colors border-b border-white/5 font-medium ${isActive(link.href) ? "text-[#3DD68C]" : "text-white/70 hover:text-[#3DD68C]"
+                      }`}
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.name}
@@ -466,11 +466,10 @@ export default function Navbar() {
                 {/* Close Button */}
                 <button
                   onClick={() => setActiveDropdown(null)}
-                  className="absolute -top-4 right-0 text-white/40 hover:text-white hover:bg-white/10 rounded-full p-2 transition-all duration-300"
+                  className="absolute -top-6 right-6 text-white/40 hover:text-white hover:bg-white/10 rounded-full p-2 transition-all duration-300 z-50"
                 >
                   <X className="w-5 h-5" />
                 </button>
-
                 {/* Columns */}
                 <div className={`grid grid-cols-1 gap-12 ${link.megaMenu.gridCols === 4 ? "md:grid-cols-4" :
                   link.megaMenu.gridCols === 2 ? "md:grid-cols-2" :
@@ -486,8 +485,12 @@ export default function Navbar() {
                                 col.title.includes("Software") || col.title.includes("Net Zero") ? <Cpu className="w-5 h-5 text-[#4DB846]" /> :
                                   col.title.includes("IOT") ? <Database className="w-5 h-5 text-[#4DB846]" /> :
                                     col.title.includes("Blogs") ? <BookOpen className="w-5 h-5 text-[#4DB846]" /> :
-                                      col.title.includes("About") ? <Users className="w-5 h-5 text-[#4DB846]" /> :
-                                        <Globe className="w-5 h-5 text-[#4DB846]" />}
+                                      col.title.includes("About") || col.title.includes("People") ? <Users className="w-5 h-5 text-[#4DB846]" /> :
+                                        col.title.includes("Clients") ? <Handshake className="w-5 h-5 text-[#4DB846]" /> :
+                                          col.title.includes("Careers") ? <Briefcase className="w-5 h-5 text-[#4DB846]" /> :
+                                            col.title.includes("AI") ? <Brain className="w-5 h-5 text-[#4DB846]" /> :
+                                              col.title.includes("News") ? <Newspaper className="w-5 h-5 text-[#4DB846]" /> :
+                                                <Globe className="w-5 h-5 text-[#4DB846]" />}
                         </div>
                         {col.href ? (
                           <Link

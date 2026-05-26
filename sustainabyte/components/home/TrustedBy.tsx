@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const clientLogos = [
-  { src: "/clients/Client-Logo-1-150x120.webp", alt: "Client 1" },
-  { src: "/clients/Client-Logo-2-300x126.webp", alt: "Client 2" },
-  { src: "/clients/Client-Logo-3-298x300.webp", alt: "Client 3" },
-  { src: "/clients/Client-Logo-4-300x220.webp", alt: "Client 4" },
-  { src: "/clients/Client-Logo-5-288x300.webp", alt: "Client 5" },
-  { src: "/clients/Client-Logo-6-300x177.webp", alt: "Client 6" },
-  { src: "/clients/Client-Logo-7-1-300x123.webp", alt: "Client 7" },
-  { src: "/clients/Client-Logo-8-286x300.webp", alt: "Client 8" },
-  { src: "/clients/Client-Logo-9.webp", alt: "Client 9" },
-  { src: "/clients/Client-Logo-10-300x285.webp", alt: "Client 10" },
-  { src: "/clients/Client-Logo-11-300x105.webp", alt: "Client 11" },
-  { src: "/clients/Client-Logo-12-300x108.webp", alt: "Client 12" },
-  { src: "/clients/Client-Logo-13-300x150.webp", alt: "Client 13" },
-  { src: "/clients/Client-Logo-14-300x225.webp", alt: "Client 14" },
+  { src: "/clients/Client-Logo-1-150x120.webp", alt: "ITC Limited" },
+  { src: "/clients/Client-Logo-2-300x126.webp", alt: "TVS Motor Company" },
+  { src: "/clients/Client-Logo-3-298x300.webp", alt: "Taj Hotels" },
+  { src: "/clients/Client-Logo-4-300x220.webp", alt: "Saint-Gobain" },
+  { src: "/clients/Client-Logo-5-288x300.webp", alt: "Murugappa Group" },
+  { src: "/clients/Client-Logo-6-300x177.webp", alt: "Sundram Fasteners" },
+  { src: "/clients/Client-Logo-7-1-300x123.webp", alt: "Apollo Hospitals" },
+  { src: "/clients/Client-Logo-8-286x300.webp", alt: "Hatsun Agro" },
+  { src: "/clients/Client-Logo-9.webp", alt: "Wheels India" },
+  { src: "/clients/Client-Logo-10-300x285.webp", alt: "Elgi Equipments" },
+  { src: "/clients/Client-Logo-11-300x105.webp", alt: "Sical Logistics" },
+  { src: "/clients/Client-Logo-12-300x108.webp", alt: "MRF Tyres" },
+  { src: "/clients/Client-Logo-13-300x150.webp", alt: "Aurobindo Pharma" },
+  { src: "/clients/Client-Logo-14-300x225.webp", alt: "Larsen & Toubro" },
 ];
 
 // Duplicate for seamless infinite loop
