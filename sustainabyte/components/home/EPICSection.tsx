@@ -78,10 +78,10 @@ function CommitmentRow({
         >
           {/* ESG badge */}
 
-          <h3 className="font-[family-name:var(--font-sora)] text-3xl md:text-4xl lg:text-5xl font-bold text-[#193F70] mb-6 leading-tight">
+          <h3 className="font-[family-name:var(--font-sora)] text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             {card.title}
           </h3>
-          <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8 font-[family-name:var(--font-dm-sans)]">
+          <p className="text-white/70 text-lg md:text-xl leading-relaxed mb-8 font-[family-name:var(--font-dm-sans)]">
             {card.description}
           </p>
 
@@ -133,7 +133,7 @@ const Particles = () => {
 
 export default function EPICSection() {
   return (
-    <section id="howitworks" className="py-60 sm:py-2 bg-gradient-to-b from-white via-white to-[#f0f9ff] relative z-10 overflow-hidden">
+    <section id="howitworks" className="py-20 sm:py-24 bg-[#0D1B3E] relative z-10 overflow-hidden">
       <Particles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Tagline */}
@@ -142,7 +142,7 @@ export default function EPICSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-lg sm:text-xl md:text-2xl text-[#193F70] italic mb-10 sm:mb-16 font-[family-name:var(--font-dm-sans)]"
+          className="text-lg sm:text-xl md:text-2xl text-white italic mb-10 sm:mb-16 font-[family-name:var(--font-dm-sans)]"
         >
           your facility deserves to be{" "}
           <motion.span
@@ -238,9 +238,9 @@ export default function EPICSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 1.6 }}
-          className="text-[#193F70] text-xl sm:text-2xl font-medium mb-14 sm:mb-20"
+          className="text-white text-xl sm:text-2xl font-medium mb-14 sm:mb-20"
         >
-          delivering higher performance and driving <span className="text-[#27A37B] font-bold">sustainable</span> growth.
+          delivering higher performance and driving <span className="text-[#3DD68C] font-bold">sustainable</span> growth.
         </motion.p>
 
         {/* Commitment Section */}
@@ -250,8 +250,8 @@ export default function EPICSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#193F70] text-center max-w-4xl mx-auto mb-14 sm:mb-20 px-4">
-            Our Commitment to a <span className="text-[#27A37B]">Sustainable</span> Future
+          <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center max-w-4xl mx-auto mb-14 sm:mb-20 px-4">
+            Our Commitment to a <span className="text-[#3DD68C]">Sustainable</span> Future
           </h2>
 
           <div className="max-w-6xl mx-auto px-1 sm:px-1 pb-1">

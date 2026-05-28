@@ -124,7 +124,7 @@ const navLinks: NavLink[] = [
           items: [
             { name: "OptiByte (AIoT Energy)", href: "/technology/optibyte" },
             { name: "CPM/CPO (Chiller Plant Manager)", href: "/technology/chiller-plant-manager" },
-            { name: "InByte (ESG & Sustainability)", href: "/technology/inbyte" },
+            { name: "IR Blaster (AC Monitoring)", href: "/technology/inbyte" },
             { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
             { name: "Fusionbyte", href: "/technology/fusionbyte" },
             { name: "Digiweld", href: "/technology/digiweld" },
@@ -252,8 +252,28 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileOpen]);
+
+  // Reset expanded menus when mobile menu closes
+  useEffect(() => {
+    if (!mobileOpen) {
+      setExpandedMobileMenu(null);
+    }
+  }, [mobileOpen]);
 
   const isActive = (href: string) => {
     if (href === "/" && pathname !== "/") return false;
@@ -293,6 +313,22 @@ export default function Navbar() {
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
+  };
+
+  const getColumnIcon = (title: string, className = "w-5 h-5 text-[#4DB846]") => {
+    const t = title.toLowerCase();
+    if (t.includes("consulting") || t.includes("accounting")) return <Zap className={className} />;
+    if (t.includes("analytics") || t.includes("water")) return <BarChart3 className={className} />;
+    if (t.includes("management") || t.includes("decarbonization")) return <ShieldCheck className={className} />;
+    if (t.includes("software") || t.includes("net zero")) return <Cpu className={className} />;
+    if (t.includes("iot")) return <Database className={className} />;
+    if (t.includes("blogs")) return <BookOpen className={className} />;
+    if (t.includes("about") || t.includes("people")) return <Users className={className} />;
+    if (t.includes("clients")) return <Handshake className={className} />;
+    if (t.includes("careers")) return <Briefcase className={className} />;
+    if (t.includes("ai")) return <Brain className={className} />;
+    if (t.includes("news")) return <Newspaper className={className} />;
+    return <Globe className={className} />;
   };
 
   return (
@@ -401,40 +437,144 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "100vh" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-0 top-[72px] bg-[#193F70] z-50 overflow-y-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="lg:hidden fixed left-0 right-0 top-[72px] h-[calc(100vh-72px)] bg-gradient-to-b from-[#0D1B3E] via-[#0A1530] to-[#050A18] border-t border-white/5 z-50 overflow-y-auto"
           >
-            <div className="px-6 py-6 space-y-1">
+            {/* Ambient Background Glows */}
+            <div className="absolute top-0 right-0 w-[280px] h-[280px] bg-[#3DD68C]/5 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-20 left-0 w-[220px] h-[220px] bg-[#4DB846]/5 rounded-full blur-[70px] pointer-events-none" />
+
+            <div className="px-6 py-8 space-y-3 relative z-10">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.04 }}
+                  transition={{ delay: i * 0.03 }}
+                  className="border-b border-white/5 last:border-0"
                 >
-                  <Link
-                    href={link.href}
-                    className={`block py-3.5 text-lg transition-colors border-b border-white/5 font-medium ${isActive(link.href) ? "text-[#3DD68C]" : "text-white/70 hover:text-[#3DD68C]"
+                  {!(link.megaMenu || link.dropdown) ? (
+                    <Link
+                      href={link.href}
+                      className={`block py-3.5 text-lg font-semibold transition-colors duration-200 ${
+                        isActive(link.href) ? "text-[#3DD68C]" : "text-white/80 hover:text-[#3DD68C]"
                       }`}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                  {link.dropdown && (
-                    <div className="pl-4 space-y-0.5 pb-2">
-                      {link.dropdown.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          className="block py-2 text-sm text-white/50 hover:text-[#3DD68C] transition-colors"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <div className="py-1">
+                      <button
+                        onClick={() =>
+                          setExpandedMobileMenu(
+                            expandedMobileMenu === link.name ? null : link.name
+                          )
+                        }
+                        className={`w-full flex items-center justify-between py-2.5 text-lg font-semibold transition-colors duration-200 ${
+                          isNavActive(link) || expandedMobileMenu === link.name
+                            ? "text-[#3DD68C]"
+                            : "text-white/80 hover:text-[#3DD68C]"
+                        }`}
+                      >
+                        <span className={isNavActive(link) ? "text-[#3DD68C]" : ""}>{link.name}</span>
+                        <ChevronDown
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            expandedMobileMenu === link.name ? "rotate-180 text-[#3DD68C]" : "text-white/40"
+                          }`}
+                        />
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {expandedMobileMenu === link.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: "easeInOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pr-2 py-4 my-2 space-y-6 bg-white/[0.02] rounded-xl border border-white/5 backdrop-blur-md">
+                              {/* Main Overview Link */}
+                              <Link
+                                href={link.href}
+                                className="inline-flex items-center gap-1.5 text-[#3DD68C] font-bold text-sm hover:underline"
+                                onClick={() => setMobileOpen(false)}
+                              >
+                                Explore {link.name} Overview
+                                <span className="text-xs">→</span>
+                              </Link>
+
+                              {link.megaMenu &&
+                                link.megaMenu.columns.map((col, idx) => (
+                                  <div key={idx} className="space-y-2.5">
+                                    {/* Column Title */}
+                                    <div className="flex items-center gap-2">
+                                      {getColumnIcon(col.title, "w-4 h-4 text-[#3DD68C]")}
+                                      {col.href ? (
+                                        <Link
+                                          href={col.href}
+                                          className="text-sm font-bold text-white hover:text-[#3DD68C] transition-colors"
+                                          onClick={() => setMobileOpen(false)}
+                                        >
+                                          {col.title}
+                                        </Link>
+                                      ) : (
+                                        <h5 className="text-sm font-bold text-white/50">
+                                          {col.title}
+                                        </h5>
+                                      )}
+                                    </div>
+
+                                    {/* Column Items */}
+                                    {col.items && col.items.length > 0 && (
+                                      <ul className="space-y-2 pl-6 border-l border-white/10">
+                                        {col.items.map((item, itemIdx) => (
+                                          <li key={itemIdx}>
+                                            <Link
+                                              href={item.href}
+                                              className={`block text-xs py-1 transition-colors ${
+                                                pathname === item.href.split("#")[0]
+                                                  ? "text-[#3DD68C] font-semibold"
+                                                  : "text-white/60 hover:text-white"
+                                              }`}
+                                              onClick={() => setMobileOpen(false)}
+                                            >
+                                              {item.name}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    )}
+                                  </div>
+                                ))}
+
+                              {link.dropdown && (
+                                <ul className="space-y-2 pl-6 border-l border-white/10">
+                                  {link.dropdown.map((sub, subIdx) => (
+                                    <li key={subIdx}>
+                                      <Link
+                                        href={sub.href}
+                                        className={`block text-xs py-1 transition-colors ${
+                                          pathname === sub.href.split("#")[0]
+                                            ? "text-[#3DD68C] font-semibold"
+                                            : "text-white/60 hover:text-white"
+                                        }`}
+                                        onClick={() => setMobileOpen(false)}
+                                      >
+                                        {sub.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   )}
                 </motion.div>
@@ -453,7 +593,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, }}
               className="absolute top-full left-0 right-0 bg-[#0D1B3E]/95 backdrop-blur-3xl border-t border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-40 pb-16 pt-12 overflow-hidden"
               onMouseEnter={() => handleMouseEnter(link.name)}
               onMouseLeave={handleMouseLeave}
@@ -479,18 +619,7 @@ export default function Navbar() {
                     <div key={idx} className="group/col">
                       <div className="flex items-center gap-3 mb-6">
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4DB846]/20 to-[#3DD68C]/5 border border-white/10 flex items-center justify-center group-hover/col:border-[#4DB846]/40 transition-colors duration-500">
-                          {col.title.includes("Consulting") || col.title.includes("Accounting") ? <Zap className="w-5 h-5 text-[#4DB846]" /> :
-                            col.title.includes("Analytics") || col.title.includes("Water") ? <BarChart3 className="w-5 h-5 text-[#4DB846]" /> :
-                              col.title.includes("Management") || col.title.includes("Decarbonization") ? <ShieldCheck className="w-5 h-5 text-[#4DB846]" /> :
-                                col.title.includes("Software") || col.title.includes("Net Zero") ? <Cpu className="w-5 h-5 text-[#4DB846]" /> :
-                                  col.title.includes("IOT") ? <Database className="w-5 h-5 text-[#4DB846]" /> :
-                                    col.title.includes("Blogs") ? <BookOpen className="w-5 h-5 text-[#4DB846]" /> :
-                                      col.title.includes("About") || col.title.includes("People") ? <Users className="w-5 h-5 text-[#4DB846]" /> :
-                                        col.title.includes("Clients") ? <Handshake className="w-5 h-5 text-[#4DB846]" /> :
-                                          col.title.includes("Careers") ? <Briefcase className="w-5 h-5 text-[#4DB846]" /> :
-                                            col.title.includes("AI") ? <Brain className="w-5 h-5 text-[#4DB846]" /> :
-                                              col.title.includes("News") ? <Newspaper className="w-5 h-5 text-[#4DB846]" /> :
-                                                <Globe className="w-5 h-5 text-[#4DB846]" />}
+                          {getColumnIcon(col.title)}
                         </div>
                         {col.href ? (
                           <Link

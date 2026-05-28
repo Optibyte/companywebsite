@@ -21,7 +21,7 @@ const footerSections = [
     links: [
       { name: "Optibyte", href: "/technology/optibyte" },
       { name: "Fixbyte", href: "/technology/fixbyte" },
-      { name: "Inbyte", href: "/technology/inbyte" },
+      { name: "IR Blaster", href: "/technology/inbyte" },
       { name: "Energy", href: "/energy" },
       
    
