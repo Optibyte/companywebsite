@@ -167,10 +167,7 @@ export default function InBytePage() {
               <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.95] tracking-tight">
                 IR <span className="text-gradient">Blaster</span>
               </h1>
- <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3DD68C]/10 border border-[#3DD68C]/20 text-[#3DD68C] text-sm font-bold tracking-wider uppercase">
-                <Radio className="w-4 h-4 animate-pulse" />
-                Smart IoT AC Automation
-              </div>
+ 
               <p className="text-xl md:text-2xl text-gray-300 font-medium leading-relaxed max-w-2xl">
                 Smart AC monitoring and remote control system built on MQTT communication and hardware integration. Control AC devices, manage temperature, configure schedules, and monitor device status through a centralized mobile application.
               </p>
