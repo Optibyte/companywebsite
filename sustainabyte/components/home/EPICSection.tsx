@@ -12,18 +12,25 @@ const epicPills = [
 
 const commitmentCards = [
   {
-    title: "Net Zero Targets",
+    title: "Digital Twin",
     description:
-      "Aligning your operations with global net zero commitments through measurable goals and verified pathways.",
-    image: "/Net-zero targets.webp",
+      "A real-time virtual replica of your physical energy assets, enabling continuous monitoring, predictive maintenance, and simulation-based optimizations using AI-driven engineering insights.",
+    image: "/about/Technology-768x432.webp",
     accent: "#04572fff",
   },
   {
-    title: "Decarbonization",
+    title: "Operational Savings",
     description:
-      "Systematic reduction of carbon emissions through intelligent energy management and optimization.",
-    image: "/What We Do all img/co2.webp",
+      "Drive significant, verified reductions in HVAC and utility energy costs through automated chiller staging, dynamic speed control, and smart recommendation workflows.",
+    image: "/about/Energy-768x432.webp",
     accent: "#083063ff",
+  },
+  {
+    title: "Facility Intelligence",
+    description:
+      "Empower your building management teams with actionable insights and automated controls that transform raw sensor inputs into persistent operational excellence.",
+    image: "/Net-zero targets.webp",
+    accent: "#0f1c3fff",
   },
 ];
 
@@ -137,27 +144,26 @@ export default function EPICSection() {
       <Particles />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Tagline */}
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-lg sm:text-xl md:text-2xl text-white italic mb-10 sm:mb-16 font-[family-name:var(--font-dm-sans)]"
+          className="text-2xl sm:text-3xl md:text-5xl text-white font-bold mb-10 sm:mb-16 font-[family-name:var(--font-sora)] leading-tight"
         >
-          your facility deserves to be{" "}
           <motion.span
-            initial={{ scale: 0, rotate: -20, opacity: 0 }}
-            whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.5 }}
-            className="inline-block bg-gradient-to-r from-[#3DD68C] to-[#27A37B] bg-clip-text text-transparent font-bold not-italic text-2xl sm:text-3xl md:text-5xl font-[family-name:var(--font-sora)] relative"
+            className="inline-block bg-gradient-to-r from-[#00FFAA] to-[#3DD68C] bg-clip-text text-transparent font-extrabold text-3xl sm:text-4xl md:text-6xl relative mr-2"
           >
             EPIC
             <motion.span
-              className="absolute -inset-2 bg-[#3DD68C]/20 blur-xl rounded-full -z-10"
+              className="absolute -inset-2 bg-[#00FFAA]/35 blur-xl rounded-full -z-10"
               animate={{
-                opacity: [0.2, 0.5, 0.2],
-                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.7, 0.3],
+                scale: [1, 1.25, 1],
               }}
               transition={{
                 duration: 2,
@@ -166,7 +172,8 @@ export default function EPICSection() {
               }}
             />
           </motion.span>
-        </motion.p>
+          Intelligence for Facility Performance
+        </motion.h2>
 
         {/* EPIC Pills */}
         <div className="flex flex-wrap justify-center gap-4 sm:gap-10 mb-12 sm:mb-20">
@@ -238,9 +245,9 @@ export default function EPICSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 1.6 }}
-          className="text-white text-xl sm:text-2xl font-medium mb-14 sm:mb-20"
+          className="text-white text-xl sm:text-2xl font-medium mb-14 sm:mb-20 font-[family-name:var(--font-dm-sans)]"
         >
-          delivering higher performance and driving <span className="text-[#3DD68C] font-bold">sustainable</span> growth.
+          Transforming Operations Through <span className="text-[#3DD68C] font-bold">AI-Powered Sustainability</span>.
         </motion.p>
 
         {/* Commitment Section */}
@@ -251,7 +258,7 @@ export default function EPICSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center max-w-4xl mx-auto mb-14 sm:mb-20 px-4">
-            Our Commitment to a <span className="text-[#3DD68C]">Sustainable</span> Future
+            Our Commitment to <span className="text-[#3DD68C]">Sustainable Excellence</span>
           </h2>
 
           <div className="max-w-6xl mx-auto px-1 sm:px-1 pb-1">

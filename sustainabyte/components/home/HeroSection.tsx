@@ -1,9 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import GreenButton from "@/components/ui/GreenButton";
 
+const rotatingTaglines = [
+  "Connected by IoT. Driven by AI. Built for Net Zero.",
+  "Predict. Optimize. Sustain.",
+  "The Future of Energy Intelligence",
+  "AI Intelligence for Energy Excellence",
+  "Smarter Operations. Lower Emissions. Greater Impact."
+];
+
 export default function HeroSection() {
+  const [taglineIndex, setTaglineIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % rotatingTaglines.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
       {/* Background */}
@@ -114,37 +132,53 @@ export default function HeroSection() {
             >
               AI-Powered{" "}
               <span className="bg-gradient-to-r from-[#3DD68C] to-[#00FFAA] bg-clip-text text-transparent">
-                Energy Optimization
+                Energy Intelligence
               </span>
               <br />
               for Buildings & Industries
             </motion.h1>
 
+            {/* Rotating Sub-Tagline */}
+            <div className="h-8 mb-6 overflow-hidden flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={taglineIndex}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-[#00FFAA] text-sm sm:text-base font-semibold tracking-wider font-[family-name:var(--font-sora)]"
+                >
+                  {rotatingTaglines[taglineIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-[#B0BEC5] text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 leading-relaxed"
+              className="text-[#B0BEC5] text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 leading-relaxed font-[family-name:var(--font-dm-sans)]"
             >
-              Sustainabyte helps commercial buildings, factories, and campuses reduce HVAC and utility energy costs through AIoT monitoring, chiller plant optimization, energy audits, and verified savings.
+              We are a climate-tech company empowering industries and buildings to achieve smarter energy efficiency and Net Zero goals through AI and IoT-driven solutions.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-nowrap items-center gap-3"
+              className="flex flex-wrap items-center gap-3"
             >
               <GreenButton href="/contact?subject=Book a Demo" variant="primary">
                 Book a Demo
               </GreenButton>
 
-              <GreenButton href="/technology/optibyte" variant="outline">
-                Explore OptiByte Platform
+              <GreenButton href="/technology" variant="outline">
+                Explore our technology
               </GreenButton>
 
-              <GreenButton href="/contact?subject=Request Energy Audit" variant="dark">
-                Request Energy Audit
+              <GreenButton href="/contact?subject=Schedule a Service" variant="dark">
+                Schedule a Service
               </GreenButton>
             </motion.div>
           </div>

@@ -11,7 +11,9 @@ import {
   Building,
   User,
   ArrowRight,
-  Globe
+  Globe,
+  Briefcase,
+  Factory
 } from "lucide-react";
 import Image from "next/image";
 import toast from "react-hot-toast";
@@ -22,6 +24,8 @@ function ContactForm() {
     name: "",
     email: "",
     organization: "",
+    designation: "",
+    industriesType: "",
     mobile: "",
     message: ""
   });
@@ -46,6 +50,8 @@ function ContactForm() {
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       organization: (form.elements.namedItem("organization") as HTMLInputElement).value,
+      designation: (form.elements.namedItem("designation") as HTMLInputElement).value,
+      industriesType: (form.elements.namedItem("industriesType") as HTMLInputElement).value,
       mobile: (form.elements.namedItem("mobile") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
     };
@@ -60,7 +66,7 @@ function ContactForm() {
       if (response.ok) {
         toast.success("Message sent successfully! We will contact you soon.", { id: loadingToast });
         form.reset();
-        setFormData({ name: "", email: "", organization: "", mobile: "", message: "" });
+        setFormData({ name: "", email: "", organization: "", designation: "", industriesType: "", mobile: "", message: "" });
       } else {
         toast.error("Something went wrong. Please try again.", { id: loadingToast });
       }
@@ -128,23 +134,51 @@ function ContactForm() {
             </div>
             <div className="space-y-2">
               <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#3DD68C]" /> Mobile Number
+                <Phone className="w-3.5 h-3.5 text-[#3DD68C]" /> Mobile Number*
               </label>
               <input
                 name="mobile"
                 type="tel"
+                required
                 className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
                 placeholder="+91 XXXXX XXXXX"
               />
             </div>
           </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+                <Briefcase className="w-3.5 h-3.5 text-[#3DD68C]" /> Designation*
+              </label>
+              <input
+                name="designation"
+                type="text"
+                required
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
+                placeholder="Energy Manager"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
+                <Factory className="w-3.5 h-3.5 text-[#3DD68C]" /> Industries Type*
+              </label>
+              <input
+                name="industriesType"
+                type="text"
+                required
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all placeholder:text-gray-400"
+                placeholder="Manufacturing / Commercial"
+              />
+            </div>
+          </div>
           <div className="space-y-2">
             <label className="text-xs font-bold text-[#0D1B3E] uppercase tracking-widest flex items-center gap-2">
-              <MessageSquare className="w-3.5 h-3.5 text-[#3DD68C]" /> Your Message
+              <MessageSquare className="w-3.5 h-3.5 text-[#3DD68C]" /> Your Message*
             </label>
             <textarea
               name="message"
               rows={4}
+              required
               className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all resize-none placeholder:text-gray-400"
               placeholder="How can we help you achieve your sustainability goals?"
             ></textarea>

@@ -7,17 +7,17 @@ import {
 } from "lucide-react";
 
 const problemItems = [
-  { icon: "Gauge",    label: "BMS / SCADA Data",    sub: "Siloed, rarely analysed" },
-  { icon: "Database", label: "Energy Meters",        sub: "Raw numbers without context" },
-  { icon: "FileText", label: "Utility Bills",        sub: "Reactive, not predictive" },
-  { icon: "Wrench",   label: "Maintenance Logs",     sub: "Disconnected from energy data" },
-  { icon: "Leaf",     label: "ESG Targets",          sub: "No clear path to achievement" },
+  { icon: "Gauge", label: "BMS / SCADA Data", sub: "Siloed, rarely analysed" },
+  { icon: "Database", label: "Energy Meters", sub: "Raw numbers without context" },
+  { icon: "FileText", label: "Utility Bills", sub: "Reactive, not predictive" },
+  { icon: "Wrench", label: "Maintenance Logs", sub: "Disconnected from energy data" },
+  { icon: "Leaf", label: "ESG Targets", sub: "No clear path to achievement" },
 ];
 
 const solutionItems = [
-  { icon: "Wifi",        label: "Unified IoT Data Layer",      sub: "All sources, one platform" },
-  { icon: "BarChart3",   label: "Real-Time Analytics Engine",  sub: "From raw data to live KPIs" },
-  { icon: "Lightbulb",   label: "AI-Driven Recommendations",   sub: "Actionable, quantified insights" },
+  { icon: "Wifi", label: "Unified IoT Data Layer", sub: "All sources, one platform" },
+  { icon: "BarChart3", label: "Real-Time Analytics Engine", sub: "From raw data to live KPIs" },
+  { icon: "Lightbulb", label: "AI-Driven Recommendations", sub: "Actionable, quantified insights" },
   { icon: "ShieldCheck", label: "Verified Savings & Reporting", sub: "M&V-backed, audit-ready output" },
 ];
 
@@ -30,7 +30,7 @@ const containerVariants: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 const itemVariants: Variants = {
-  hidden:  { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
@@ -46,7 +46,7 @@ export default function ProblemSolution() {
         <div className="text-center mb-16 sm:mb-20">
           <motion.p initial={{ opacity: 0, y: -10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="text-xs font-bold uppercase tracking-widest text-[#3DD68C] mb-4 font-[family-name:var(--font-dm-sans)]">
-            The Challenge
+            Challenges We Solve
           </motion.p>
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}
             className="font-[family-name:var(--font-sora)] text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-5 leading-tight">
@@ -70,7 +70,7 @@ export default function ProblemSolution() {
             className="bg-gradient-to-br from-red-50 to-red-50/50 border border-red-200/50 rounded-2xl p-8 sm:p-10 backdrop-blur-sm flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-1 h-10 rounded-full bg-gradient-to-b from-red-500 to-red-600" />
-              <h3 className="font-[family-name:var(--font-sora)] text-xl sm:text-2xl font-bold text-slate-900">The Problem</h3>
+              <h3 className="font-[family-name:var(--font-sora)] text-xl sm:text-2xl font-bold text-slate-900">The Challenges</h3>
             </div>
             <p className="text-slate-600 text-sm font-[family-name:var(--font-dm-sans)] mb-8 leading-relaxed">
               Most facilities already have the raw inputs — they just cannot connect them into a coherent intelligence layer.
@@ -102,7 +102,7 @@ export default function ProblemSolution() {
             className="bg-gradient-to-br from-emerald-50 via-blue-50/30 to-emerald-50/50 border border-emerald-200/50 rounded-2xl p-8 sm:p-10 backdrop-blur-sm flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-1 h-10 rounded-full bg-gradient-to-b from-[#3DD68C] to-[#27A37B]" />
-              <h3 className="font-[family-name:var(--font-sora)] text-xl sm:text-2xl font-bold text-slate-900">The Sustainabyte Solution</h3>
+              <h3 className="font-[family-name:var(--font-sora)] text-xl sm:text-2xl font-bold text-slate-900">Our Strength</h3>
             </div>
             <p className="text-slate-600 text-sm font-[family-name:var(--font-dm-sans)] mb-8 leading-relaxed">
               We connect your existing data into an <span className="text-[#3DD68C] font-semibold">AIoT intelligence layer</span> that transforms noise into decisions — and decisions into verified savings.
