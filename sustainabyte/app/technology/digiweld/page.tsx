@@ -26,8 +26,8 @@ export default function DigiWeldPage() {
   const dashboardImages = [
     "/technology/digiweld/dashboard.webp",
     "/technology/digiweld/bucks img.webp",
-    "/technology/digiweld/mobile1.webp",
-    "/technology/digiweld/mobile 2.webp"
+    "/technology/digiweld/img321.png",
+    "/technology/digiweld/img123.png"
   ];
 
   useEffect(() => {
@@ -111,7 +111,7 @@ export default function DigiWeldPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-         
+
               <h1 className="text-7xl md:text-9xl font-black text-white mb-8 leading-[0.9] drop-shadow-[0_10px_30px_rgba(77,184,70,0.3)]">
                 Digi<span className="text-[#4DB846]">Weld</span>
               </h1>
@@ -388,11 +388,11 @@ export default function DigiWeldPage() {
         </div>
       </section>
 
-   
+
       {/* CTA Section */}
       <section id="demo" className="py-32 bg-[#0D1B3E] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#4DB846]/10 rounded-full blur-[150px] -mr-[400px] -mt-[400px]" />
-        
+
         <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
