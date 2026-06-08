@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
 
   allowedDevOrigins: [
     "13.66.130.236",
+    "sustainabyte.ai",
+    "www.sustainabyte.ai", // if applicable
   ],
 };
 
