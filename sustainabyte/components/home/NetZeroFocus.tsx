@@ -29,26 +29,18 @@ export default function NetZeroFocus() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-[family-name:var(--font-sora)] text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
-              Net Zero <span className="text-[#3DD68C]">Focus</span>
+              Net Zero <span className="text-[#3DD68C]">Targets</span>
             </h2>
-            <p className="text-[#B0BEC5] text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
-              Industries contribute{" "}
-              <span className="text-[#3DD68C] font-semibold">30–35%</span> of
-              global CO₂ emissions, driven by process loads and high energy use.
-              Commercial buildings add another{" "}
-              <span className="text-[#3DD68C] font-semibold">26%</span>, mainly
-              from HVAC, lighting, and equipment. Together, they represent the
-              most significant share of global CO₂ emissions.
+            <p className="text-[#B0BEC5] text-lg sm:text-xl leading-relaxed mb-6 font-[family-name:var(--font-dm-sans)]">
+              Reduce carbon emissions with real-time monitoring, energy optimization, and intelligent automation.
             </p>
-            <p className="text-[#B0BEC5] text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
-              We enable you to monitor, control, and decarbonize across
-              industrial plant floors and building systems, ensuring measurable
-              progress toward Net Zero.
+            <p className="text-[#B0BEC5] text-base sm:text-lg leading-relaxed mb-8 font-[family-name:var(--font-dm-sans)]">
+              Achieve your Net Zero goals through measurable actions and a clear, data-driven sustainability roadmap.
             </p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
-              {["Real-time Monitoring", "AI-Driven Control", "Decarbonization"].map(
+              {["Real-time Monitoring", "AI-Driven Control", "Energy Optimization", "Intelligent Automation"].map(
                 (tag) => (
-                  <div key={tag} className="flex items-center gap-2 text-sm text-[#3DD68C]">
+                  <div key={tag} className="flex items-center gap-2 text-sm text-[#3DD68C] font-semibold">
                     <div className="w-2 h-2 bg-[#3DD68C] rounded-full" />
                     {tag}
                   </div>

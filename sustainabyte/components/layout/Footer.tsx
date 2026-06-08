@@ -53,48 +53,7 @@ export default function Footer() {
   };
   return (
     <footer className="bg-white text-[#0D1B3E]">
-      {/* Newsletter Banner */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="bg-[#0D1B3E]"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col md:flex-row items-center justify-between gap-6"
-          >
-            <div>
-              <h3 className="font-[family-name:var(--font-sora)] text-xl font-bold text-white mb-1">
-                Subscribe for the latest in AI, IoT, and sustainability
-                solutions
-              </h3>
-            </div>
-            <div className="flex gap-2 w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 md:w-72 px-5 py-3 rounded-full border border-white/20 text-sm focus:outline-none focus:border-[#3DD68C] transition-colors bg-white/10 text-white placeholder-white/50"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleSubscribe}
-                className="px-6 py-3 bg-[#3DD68C] text-[#0D1B3E] rounded-full text-sm font-semibold hover:bg-[#2bc478] transition-all duration-300 hover:shadow-[0_0_20px_rgba(61,214,140,0.3)] whitespace-nowrap"
-              >
-                Subscribe
-              </motion.button>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
+ 
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -192,7 +151,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-[#3DD68C] mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-gray-500">Monday to Friday</p>
+                <p className="text-sm text-gray-500">Monday to Saturday</p>
               </li>
             </ul>
           </motion.div>

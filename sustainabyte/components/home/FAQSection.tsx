@@ -69,7 +69,7 @@ export default function FAQSection() {
           viewport={{ once: true }}
           className="text-center font-[family-name:var(--font-sora)] text-2xl sm:text-3xl md:text-4xl font-bold text-[#0D1B3E] mb-10 sm:mb-14"
         >
-          Frequently Asked <span className="text-[#3DD68C]">Questions</span>
+          <span className="text-[#3DD68C]">FAQ</span>
         </motion.h2>
         <div className="space-y-0">
           {faqs.map((faq, i) => (

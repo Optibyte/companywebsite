@@ -56,6 +56,8 @@ export async function POST(req: Request) {
           <p><strong>Name:</strong> ${data.name}</p>
           <p><strong>Email:</strong> ${data.email}</p>
           <p><strong>Organization:</strong> ${data.organization}</p>
+          <p><strong>Designation:</strong> ${data.designation}</p>
+          <p><strong>Industries Type:</strong> ${data.industriesType}</p>
           <p><strong>Mobile:</strong> ${data.mobile || "N/A"}</p>
           <p><strong>Message:</strong></p>
           <div style="background: #f9f9f9; padding: 15px; border-radius: 5px;">${data.message}</div>

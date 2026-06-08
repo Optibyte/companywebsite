@@ -10,7 +10,9 @@ import {
   Leaf, 
   Settings, 
   ArrowRight,
-  TrendingUp
+  TrendingUp,
+  Bluetooth,
+  FileDigit
 } from "lucide-react";
 
 const pillars = [
@@ -63,6 +65,26 @@ const pillars = [
     icon: Settings,
     color: "from-rose-500 to-pink-400",
     glowColor: "rgba(244,63,94,0.12)",
+  },
+  {
+    title: "FusionByte",
+    subtitle: "Bluetooth-Enabled Welding Control",
+    description:
+      "Wireless precision for welding operations. Retrofit existing machines to manage voltage and current via mobile app, eliminating manual knobs.",
+    href: "/technology/fusionbyte",
+    icon: Bluetooth,
+    color: "from-blue-500 to-indigo-400",
+    glowColor: "rgba(59,130,246,0.12)",
+  },
+  {
+    title: "DigiWeld",
+    subtitle: "Production Tracking & Quality Control",
+    description:
+      "Track and improve welding quality. Digitize weld log sheets, track joints and operator IDs, and manage non-conformance reports for full production visibility.",
+    href: "/technology/digiweld",
+    icon: FileDigit,
+    color: "from-cyan-500 to-emerald-400",
+    glowColor: "rgba(6,182,212,0.12)",
   },
 ];
 
@@ -146,13 +168,13 @@ export default function WhatWeDo() {
           className="text-center mb-16 sm:mb-20"
         >
           <span className="text-[#3DD68C] font-bold tracking-[0.25em] uppercase text-sm mb-4 block">
-            Our Positioning
+            We Specialize In
           </span>
           <h2 className="font-[family-name:var(--font-sora)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-            AIoT Energy Management & <span className="bg-gradient-to-r from-[#3DD68C] to-[#00FFAA] bg-clip-text text-transparent">Optimization</span>
+            AIoT-Driven <span className="bg-gradient-to-r from-[#3DD68C] to-[#00FFAA] bg-clip-text text-transparent">Intelligence</span>
           </h2>
-          <p className="text-[#B0BEC5] text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-            Sustainabyte delivers high-fidelity AIoT monitoring, analytics, and automation workflows. We target key industrial assets and building systems to ensure verified energy savings and seamless ESG compliance.
+          <p className="text-[#B0BEC5] text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-[family-name:var(--font-dm-sans)]">
+            Leverage intelligent AIoT solutions to monitor, analyze, and optimize industrial assets and building systems for improved efficiency, energy savings, and sustainability performance.
           </p>
         </motion.div>
 
