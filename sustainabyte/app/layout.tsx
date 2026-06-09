@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
@@ -102,6 +103,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>
+        <GoogleAnalytics gaId="G-06T4EBKHVW" />
         <Toaster position="top-right" reverseOrder={false} />
         <ScrollProgressBar />
         <Navbar />
