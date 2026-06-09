@@ -5,8 +5,15 @@ import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GreenButton from "@/components/ui/GreenButton";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export default function EnergyManagementSolutionsPage() {
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Energy", url: "/energy" },
+    { name: "Management Solutions", url: "/energy/management-solutions" },
+  ];
+
   return (
     <div className="bg-[#0D1B3E] min-h-screen text-white overflow-x-hidden">
       {/* Premium Hero Section */}
@@ -14,7 +21,7 @@ export default function EnergyManagementSolutionsPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/energy/Energy Management Solutions/Energy-Management-Solutions-BG.webp"
-            alt="Energy Management Solutions"
+            alt="Enterprise energy management solutions platform"
             fill
             className="object-cover opacity-100"
             priority
@@ -29,13 +36,17 @@ export default function EnergyManagementSolutionsPage() {
             transition={{ duration: 0.8 }}
             className="w-full text-center"
           >
-            <h5 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1]">
-              Energy Management
-            </h5>
-            <h3 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1]">
-              Solutions
-            </h3>
+            <h1 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1]">
+              Energy Management<br />Solutions
+            </h1>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <section className="relative z-10 -mt-6 mb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
       </section>
 

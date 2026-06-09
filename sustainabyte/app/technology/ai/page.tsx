@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import GreenButton from "@/components/ui/GreenButton";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const aiCapabilities = [
   {
@@ -127,6 +128,12 @@ const aiModules = [
 ];
 
 export default function AIPage() {
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Technology", url: "/technology" },
+    { name: "AI & Machine Learning", url: "/technology/ai" },
+  ];
+
   return (
     <div className="bg-[#0D1B3E] min-h-screen text-white overflow-x-hidden font-[family-name:var(--font-sora)]">
       <style>{`
@@ -206,9 +213,9 @@ export default function AIPage() {
 
               <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl md:text-7xl lg:text-8xl font-black leading-[1.0] mb-8 tracking-tight">
-                Intelligence<br />
+                AI & Machine Learning<br />
                 <span style={{ background: "linear-gradient(135deg, #3DD68C 0%, #4DB846 50%, #3DD68C 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  Built In.
+                  for Smart Energy Management
                 </span>
               </motion.h1>
 
@@ -250,6 +257,13 @@ export default function AIPage() {
               </motion.div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <section className="relative z-10 -mt-6 mb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
       </section>
 
