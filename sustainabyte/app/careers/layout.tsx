@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { jobPostingSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Careers | Sustainabyte",
-  description: "Explore career opportunities at Sustainabyte Technologies.",
-  keywords: ["careers", "jobs", "hiring"],
+  description: "Explore career opportunities at Sustainabyte Technologies. Join our team of innovators driving sustainability through technology.",
+  keywords: ["careers", "jobs", "hiring", "career opportunities"],
   openGraph: {
     title: "Careers | Sustainabyte",
     description: "Join Sustainabyte",
@@ -28,5 +30,22 @@ export default function CareersLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  const careersOpening = jobPostingSchema(
+    "Energy Solutions Engineer",
+    "Join Sustainabyte as an Energy Solutions Engineer. Work with AI and IoT to optimize energy efficiency for leading industrial and commercial organizations.",
+    "Mumbai, India",
+    "FULL_TIME"
+  );
+
+  return (
+    <>
+      <Script
+        id="job-posting-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(careersOpening) }}
+        strategy="afterInteractive"
+      />
+      {children}
+    </>
+  );
 }

@@ -66,6 +66,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://sustainabyte.ai",
+    languages: {
+      "en": "https://sustainabyte.ai",
+      "en-IN": "https://sustainabyte.ai",
+    },
   },
   icons: {
     icon: "/icon.png?v=1",
