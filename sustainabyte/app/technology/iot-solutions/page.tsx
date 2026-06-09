@@ -147,10 +147,11 @@ export default function IoTSolutionsPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/iot/hero-bg.png"
-            alt="IoT Solutions Background"
+            alt="Sustainabyte IoT Solutions - Real-time Energy Monitoring and Control Platform"
             fill
             className="object-cover object-center opacity-30"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E]/60 via-[#0D1B3E]/40 to-[#0D1B3E]" />
         </div>

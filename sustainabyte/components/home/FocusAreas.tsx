@@ -171,7 +171,7 @@ export default function FocusAreas() {
                           >
                             <Image
                               src={img.src}
-                              alt={img.name}
+                              alt={`${img.name} industry energy management and sustainability solutions by Sustainabyte`}
                               fill
                               className="object-cover transition-transform duration-500 group-hover:scale-110"
                               sizes="(max-width: 640px) 40vw, 15vw"

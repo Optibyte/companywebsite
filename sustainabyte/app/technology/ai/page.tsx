@@ -166,10 +166,11 @@ export default function AIPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/ai/ai 1.png"
-            alt="AI Technology Background"
+            alt="Sustainabyte AI & Machine Learning for Energy Management - Predictive Energy Analytics Platform"
             fill
             className="object-cover opacity-30"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E] via-transparent to-[#0D1B3E]" />
           <div className="absolute inset-0 bg-[#0D1B3E]/40" />
@@ -321,7 +322,7 @@ export default function AIPage() {
                   <div className="relative rounded-3xl overflow-hidden border border-gray-200 shadow-2xl bg-gray-50">
                     <Image
                       src={module.image}
-                      alt={module.title}
+                      alt={`${module.title} dashboard - AI energy management and predictive maintenance by Sustainabyte Technologies`}
                       width={800}
                       height={600}
                       className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"

@@ -97,10 +97,11 @@ export default function DigiWeldPage() {
           <div className="absolute inset-0 bg-[#0D1B3E]/60 z-10" />
           <Image
             src="/technology/digiweld/digiwelbg.webp"
-            alt="DigiWeld Hero"
+            alt="Sustainabyte DigiWeld - Digital Platform for Equipment and Process Control"
             fill
             className="object-cover object-center opacity-80 brightness-75"
             priority
+            fetchPriority="high"
           />
         </div>
 
