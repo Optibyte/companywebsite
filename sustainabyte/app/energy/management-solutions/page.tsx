@@ -5,8 +5,15 @@ import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import GreenButton from "@/components/ui/GreenButton";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 export default function EnergyManagementSolutionsPage() {
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Energy", url: "/energy" },
+    { name: "Management Solutions", url: "/energy/management-solutions" },
+  ];
+
   return (
     <div className="bg-[#0D1B3E] min-h-screen text-white overflow-x-hidden">
       {/* Premium Hero Section */}
@@ -14,10 +21,11 @@ export default function EnergyManagementSolutionsPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/energy/Energy Management Solutions/Energy-Management-Solutions-BG.webp"
-            alt="Energy Management Solutions"
+            alt="Sustainabyte Energy Management Solutions - SCADA and ISO 50001 Compliance Platform"
             fill
             className="object-cover opacity-100"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E]/30 to-transparent" />
         </div>
@@ -29,13 +37,17 @@ export default function EnergyManagementSolutionsPage() {
             transition={{ duration: 0.8 }}
             className="w-full text-center"
           >
-            <h5 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1]">
-              Energy Management
-            </h5>
-            <h3 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1]">
-              Solutions
-            </h3>
+            <h1 className="font-[family-name:var(--font-sora)] text-5xl md:text-8xl font-black bg-gradient-to-r from-[#4DB846] to-[#3DD68C] bg-clip-text text-transparent leading-[1.1]">
+              Energy Management<br />Solutions
+            </h1>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <section className="relative z-10 -mt-6 mb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
       </section>
 
@@ -149,7 +161,7 @@ export default function EnergyManagementSolutionsPage() {
                     <div className="relative rounded-3xl overflow-hidden aspect-square w-full shadow-2xl group/img border border-gray-100 hover:border-[#4DB846]/40 transition-colors duration-500">
                       <Image
                         src={feature.img}
-                        alt={feature.title}
+                        alt={`${feature.title} - Energy management solutions dashboard by Sustainabyte Technologies`}
                         fill
                         sizes="(max-width: 768px) 100vw, 420px"
                         className="object-cover object-center group-hover/img:scale-105 transition-transform duration-700"
@@ -199,9 +211,11 @@ export default function EnergyManagementSolutionsPage() {
               <Link key={idx} href={pillar.href} className="group relative rounded-3xl overflow-hidden aspect-[16/9] shadow-xl hover:shadow-2xl transition-all duration-500">
                 <Image
                   src={pillar.img}
-                  alt={pillar.title}
+                  alt={`${pillar.title} - Energy management software India by Sustainabyte`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.7] group-hover:brightness-[0.8]"
+                  priority={idx === 0}
+                  fetchPriority={idx === 0 ? "high" : "auto"}
                 />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-[#0D1B3E] via-transparent to-transparent">
                   <span className="text-[#4DB846] text-sm font-bold tracking-widest uppercase mb-2">{pillar.label}</span>

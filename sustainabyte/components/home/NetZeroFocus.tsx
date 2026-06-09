@@ -58,10 +58,11 @@ export default function NetZeroFocus() {
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
           src="/Net Zero Focusbg.webp"
-          alt="Net Zero Focus Background"
+          alt="Net Zero Energy Management Focus - AI-powered decarbonization and sustainability platform"
           fill
           className="object-cover opacity-80"
           priority
+          fetchPriority="high"
         />
         {/* Gradient Overlay for content protection and depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E] via-[#0D1B3E]/50 to-transparent" />

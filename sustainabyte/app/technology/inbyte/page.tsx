@@ -142,10 +142,11 @@ export default function InBytePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E]/50 via-[#0D1B3E]/40 to-[#0D1B3E]/80 z-10" />
           <Image
             src="/technology/IR%20Blaster/bgimg.png"
-            alt="IR Blaster Facility"
+            alt="Sustainabyte InByte - AI-Powered Energy Audit Intelligence Platform"
             fill
             className="object-cover object-center opacity-90 brightness-90"
             priority
+            fetchPriority="high"
           />
         </div>
 

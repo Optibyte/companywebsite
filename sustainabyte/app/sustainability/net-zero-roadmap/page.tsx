@@ -108,10 +108,11 @@ export default function NetZeroRoadmapPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/sustanaibility/NET ZERO Roadmap bg.webp"
-            alt="Net Zero Roadmap Background"
+            alt="Sustainabyte Net Zero Roadmap - Carbon Neutral Buildings and Decarbonization Strategy Platform"
             fill
             className="object-cover opacity-60"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E] via-[#0D1B3E]/80 to-transparent" />
           {/* Animated particles or glow */}

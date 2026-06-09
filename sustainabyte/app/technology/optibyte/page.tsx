@@ -163,10 +163,11 @@ export default function OptiBytePage() {
             >
               <Image
                 src={bgImages[currentBg]}
-                alt="OptiByte Background"
+                alt="Sustainabyte OptiByte - AI Energy Intelligence Platform Dashboard"
                 fill
                 className="object-cover scale-110"
                 priority
+                fetchPriority="high"
               />
             </motion.div>
           </AnimatePresence>

@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import GreenButton from "@/components/ui/GreenButton";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 
 const aiCapabilities = [
   {
@@ -127,6 +128,12 @@ const aiModules = [
 ];
 
 export default function AIPage() {
+  const breadcrumbItems = [
+    { name: "Home", url: "/" },
+    { name: "Technology", url: "/technology" },
+    { name: "AI & Machine Learning", url: "/technology/ai" },
+  ];
+
   return (
     <div className="bg-[#0D1B3E] min-h-screen text-white overflow-x-hidden font-[family-name:var(--font-sora)]">
       <style>{`
@@ -159,10 +166,11 @@ export default function AIPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/ai/ai 1.png"
-            alt="AI Technology Background"
+            alt="Sustainabyte AI & Machine Learning for Energy Management - Predictive Energy Analytics Platform"
             fill
             className="object-cover opacity-30"
             priority
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1B3E] via-transparent to-[#0D1B3E]" />
           <div className="absolute inset-0 bg-[#0D1B3E]/40" />
@@ -206,9 +214,9 @@ export default function AIPage() {
 
               <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl md:text-7xl lg:text-8xl font-black leading-[1.0] mb-8 tracking-tight">
-                Intelligence<br />
+                AI & Machine Learning<br />
                 <span style={{ background: "linear-gradient(135deg, #3DD68C 0%, #4DB846 50%, #3DD68C 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  Built In.
+                  for Smart Energy Management
                 </span>
               </motion.h1>
 
@@ -250,6 +258,13 @@ export default function AIPage() {
               </motion.div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <section className="relative z-10 -mt-6 mb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumb items={breadcrumbItems} />
         </div>
       </section>
 
@@ -307,7 +322,7 @@ export default function AIPage() {
                   <div className="relative rounded-3xl overflow-hidden border border-gray-200 shadow-2xl bg-gray-50">
                     <Image
                       src={module.image}
-                      alt={module.title}
+                      alt={`${module.title} dashboard - AI energy management and predictive maintenance by Sustainabyte Technologies`}
                       width={800}
                       height={600}
                       className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"

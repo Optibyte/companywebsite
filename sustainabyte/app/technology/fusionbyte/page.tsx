@@ -94,10 +94,11 @@ export default function FusionBytePage() {
           <div className="absolute inset-0 bg-[#0D1B3E]/60 z-10" />
           <Image
             src="/technology/FusionByte/Fusionbyte-BG-2-1-scaled.webp"
-            alt="FusionByte Hero"
+            alt="Sustainabyte FusionByte - AI Production Intelligence Platform for Manufacturing"
             fill
             className="object-cover object-center opacity-80 brightness-75"
             priority
+            fetchPriority="high"
           />
         </div>
 

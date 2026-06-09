@@ -96,10 +96,11 @@ export default function FixBytePage() {
           <div className="absolute inset-0 bg-[#0D1B3E]/60 z-10" />
           <Image
             src="/technology/fixbyte/Fixbyte-BG-3-scaled.webp"
-            alt="FixByte Hero"
+            alt="Sustainabyte FixByte - Predictive Maintenance AI Platform for Equipment Health"
             fill
             className="object-cover object-center opacity-80 brightness-75"
             priority
+            fetchPriority="high"
           />
         </div>
 
