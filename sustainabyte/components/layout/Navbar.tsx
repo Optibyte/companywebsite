@@ -24,11 +24,12 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
+  
   {
-    name: "Energy",
+    name: "Services",
     href: "/energy",
     megaMenu: {
-      title: "Energy",
+      title: "Services",
       columns: [
         {
           title: "Energy Efficiency and Consulting",
@@ -61,6 +62,46 @@ const navLinks: NavLink[] = [
             { name: "ISO 50002 System Implementation Support", href: "/energy/management-solutions#iso-50002" },
             { name: "Measurement & Verification (IPMVP)", href: "/energy/management-solutions#ipmvp" },
             { name: "Digitisation for savings tracking", href: "/energy/management-solutions#digitalisation" },
+          ]
+        }
+      ]
+    }
+  }, {
+    name: "Technology",
+    href: "/technology",
+    megaMenu: {
+      title: "Technology",
+      gridCols: 3,
+      columns: [
+        {
+          title: "Software",
+          items: [
+            { name: "OptiByte (AIoT Energy)", href: "/technology/optibyte" },
+            { name: "CPM/CPO (Chiller Plant Manager)", href: "/technology/chiller-plant-manager" },
+            { name: "IR Blaster (AC Monitoring)", href: "/technology/inbyte" },
+            { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
+            { name: "Fusionbyte", href: "/technology/fusionbyte" },
+            { name: "Digiweld", href: "/technology/digiweld" },
+          ]
+        },
+        {
+          title: "IOT Solutions",
+          href: "/technology/iot-solutions",
+          items: [
+            { name: "Optiedge Water", href: "/technology/iot-solutions#optiedgew" },
+            { name: "Optiedge HVAC", href: "/technology/iot-solutions#optiedgeac" },
+            { name: "Optiedge Cooling Tower", href: "/technology/iot-solutions#optiedgect" },
+            { name: "Optiedge Chiller Plant Management", href: "/technology/iot-solutions#optiedgecpm" },
+            { name: "Optiedge Compressed Air Manager", href: "/technology/iot-solutions#optiedgecam" },
+            { name: "Optiedge Demand Management", href: "/technology/iot-solutions#optiedgedm" },
+          ]
+        }, {
+          title: "AI",
+          items: [
+            { name: "AI Capabilities", href: "/technology/ai" },
+            { name: "Digital Twin Intelligence", href: "/technology/ai#digital-twin" },
+            { name: "Smart Fault Detection & Diagnostics", href: "/technology/ai#fdd" },
+            { name: "AI Assistant", href: "/technology/ai#ai-assistant" },
           ]
         }
       ]
@@ -112,47 +153,7 @@ const navLinks: NavLink[] = [
       ]
     }
   },
-  {
-    name: "Technology",
-    href: "/technology",
-    megaMenu: {
-      title: "Technology",
-      gridCols: 3,
-      columns: [
-        {
-          title: "Software",
-          items: [
-            { name: "OptiByte (AIoT Energy)", href: "/technology/optibyte" },
-            { name: "CPM/CPO (Chiller Plant Manager)", href: "/technology/chiller-plant-manager" },
-            { name: "IR Blaster (AC Monitoring)", href: "/technology/inbyte" },
-            { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
-            { name: "Fusionbyte", href: "/technology/fusionbyte" },
-            { name: "Digiweld", href: "/technology/digiweld" },
-          ]
-        },
-        {
-          title: "IOT Solutions",
-          href: "/technology/iot-solutions",
-          items: [
-            { name: "Optiedge Water", href: "/technology/iot-solutions#optiedgew" },
-            { name: "Optiedge HVAC", href: "/technology/iot-solutions#optiedgeac" },
-            { name: "Optiedge Cooling Tower", href: "/technology/iot-solutions#optiedgect" },
-            { name: "Optiedge Chiller Plant Management", href: "/technology/iot-solutions#optiedgecpm" },
-            { name: "Optiedge Compressed Air Manager", href: "/technology/iot-solutions#optiedgecam" },
-            { name: "Optiedge Demand Management", href: "/technology/iot-solutions#optiedgedm" },
-          ]
-        }, {
-          title: "AI",
-          items: [
-            { name: "AI Capabilities", href: "/technology/ai" },
-            { name: "Digital Twin Intelligence", href: "/technology/ai#digital-twin" },
-            { name: "Smart Fault Detection & Diagnostics", href: "/technology/ai#fdd" },
-            { name: "AI Assistant", href: "/technology/ai#ai-assistant" },
-          ]
-        }
-      ]
-    }
-  },
+ 
   {
     name: "Resources",
     href: "/resources",
