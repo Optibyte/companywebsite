@@ -35,6 +35,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Energy Service Pages - high priority
     {
+      url: `${baseUrl}/energy/energy-audit`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/energy/energy-services`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/energy/management-solutions`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

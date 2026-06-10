@@ -70,6 +70,26 @@ export const metadata: Metadata = {
     languages: {
       "en": "https://sustainabyte.ai",
       "en-IN": "https://sustainabyte.ai",
+      "en-AE": "https://sustainabyte.ai",
+      "en-SA": "https://sustainabyte.ai",
+      "en-SG": "https://sustainabyte.ai",
+      "en-MY": "https://sustainabyte.ai",
+      "en-QA": "https://sustainabyte.ai",
+      "en-BH": "https://sustainabyte.ai",
+      "en-KW": "https://sustainabyte.ai",
+      "en-OM": "https://sustainabyte.ai",
+      "en-ID": "https://sustainabyte.ai",
+      "en-PH": "https://sustainabyte.ai",
+      "en-TH": "https://sustainabyte.ai",
+      "en-VN": "https://sustainabyte.ai",
+      "en-GB": "https://sustainabyte.ai",
+      "en-US": "https://sustainabyte.ai",
+      "en-AU": "https://sustainabyte.ai",
+      "en-CA": "https://sustainabyte.ai",
+      "en-DE": "https://sustainabyte.ai",
+      "en-FR": "https://sustainabyte.ai",
+      "en-JP": "https://sustainabyte.ai",
+      "en-KR": "https://sustainabyte.ai",
     },
   },
   icons: {
@@ -88,6 +108,30 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <head>
+        {/* Global Geo Meta Tags */}
+        <meta name="geo.region" content="IN" />
+        <meta name="geo.region" content="AE" />
+        <meta name="geo.region" content="SA" />
+        <meta name="geo.region" content="SG" />
+        <meta name="geo.region" content="MY" />
+        <meta name="geo.region" content="QA" />
+        <meta name="geo.region" content="BH" />
+        <meta name="geo.region" content="KW" />
+        <meta name="geo.region" content="OM" />
+        <meta name="geo.region" content="ID" />
+        <meta name="geo.region" content="PH" />
+        <meta name="geo.region" content="TH" />
+        <meta name="geo.region" content="VN" />
+        <meta name="geo.region" content="GB" />
+        <meta name="geo.region" content="US" />
+        <meta name="geo.region" content="AU" />
+        <meta name="geo.region" content="CA" />
+        <meta name="geo.region" content="DE" />
+        <meta name="geo.region" content="FR" />
+        <meta name="geo.region" content="JP" />
+        <meta name="geo.region" content="KR" />
+        <meta name="geo.placename" content="India, United Arab Emirates, Saudi Arabia, Singapore, Malaysia, Qatar, Bahrain, Kuwait, Oman, Indonesia, Philippines, Thailand, Vietnam, United Kingdom, United States, Australia, Canada, Germany, France, Japan, South Korea" />
+        <meta name="ICBM" content="20.5937, 78.9629" />
         {/* JSON-LD Structured Data */}
         <Script
           id="organization-schema"
