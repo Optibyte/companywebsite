@@ -23,7 +23,7 @@ export async function POST(req: Request) {
       const file = formData.get("resume") as File;
       if (file && file.size > 0) {
         const buffer = Buffer.from(await file.arrayBuffer());
-        
+
         attachments.push({
           filename: file.name,
           content: buffer,
@@ -82,13 +82,35 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: `"Sustainabyte Forms" <${process.env.EMAIL_USER}>`,
-      to: "hr@sustainabyte.ai",
+      to: "thanakarthik@sustainabyte.ai",
       subject: subject,
       html: html,
-      attachments: attachments
+      attachments: attachments,
+      cc: "thanakarthik@sustainabyte.ai"
     };
 
     await transporter.sendMail(mailOptions);
+
+    // If it is a career application, send a thank you auto-reply email to the applicant
+    if (data.type === "career" && data.email) {
+      const replyOptions = {
+        from: `"Sustainabyte Careers" <${process.env.EMAIL_USER}>`,
+        to: data.email,
+        subject: "Thank you for your application - Sustainabyte Technologies",
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+            <h2 style="color: #0D1B3E;">Application Received</h2>
+            <p>Dear ${data.name},</p>
+            <p>Thank you for applying for the <strong>${data.position}</strong> position at Sustainabyte Technologies.</p>
+            <p>We have successfully received your resume and application details. Our HR team will review your profile and get in touch with you if you are shortlisted for the next rounds.</p>
+            <br>
+            <p>Best regards,</p>
+            <p><strong>HR Recruitment Team</strong><br>Sustainabyte Technologies</p>
+          </div>
+        `
+      };
+      await transporter.sendMail(replyOptions);
+    }
 
     return NextResponse.json({
       message: "Email sent successfully"
