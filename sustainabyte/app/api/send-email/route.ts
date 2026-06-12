@@ -82,7 +82,7 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: `"Sustainabyte Forms" <${process.env.EMAIL_USER}>`,
-      to: "yuvaraj.p@sustainabyte.ai",
+      to: "hr@sustainabyte.ai",
       subject: subject,
       html: html,
       attachments: attachments
