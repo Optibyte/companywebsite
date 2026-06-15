@@ -12,9 +12,6 @@ interface GreenButtonProps {
   type?: "button" | "submit";
 }
 
-const MotionComponent = motion.create("button");
-const MotionLink = motion.create(Link);
-
 export default function GreenButton({
   children,
   href,
@@ -37,27 +34,34 @@ export default function GreenButton({
   const classes = `${baseStyles} ${variants[variant]} ${className}`;
 
   if (href) {
+    // Use motion.div wrapper instead of motion.create(Link) to avoid SSR/CSR
+    // tabIndex hydration mismatch that motion.create() injects on the client only.
     return (
-      <MotionLink
-        href={href}
-        className={classes}
+      <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        style={{ display: "inline-flex" }}
       >
-        {children}
-      </MotionLink>
+        <Link href={href} className={classes}>
+          {children}
+        </Link>
+      </motion.div>
     );
   }
 
   return (
-    <MotionComponent
-      type={type}
-      onClick={onClick}
-      className={classes}
+    <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
+      style={{ display: "inline-flex" }}
     >
-      {children}
-    </MotionComponent>
+      <button
+        type={type}
+        onClick={onClick}
+        className={classes}
+      >
+        {children}
+      </button>
+    </motion.div>
   );
 }
