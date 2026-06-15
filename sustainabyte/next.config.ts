@@ -10,12 +10,13 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "13.66.130.236",
     "sustainabyte.ai",
-    "www.sustainabyte.ai", // if applicable
+    "www.sustainabyte.ai",
   ],
 
   // Security and SEO headers
   async headers() {
     return [
+      // ─── HTML pages: never cache, always serve fresh SSR ──────────────────
       {
         source: "/:path*",
         headers: [
@@ -40,14 +41,16 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
-          // Performance & SEO Headers
+          // FIX: HTML pages must NOT be cached immutably — they need revalidation
+          // so the browser always fetches the latest server-rendered HTML.
+          // Stale HTML + new JS = hydration mismatch (the "stale" Turbopack bug).
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=0, must-revalidate",
           },
         ],
       },
-      // Static assets cache
+      // ─── Static public assets (images, fonts, icons) ──────────────────────
       {
         source: "/static/:path*",
         headers: [
@@ -57,7 +60,7 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Images cache
+      // ─── WebP and image assets ─────────────────────────────────────────────
       {
         source: "/:path*.webp",
         headers: [
@@ -67,15 +70,26 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/:path*.png",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/:path*.svg",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
-
-  // Internationalization for India targeting (comment out - not supported in App Router)
-  // Use hreflang in layout instead for language targeting
-  // i18n: {
-  //   locales: ["en", "en-IN"],
-  //   defaultLocale: "en-IN",
-  // },
 };
 
-export default nextConfig;
+export default nextConfig;

@@ -82,6 +82,7 @@ const navLinks: NavLink[] = [
             { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
             { name: "Fusionbyte", href: "/technology/fusionbyte" },
             { name: "Digiweld", href: "/technology/digiweld" },
+            { name: "Compass (AI Governance)", href: "/technology/compass" },
           ]
         },
         {
