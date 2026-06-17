@@ -30,14 +30,14 @@ const clientLogos: ClientLogo[] = [
   { src: "/clients/TUV.svg", alt: "TUV" },
   { name: "Mahavir", alt: "Mahavir", bgColor: "#F1F5F9" },
   { src: "/clients/Solid Pro.svg", alt: "Solid Pro" },
-  { name: "Denali", alt: "Denali" },
+  { src: "/clients/DENALI_Full_Logo.avif", alt: "Denali", darkBg: true },
   { src: "/clients/Moglix.gif", alt: "Mogli Labs" },
   { src: "/clients/Gestamp.svg", alt: "Gestamp", darkBg: true },
   { src: "/clients/Apollo Tyres.png", alt: "Apollo Tyres" },
-  { src: "/clients/ICE Steel 1.png", alt: "ICE Steel 1" },
-  { src: "/clients/casa grand.jpg", alt: "Casa Grand" },
+
+  { src: "/clients/Casagrand-Logo1.png", alt: "Casa Grand" },
   { src: "/clients/kp Mills.png", alt: "KP Mills" },
-  { name: "KPR Mills", alt: "KPR Mills" },
+  { name: "KP Mills", alt: "KPR Mills" },
   { src: "/clients/Dash Green.png", alt: "Dash Green" },
   { src: "/clients/JN Machineries.jpg", alt: "JN Machineries" },
   { src: "/clients/Flextronics.svg", alt: "Flextronics" },
@@ -45,6 +45,8 @@ const clientLogos: ClientLogo[] = [
   { src: "/clients/Sags Apparels.svg", alt: "Sags Apparels" },
   { src: "/clients/polyhose.svg", alt: "Polyhose" },
   { src: "/clients/Chemech.gif", alt: "Chemech" },
+  { src: "/clients/blue_star.png", alt: "Blue Star" },
+  { src: "/clients/tata.svg", alt: "Tata", darkBg: true },
 ];
 
 // Duplicate for seamless infinite loop
@@ -88,11 +90,10 @@ export default function TrustedBy() {
           {marqueeItems.map((logo, i) => (
             <div
               key={i}
-              className={`flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center w-36 h-24 sm:w-44 sm:h-28 rounded-2xl border transition-all duration-300 group px-4 ${
-                logo.darkBg
-                  ? "border-[#193F70] bg-[#193F70] hover:border-[#3DD68C]/60 hover:shadow-md"
-                  : "border-gray-100 hover:border-[#3DD68C]/40 hover:shadow-md hover:bg-white"
-              }`}
+              className={`flex-shrink-0 mx-4 sm:mx-6 flex items-center justify-center w-36 h-24 sm:w-44 sm:h-28 rounded-2xl border transition-all duration-300 group px-4 ${logo.darkBg
+                ? "border-[#193F70] bg-[#193F70] hover:border-[#3DD68C]/60 hover:shadow-md"
+                : "border-gray-100 hover:border-[#3DD68C]/40 hover:shadow-md hover:bg-white"
+                }`}
               style={{ backgroundColor: logo.darkBg ? undefined : (logo.bgColor ?? "#F8FAFC") }}
             >
               {logo.src ? (

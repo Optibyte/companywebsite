@@ -77,10 +77,10 @@ const navLinks: NavLink[] = [
           title: "Software",
           items: [
             { name: "OptiByte (AIoT Energy)", href: "/technology/optibyte" },
-            { name: "CPM/CPO (Chiller Plant Manager)", href: "/technology/chiller-plant-manager" },
-            { name: "IR Blaster (AC Monitoring)", href: "/technology/inbyte" },
+
+          
             { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
-            { name: "Fusionbyte", href: "/technology/fusionbyte" },
+
             { name: "Digiweld", href: "/technology/digiweld" },
             { name: "Compass (AI Governance)", href: "/technology/compass" },
           ]
@@ -89,12 +89,13 @@ const navLinks: NavLink[] = [
           title: "IOT Solutions",
           href: "/technology/iot-solutions",
           items: [
-            { name: "Optiedge Water", href: "/technology/iot-solutions#optiedgew" },
+            { name: "IR Blaster (AC Monitoring)", href: "/technology/inbyte" },
+            { name: "Fusionbyte", href: "/technology/fusionbyte" },
+            { name: "CPM/CPO (Chiller Plant Manager)", href: "/technology/chiller-plant-manager" },
             { name: "Optiedge HVAC", href: "/technology/iot-solutions#optiedgeac" },
             { name: "Optiedge Cooling Tower", href: "/technology/iot-solutions#optiedgect" },
-            { name: "Optiedge Chiller Plant Management", href: "/technology/iot-solutions#optiedgecpm" },
-            { name: "Optiedge Compressed Air Manager", href: "/technology/iot-solutions#optiedgecam" },
-            { name: "Optiedge Demand Management", href: "/technology/iot-solutions#optiedgedm" },
+
+
           ]
         }, {
           title: "AI",

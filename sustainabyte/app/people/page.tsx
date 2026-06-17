@@ -17,7 +17,7 @@ type TeamMember = {
 const teamMembers: TeamMember[] = [
   {
     name: "Satish Kumar N",
-    role: "Experienced IoT Sales Manager",
+    role: "Sales Manager",
     description:
       "Experienced in IoT solutions, business development, and client relationship management with a strong focus on industrial automation and smart technology solutions. Passionate about driving digital transformation through innovative IoT solutions.",
     tags: ["#IoT", "#SalesManager", "#IndustrialAutomation", "#DigitalTransformation"],
@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
     icon: <Zap className="w-5 h-5" />,
     image: "/people/Vijayan.png",
   },
-  
+
 
 
   {

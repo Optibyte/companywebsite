@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import ScrollProgressBar from "@/components/layout/ScrollProgressBar";
 import { Toaster } from "react-hot-toast";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
+import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 
 const Footer = dynamic(() => import("@/components/layout/Footer"));
 
@@ -152,6 +153,7 @@ export default function RootLayout({
         <ScrollProgressBar />
         <Navbar />
         <main>{children}</main>
+        <WhatsAppWidget />
         <Footer />
       </body>
     </html>
