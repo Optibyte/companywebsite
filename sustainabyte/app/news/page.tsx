@@ -19,7 +19,7 @@ const newsItems = [
     publishedBy: "INBAC Association",
     date: "October 2025",
     title: "INBAC features Sustainabyte's insights on Decarbonization and High-Performance Buildings",
-    excerpt: "INBAC BTB Magazine (October 2025 Edition) highlighted Arun Prasad, Founder of Sustainabyte Technologies, for his article on advancing buildings beyond compliance through data-led decarbonization. The feature explains how the EPIC framework helps optimize systems, enhance reliability, and reduce energy, water, and carbon impacts.",
+    excerpt: "INBAC BTB Magazine (October 2025 Edition) , Founder of Sustainabyte Technologies, for his article on advancing buildings beyond compliance through data-led decarbonization. The feature explains how the EPIC framework helps optimize systems, enhance reliability, and reduce energy, water, and carbon impacts.",
     image: "/News/INBAC.jpg",
     href: "#",
   },

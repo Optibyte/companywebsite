@@ -246,7 +246,7 @@ export default function ContactPage() {
                 {/* Map Iframe */}
                 <div className="relative w-full aspect-video rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl mb-12 group">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15555.2345!2d80.17!3d12.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f0000000000%3A0x0!2sMadambakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                    src="https://maps.google.com/maps?q=12.9099415,80.1524548&z=17&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -264,7 +264,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-sora font-bold text-[#0D1B3E] mb-2 uppercase text-xs tracking-wider">Location</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed">Madambakkam, Chennai, Tamil Nadu, India</p>
+                      <p className="text-gray-500 text-sm leading-relaxed">Plot No 1, House No 11, Prasanthi Colony, Madambakkam, Tambaram, Chennai - 600126, Tamil Nadu, India</p>
                     </div>
                   </div>
                   

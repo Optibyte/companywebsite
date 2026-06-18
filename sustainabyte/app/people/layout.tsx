@@ -31,11 +31,11 @@ export default function PeopleLayout({
   children: React.ReactNode;
 }) {
   const founderSchema = personSchema(
-    "Arun Prasad",
+    "Thanakarthik",
     "Founder & CEO",
-    "/people/arun-prasad.jpg",
+    "/people/thanakarthik.jpg",
     "https://sustainabyte.ai/people",
-    "arun@sustainabyte.ai"
+    "thanakarthik@sustainabyte.ai"
   );
 
   return (
