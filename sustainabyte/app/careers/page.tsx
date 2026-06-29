@@ -39,7 +39,7 @@ const whyJoinUs = [
 ];
 
 const jobs = [
-  { title: "Frontend Developer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "React, Next.js, Tailwind, TS" },
+  { title: "Frontend Developer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "React, Next.js, Tailwind, TS " },
   { title: "Backend Developer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Node.js, Python, .NET, .NET CORE, PostgreSQL, SQL SERVER, influxdb, MongoDB, MQTT" },
   { title: "AI/ML Engineer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Python, TensorFlow, Data Pipelines" },
   { title: "UI/UX Designer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Figma, User Research, Prototyping" },
