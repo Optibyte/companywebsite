@@ -30,7 +30,7 @@ const newsItems = [
     title: "Sustainabyte featured by Frost & Sullivan for advancing intelligent energy management",
     excerpt: "Frost & Sullivan, a global leader in growth advisory and market intelligence, spotlighted Sustainabyte Technologies for its contribution to intelligent energy analytics and digital sustainability. The feature recognized our Founder and CEO Thanakarthik Kumar for leading the company's mission to make buildings Efficient, Predictive, Intelligent, and Controlled.",
     image: "/News/Frost-Sullivan.jpg",
-    href: "#",
+    href: "# ",
   },
 ];
 
