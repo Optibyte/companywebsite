@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/HeroSection";
+import IntroSection from "@/components/home/IntroSection";
 import StatsBar from "@/components/home/StatsBar";
 
 const ProblemSolution = dynamic(() => import("@/components/home/ProblemSolution"));
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <IntroSection />
       <StatsBar />
       <ProblemSolution />
       <EPICSection />

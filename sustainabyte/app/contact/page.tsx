@@ -63,6 +63,7 @@ function ContactForm() {
         body: JSON.stringify(data),
       });
 
+      
       if (response.ok) {
         toast.success("Message sent successfully! We will contact you soon.", { id: loadingToast });
         form.reset();
