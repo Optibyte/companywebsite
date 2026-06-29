@@ -43,8 +43,8 @@ const jobs = [
   { title: "Backend Developer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Node.js, Python, .NET, .NET CORE, PostgreSQL, SQL SERVER, influxdb, MongoDB, MQTT" },
   { title: "AI/ML Engineer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Python, TensorFlow, Data Pipelines, ML " },
   { title: "UI/UX Designer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Figma, User Research, Prototyping" },
-  { title: "IoT Engineer", experience: "1-5 Years Full Time", location: "Chennai / On-site", skills: "C++, Embedded Systems, MQTT" },
-  { title: "DevOps Engineer", experience: "1-2 Years Full Time", location: "Chennai / On-site", skills: "AWS/Azure, Docker, CI/CD" },
+  { title: "IoT Engineer", experience: "1-5 Years Full Time", location: "Chennai / On-site", skills: "C++, Embedded Systems, MQTT, JSON " },
+  { title: "DevOps Engineer", experience: "1-2 Years Full Time", location: "Chennai / On-site", skills: "AWS/Azure, Docker, CI/CD " },
 ];
 
 export default function CareersPage() {
