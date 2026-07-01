@@ -54,7 +54,7 @@ export default function FAQSection() {
           >
             Find quick answers about our solutions, technology, and approach to
             energy efficiency and sustainability. These FAQs help you understand
-            how Sustainabyte supports your journey toward Net Zero.
+            how Sustainabyte supports your  journey toward Net Zero.
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
