@@ -28,7 +28,7 @@ export default function HeroSection() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="text-white text-[10px] tracking-[0.25em] uppercase font-bold"
         >
-          Scroll to Explore
+          Scroll to Explore  
         </motion.span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
