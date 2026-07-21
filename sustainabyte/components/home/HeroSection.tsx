@@ -1,24 +1,47 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#0A1128]">
       {/* Background Container */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/sustainabyte.ai.mp4" type="video/mp4" />
-        </video>
+        {/* Background Video (Desktop/Tablet) */}
+        {!isMobile && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/sustainabyte.ai.mp4" type="video/mp4" />
+          </video>
+        )}
 
+        {/* Fallback Background Image (Mobile) */}
+        {isMobile && (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/Net%20Zero.webp')" }}
+          />
+        )}
 
+        {/* Premium Dark Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Premium Scrolling Mouse Indicator */}
