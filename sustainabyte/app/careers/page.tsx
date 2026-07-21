@@ -20,7 +20,12 @@ import {
   Phone,
   ChevronDown,
   Building,
-  GraduationCap
+  GraduationCap,
+  Zap,
+  BarChart2,
+  Megaphone,
+  Code2,
+  Clock
 } from "lucide-react";
 
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -39,16 +44,186 @@ const whyJoinUs = [
 ];
 
 const jobs = [
-  { title: "Frontend Developer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "React, Next.js, Tailwind, TS " },
-  { title: "Backend Developer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Node.js, Python, .NET, .NET CORE, PostgreSQL, SQL SERVER, influxdb, MongoDB, MQTT" },
-  { title: "AI/ML Engineer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Python, TensorFlow, Data Pipelines, ML " },
-  { title: "UI/UX Designer", experience: "1-3 Years Full Time", location: "Chennai / On-site", skills: "Figma, User Research, Prototyping" },
-  { title: "IoT Engineer", experience: "1-5 Years Full Time", location: "Chennai / On-site", skills: "C++, Embedded Systems, MQTT, JSON " },
-  { title: "DevOps Engineer", experience: "1-2 Years Full Time", location: "Chennai / On-site", skills: "AWS/Azure, Docker, CI/CD " },
+  {
+    title: "Frontend Developer",
+    experience: "1–3 Years",
+    type: "Full Time",
+    location: "Chennai / On-site",
+    about: "We are looking for a talented and detail-oriented Frontend Developer to build high-performance, visually stunning web interfaces. You will work closely with our design and backend teams to deliver seamless user experiences for our industrial and sustainability products.",
+    requiredSkills: ["React.js & Next.js", "TypeScript", "Tailwind CSS / Vanilla CSS", "REST API integration", "State management (Redux / Zustand)", "Git & GitHub", "Cross-browser & responsive design"],
+    preferredSkills: ["Framer Motion / animation libraries", "WebSockets / real-time data", "Testing (Jest, Cypress)", "Figma-to-code workflow"],
+    responsibilities: [
+      "Build and maintain responsive, high-performance web UIs using React and Next.js",
+      "Translate Figma designs into pixel-perfect, accessible components",
+      "Collaborate with backend engineers to integrate REST APIs and real-time data feeds",
+      "Optimize application performance and page load times",
+      "Participate in code reviews and contribute to frontend architecture decisions",
+      "Write clean, maintainable, well-documented code",
+    ],
+    gains: ["Work on real-time industrial dashboards", "Exposure to AI-powered UI features", "Strong engineering culture", "Fast growth in a startup environment"],
+  },
+
+  {
+    title: "Full Stack Developer",
+    experience: "1–3 Years",
+    type: "Full Time",
+    location: "Chennai / On-site",
+    about: "We are looking for a versatile Full Stack Developer who can own features end-to-end — from database design to pixel-perfect UI. You will work on our industrial SaaS and energy management platforms, building features that impact real-world sustainability outcomes.",
+    requiredSkills: ["React.js / Next.js", "Node.js and/or Python", "SQL (PostgreSQL / SQL Server)", "REST API design & integration", "TypeScript", "Git & GitHub", "Basic DevOps / deployment knowledge"],
+    preferredSkills: [".NET / ASP.NET Core", "MongoDB / InfluxDB", "Docker", "AWS / Azure", "MQTT / WebSockets", "Tailwind CSS"],
+    responsibilities: [
+      "Develop and own full-stack features from database to UI",
+      "Build REST APIs and integrate them with React/Next.js frontends",
+      "Design efficient database schemas and write optimized queries",
+      "Collaborate with product, design, and DevOps teams",
+      "Debug and resolve issues across the stack",
+      "Participate in agile sprints, code reviews, and architecture discussions",
+    ],
+    gains: ["End-to-end product ownership", "Exposure to industrial & SaaS products", "Full-stack architecture experience", "High-impact startup environment"],
+  },
+
+  {
+    title: "DevOps Engineer",
+    experience: "1–2 Years",
+    type: "Full Time",
+    location: "Chennai / On-site",
+    about: "We are looking for a skilled DevOps Engineer to build and manage our cloud infrastructure, CI/CD pipelines, and deployment automation. You will ensure our platforms are highly available, scalable, and secure across AWS/Azure environments.",
+    requiredSkills: ["AWS or Azure (EC2, S3, RDS, Lambda)", "Docker & container orchestration", "CI/CD pipelines (GitHub Actions / Jenkins)", "Linux server administration", "Infrastructure as Code (Terraform / Bicep)", "Monitoring & alerting (CloudWatch, Grafana)"],
+    preferredSkills: ["Kubernetes", "Nginx / reverse proxies", "Secrets management (Vault, AWS Secrets Manager)", "Database backups & disaster recovery", "Security & compliance best practices"],
+    responsibilities: [
+      "Design, implement, and maintain CI/CD pipelines for automated deployments",
+      "Manage cloud infrastructure on AWS / Azure",
+      "Containerize applications using Docker and orchestrate with Kubernetes",
+      "Monitor system health, set up alerting, and respond to incidents",
+      "Implement security best practices and compliance controls",
+      "Collaborate with developers to streamline the build-test-deploy cycle",
+    ],
+    gains: ["Cloud infrastructure at scale", "Exposure to IoT + SaaS infrastructure", "Security & compliance experience", "High-ownership DevOps role"],
+  },
+];
+
+const internships = [
+  {
+    title: "Software Developer Intern",
+    icon: Code2,
+    stack: "Python / Next.js / SQL | Full Stack Development",
+    location: "Chennai (Hybrid / Onsite)",
+    duration: "3–6 Months",
+    eligibility: "Fresher / Final Year Students",
+    about: "We are looking for a passionate Software Developer Intern who is eager to learn and build modern web applications. The ideal candidate should have a good understanding of Python, Next.js, and SQL. Exposure to .NET and Flutter will be an added advantage.",
+    requiredSkills: ["Python", "Next.js", "SQL (Database Design, Queries, Joins)", "HTML, CSS, JavaScript", "Git & GitHub", "Basic understanding of REST APIs"],
+    preferredSkills: [".NET / ASP.NET Core", "Flutter", "Firebase", "MongoDB", "Cloud platforms (AWS/Azure)"],
+    responsibilities: [
+      "Develop and maintain web applications using Python and Next.js",
+      "Design and optimize SQL database queries",
+      "Build and consume REST APIs",
+      "Collaborate with the development team on new features and bug fixes",
+      "Participate in code reviews and testing activities",
+      "Learn and adopt software development best practices",
+    ],
+    eligibilityDetails: ["B.E./B.Tech, BCA, MCA, B.Sc (CS/IT) or related field", "Final-year students or recent graduates", "Strong problem-solving and analytical skills", "Good communication and teamwork skills"],
+    gains: ["Hands-on experience in real-world software development", "Exposure to full-stack application development", "Mentorship from experienced developers", "Opportunity for a full-time role based on performance"],
+    note: "We will hire the intern on roll after 3/6 months, who has the potential to grow in a StartUp environment.",
+  },
+  {
+    title: "Energy Audit Intern",
+    icon: Zap,
+    stack: "Energy Services",
+    location: "Chennai",
+    duration: "3–6 Months",
+    eligibility: "Final Year / Recent Graduate",
+    about: "Support industrial and commercial energy audits. Collect field data, document observations, and assist in EMS project implementation.",
+    requiredSkills: ["Final-year or recently graduated B.E./B.Tech in Mechanical, Electrical, EEE, Energy Engineering, or Mechatronics", "Basic understanding of electrical systems, HVAC, pumps, compressors", "Knowledge of Microsoft Excel, Word, and PowerPoint", "Willingness to travel to industrial project sites"],
+    preferredSkills: ["Strong analytical and problem-solving skills", "Good communication and documentation skills", "Ability to interpret energy consumption data", "Basic knowledge of EMS/BMS systems", "Eagerness to learn industrial energy efficiency practices"],
+    responsibilities: [
+      "Assist in conducting industrial and commercial Energy Audits",
+      "Support Electrical Safety Audits by collecting field data and documenting observations",
+      "Perform on-site measurements using power analyzers, lux meters, thermal cameras, etc.",
+      "Verify and validate Energy Meter readings with the EMS dashboard",
+      "Analyze energy consumption data and identify discrepancies",
+      "Assist in EMS project implementation, including meter installation and commissioning",
+      "Prepare audit data sheets, equipment inventories, and measurement records",
+      "Identify potential energy conservation opportunities and assist in savings calculations",
+      "Coordinate with clients and internal teams during site visits",
+    ],
+    eligibilityDetails: ["Final-year or recently graduated in Mechanical / Electrical / EEE / Energy Engineering / Mechatronics", "Willingness to travel to industrial project sites"],
+    gains: ["Industrial Energy Audits", "Electrical Safety Audits", "Energy Management System (EMS) Implementation", "Power Quality Measurements", "HVAC and Utility System Analysis", "Technical Report Preparation"],
+    note: "",
+  },
+  {
+    title: "Sales Intern",
+    icon: BarChart2,
+    stack: "Business Development",
+    location: "Chennai",
+    duration: "3–6 Months",
+    eligibility: "Pursuing / Recently Completed Any Degree",
+    about: "A proactive and enthusiastic Sales Intern to support business development activities. Gain hands-on experience in lead generation, customer engagement, market research, and B2B sales.",
+    requiredSkills: ["Strong communication and interpersonal skills", "Eagerness to learn and grow in sales", "Pursuing or recently completed a degree in Business, Marketing, Commerce, Engineering, or related field"],
+    preferredSkills: ["Willingness to go to market and develop business opportunities", "Basic MS Office knowledge", "Smart, confident & self-motivated"],
+    responsibilities: [
+      "Generate and qualify potential leads",
+      "Reach out to prospects via calls, emails, and LinkedIn",
+      "Schedule meetings and product demos for the sales team",
+      "Conduct market and competitor research",
+      "Maintain customer records and sales reports",
+      "Support sales campaigns and follow-up activities",
+      "Willingness to go to market and develop business opportunities",
+    ],
+    eligibilityDetails: ["Pursuing or recently completed a degree in Business, Marketing, Commerce, Engineering, or related field", "Strong communication and interpersonal skills"],
+    gains: ["Exposure to B2B sales and business development", "Hands-on experience with CRM and sales processes", "Mentorship from experienced professionals", "Opportunity for a full-time role based on performance"],
+    note: "We will hire the intern on roll after 3/6 months, who has the potential to grow in a StartUp environment.",
+  },
+  {
+    title: "Digital Marketing Intern",
+    icon: Megaphone,
+    stack: "Content & Marketing",
+    location: "Chennai",
+    duration: "3–6 Months",
+    eligibility: "Pursuing / Recently Completed – Marketing / Business",
+    about: "A creative and enthusiastic Digital Marketing Intern to support online marketing initiatives including social media, SEO, content marketing, and campaign management.",
+    requiredSkills: ["Basic knowledge of digital marketing and social media platforms", "Familiarity with Canva and Google Workspace", "Strong communication and creative skills", "Pursuing or recently completed a degree in Marketing, Business, or related field"],
+    preferredSkills: ["Knowledge of SEO basics", "Content writing skills", "Experience with any social media scheduling tools"],
+    responsibilities: [
+      "Create and manage social media content",
+      "Assist in digital marketing campaigns",
+      "Design basic creatives using Canva",
+      "Support SEO, website updates, and content marketing",
+      "Track campaign performance and prepare reports",
+    ],
+    eligibilityDetails: ["Pursuing or recently completed a degree in Marketing, Business, or related field", "Basic knowledge of digital marketing and social media platforms"],
+    gains: ["Hands-on experience in digital marketing", "Exposure to technology and SaaS marketing", "Mentorship and career growth opportunities"],
+    note: "We will hire the intern on roll after 3/6 months, who has the potential to grow in a StartUp environment.",
+  },
+  {
+    title: "Energy Engineer Intern",
+    icon: Zap,
+    stack: "Energy Management / Sustainability",
+    location: "Chennai, India",
+    duration: "3–6 Months",
+    eligibility: "Pursuing / Recently Completed – Mechanical / Electrical / Energy Engineering",
+    about: "A motivated and detail-oriented Energy Engineer Intern to support energy efficiency and sustainability initiatives. Assist in analyzing energy consumption, identifying savings opportunities, and supporting implementation of energy conservation measures across facilities.",
+    requiredSkills: ["Pursuing or recently completed a degree in Mechanical / Electrical / Energy Engineering or related field", "Basic understanding of energy systems (HVAC, boilers, chillers, etc.)", "Knowledge of MS Excel and data analysis", "Strong analytical and problem-solving skills", "Good communication and teamwork abilities"],
+    preferredSkills: ["Familiarity with BMS/EMS systems", "Interest in sustainability and energy efficiency", "Eagerness to work on live projects"],
+    responsibilities: [
+      "Assist in monitoring and analyzing energy consumption data (electricity, fuel, water)",
+      "Support energy audits and site inspections",
+      "Identify potential energy conservation measures (ECMs)",
+      "Prepare reports on energy performance and savings opportunities",
+      "Assist in HVAC, lighting, and utility system analysis",
+      "Work on data collection from meters, sensors, and BMS systems",
+      "Support implementation of energy efficiency projects",
+      "Maintain documentation and track project progress",
+    ],
+    eligibilityDetails: ["Pursuing or recently completed a degree in Mechanical / Electrical / Energy Engineering or related field", "Basic understanding of energy systems (HVAC, boilers, chillers, etc.)"],
+    gains: ["Hands-on experience in energy audits and real-time monitoring", "Exposure to industrial and commercial energy systems", "Practical understanding of energy conservation strategies", "Opportunity to work on live projects and sustainability initiatives"],
+    note: "Stipend based on profile and experience.",
+  },
 ];
 
 export default function CareersPage() {
   const [activeJob, setActiveJob] = useState<number | null>(null);
+  const [activeIntern, setActiveIntern] = useState<number | null>(null);
+  const [jobTab, setJobTab] = useState<"fulltime" | "internship">("fulltime");
   const [selectedPosition, setSelectedPosition] = useState("");
 
   const handleApplyClick = (position: string) => {
@@ -240,7 +415,7 @@ export default function CareersPage() {
       {/* ── SECTION 3: OPEN POSITIONS ── */}
       <section id="jobs" className="py-24 bg-[#F8FAFC] relative overflow-hidden border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-14">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -252,48 +427,270 @@ export default function CareersPage() {
             <p className="text-gray-500 text-lg">Join us in building the next generation of industrial software.</p>
           </div>
 
-          <div className="space-y-6">
-            {jobs.map((job, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="rounded-[2rem] border border-gray-100 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(61,214,140,0.08)] transition-all overflow-hidden"
+          {/* Tab Toggle */}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex bg-white border border-gray-200 rounded-2xl p-1.5 shadow-sm">
+              <button
+                onClick={() => setJobTab("fulltime")}
+                className={`px-7 py-3 rounded-xl text-sm font-bold transition-all ${
+                  jobTab === "fulltime"
+                    ? "bg-[#0D1B3E] text-white shadow-md"
+                    : "text-gray-500 hover:text-[#0D1B3E]"
+                }`}
               >
-                <button
-                  onClick={() => setActiveJob(activeJob === idx ? null : idx)}
-                  className="w-full flex items-center justify-between p-8 text-left transition-colors focus:outline-none"
-                >
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#0D1B3E] mb-3">{job.title}</h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-500 font-medium">
-                      <span className="flex items-center gap-1.5"><Briefcase className="w-4 h-4 text-[#3DD68C]" /> {job.experience}</span>
-                      <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-[#3DD68C]" /> {job.location}</span>
-                    </div>
-                  </div>
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${activeJob === idx ? 'bg-[#3DD68C] text-white' : 'bg-gray-100 text-gray-400'}`}>
-                    <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${activeJob === idx ? "rotate-180" : ""}`} />
-                  </div>
-                </button>
-                <AnimatePresence>
-                  {activeJob === idx && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="border-t border-gray-100 bg-[#F8FAFC]"
-                    >
-                      <div className="p-8">
-                        <p className="text-gray-600 mb-8 leading-relaxed"><strong className="text-[#0D1B3E]">Required Skills:</strong> {job.skills}</p>
-                        <GreenButton onClick={() => handleApplyClick(job.title)}>Apply Now</GreenButton>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+                Full-Time Roles
+              </button>
+              <button
+                onClick={() => setJobTab("internship")}
+                className={`px-7 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2 ${
+                  jobTab === "internship"
+                    ? "bg-[#3DD68C] text-[#0D1B3E] shadow-md"
+                    : "text-gray-500 hover:text-[#0D1B3E]"
+                }`}
+              >
+                <GraduationCap className="w-4 h-4" /> Internships
+              </button>
+            </div>
           </div>
+
+          {/* Full-Time Jobs */}
+          <AnimatePresence mode="wait">
+            {jobTab === "fulltime" && (
+              <motion.div
+                key="fulltime"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="space-y-6"
+              >
+                {jobs.map((job, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="rounded-[2rem] border border-gray-100 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(61,214,140,0.08)] transition-all overflow-hidden"
+                  >
+                    <button
+                      onClick={() => setActiveJob(activeJob === idx ? null : idx)}
+                      className="w-full flex items-center justify-between p-8 text-left transition-colors focus:outline-none"
+                    >
+                      <div>
+                        <div className="flex items-center gap-3 mb-2 flex-wrap">
+                          <h3 className="text-2xl font-bold text-[#0D1B3E]">{job.title}</h3>
+                          <span className="px-3 py-0.5 rounded-full bg-[#0D1B3E]/8 text-[#0D1B3E] text-xs font-bold border border-[#0D1B3E]/15">{job.type}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-4 text-sm text-gray-500 font-medium">
+                          <span className="flex items-center gap-1.5"><Briefcase className="w-4 h-4 text-[#3DD68C]" /> {job.experience}</span>
+                          <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-[#3DD68C]" /> {job.location}</span>
+                        </div>
+                      </div>
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${activeJob === idx ? 'bg-[#3DD68C] text-white' : 'bg-gray-100 text-gray-400'}`}>
+                        <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${activeJob === idx ? "rotate-180" : ""}`} />
+                      </div>
+                    </button>
+                    <AnimatePresence>
+                      {activeJob === idx && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="border-t border-gray-100 bg-[#F8FAFC]"
+                        >
+                          <div className="p-8 space-y-8">
+                            {/* About */}
+                            <div>
+                              <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">About the Role</h4>
+                              <p className="text-gray-600 leading-relaxed">{job.about}</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-8">
+                              {/* Required Skills */}
+                              <div>
+                                <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">Required Skills</h4>
+                                <ul className="space-y-2">
+                                  {job.requiredSkills.map((s: string, i: number) => (
+                                    <li key={i} className="flex items-start gap-2.5 text-gray-600 text-sm">
+                                      <span className="mt-1 w-4 h-4 rounded-full bg-[#3DD68C]/15 text-[#3DD68C] flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</span>
+                                      {s}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+
+                              {/* Preferred Skills */}
+                              <div>
+                                <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">Preferred Skills</h4>
+                                <ul className="space-y-2">
+                                  {job.preferredSkills.map((s: string, i: number) => (
+                                    <li key={i} className="flex items-start gap-2.5 text-gray-500 text-sm">
+                                      <span className="mt-1 w-4 h-4 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">+</span>
+                                      {s}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </div>
+
+                            {/* Responsibilities */}
+                            <div>
+                              <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">Responsibilities</h4>
+                              <ul className="space-y-2">
+                                {job.responsibilities.map((r: string, i: number) => (
+                                  <li key={i} className="flex items-start gap-2.5 text-gray-600 text-sm">
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3DD68C] flex-shrink-0" />
+                                    {r}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* What You'll Gain */}
+                            <div>
+                              <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">What You&apos;ll Gain</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {job.gains.map((g: string, i: number) => (
+                                  <span key={i} className="px-3 py-1.5 rounded-full bg-[#3DD68C]/10 text-[#3DD68C] text-xs font-semibold border border-[#3DD68C]/20">{g}</span>
+                                ))}
+                              </div>
+                            </div>
+
+                            <GreenButton onClick={() => handleApplyClick(job.title)}>Apply Now</GreenButton>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* Internship Listings */}
+            {jobTab === "internship" && (
+              <motion.div
+                key="internship"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="space-y-6"
+              >
+                {internships.map((intern, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="rounded-[2rem] border border-gray-100 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(61,214,140,0.1)] transition-all overflow-hidden"
+                  >
+                    <button
+                      onClick={() => setActiveIntern(activeIntern === idx ? null : idx)}
+                      className="w-full flex items-center justify-between p-8 text-left transition-colors focus:outline-none"
+                    >
+                      <div className="flex items-start gap-5">
+                        <div className="w-12 h-12 rounded-2xl bg-[#3DD68C]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <intern.icon className="w-6 h-6 text-[#3DD68C]" />
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-3 mb-1 flex-wrap">
+                            <h3 className="text-xl font-bold text-[#0D1B3E]">{intern.title}</h3>
+                            <span className="px-3 py-0.5 rounded-full bg-[#3DD68C]/10 text-[#3DD68C] text-xs font-bold border border-[#3DD68C]/20">Internship</span>
+                          </div>
+                          <p className="text-sm text-gray-400 font-medium mb-2">{intern.stack}</p>
+                          <div className="flex flex-wrap gap-4 text-sm text-gray-500 font-medium">
+                            <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-[#3DD68C]" /> {intern.location}</span>
+                            <span className="flex items-center gap-1.5"><Clock className="w-4 h-4 text-[#3DD68C]" /> {intern.duration}</span>
+                            <span className="flex items-center gap-1.5"><GraduationCap className="w-4 h-4 text-[#3DD68C]" /> {intern.eligibility}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${activeIntern === idx ? 'bg-[#3DD68C] text-white' : 'bg-gray-100 text-gray-400'}`}>
+                        <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${activeIntern === idx ? "rotate-180" : ""}`} />
+                      </div>
+                    </button>
+
+                    <AnimatePresence>
+                      {activeIntern === idx && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="border-t border-gray-100 bg-[#F8FAFC]"
+                        >
+                          <div className="p-8 space-y-8">
+                            {/* About */}
+                            <div>
+                              <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">About the Role</h4>
+                              <p className="text-gray-600 leading-relaxed">{intern.about}</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-8">
+                              {/* Required Skills */}
+                              <div>
+                                <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">Required Skills</h4>
+                                <ul className="space-y-2">
+                                  {intern.requiredSkills.map((s, i) => (
+                                    <li key={i} className="flex items-start gap-2.5 text-gray-600 text-sm">
+                                      <span className="mt-1 w-4 h-4 rounded-full bg-[#3DD68C]/15 text-[#3DD68C] flex items-center justify-center flex-shrink-0 text-[10px] font-bold">✓</span>
+                                      {s}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+
+                              {/* Preferred Skills */}
+                              {intern.preferredSkills.length > 0 && (
+                                <div>
+                                  <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">Preferred Skills</h4>
+                                  <ul className="space-y-2">
+                                    {intern.preferredSkills.map((s, i) => (
+                                      <li key={i} className="flex items-start gap-2.5 text-gray-500 text-sm">
+                                        <span className="mt-1 w-4 h-4 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">+</span>
+                                        {s}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Responsibilities */}
+                            <div>
+                              <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">Responsibilities</h4>
+                              <ul className="space-y-2">
+                                {intern.responsibilities.map((r, i) => (
+                                  <li key={i} className="flex items-start gap-2.5 text-gray-600 text-sm">
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#3DD68C] flex-shrink-0" />
+                                    {r}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* What You'll Gain */}
+                            <div>
+                              <h4 className="text-sm font-bold text-[#0D1B3E] uppercase tracking-widest mb-3">What You&apos;ll Gain</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {intern.gains.map((g, i) => (
+                                  <span key={i} className="px-3 py-1.5 rounded-full bg-[#3DD68C]/10 text-[#3DD68C] text-xs font-semibold border border-[#3DD68C]/20">{g}</span>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Note */}
+                            {intern.note && (
+                              <p className="text-xs text-gray-400 italic border-l-2 border-[#3DD68C]/30 pl-4">{intern.note}</p>
+                            )}
+
+                            <GreenButton onClick={() => handleApplyClick(intern.title)}>Apply Now</GreenButton>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
@@ -408,9 +805,16 @@ export default function CareersPage() {
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-4 text-[#0D1B3E] focus:outline-none focus:border-[#3DD68C] focus:bg-white transition-all"
                   >
                     <option value="">Select a position</option>
-                    {jobs.map(job => (
-                      <option key={job.title} value={job.title}>{job.title}</option>
-                    ))}
+                    <optgroup label="Full-Time Roles">
+                      {jobs.map(job => (
+                        <option key={job.title} value={job.title}>{job.title}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="Internships">
+                      {internships.map(intern => (
+                        <option key={intern.title} value={intern.title}>{intern.title}</option>
+                      ))}
+                    </optgroup>
                     <option value="Other">Other</option>
                   </select>
                 </div>

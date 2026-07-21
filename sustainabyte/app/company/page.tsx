@@ -25,6 +25,7 @@ const partners = [
   { name: "Bureau Veritas", src: "/about/Bureau_Veritas-Logo.wine_-300x200.webp" },
   { name: "Microsoft Azure", src: "/about/Microsoft-Azure-150x150.webp" },
   { name: "Bootstrappers", src: "/about/Bootstrapers-Logo-150x150.webp" },
+  { name: "CII", src: "/clients/cii-logoNew.png", bg: "#1a4fa0" },
 ];
 
 const clients = [
@@ -56,6 +57,7 @@ const clients = [
   "/clients/Sags Apparels.svg",
   "/clients/polyhose.svg",
   "/clients/Chemech.gif",
+  "/clients/cii-logoNew.png",
 ];
 
 const caseStudies = [
@@ -465,8 +467,12 @@ export default function CompanyPage() {
             </h2>
             <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
               {partners.map((partner, idx) => (
-                <div key={idx} className="relative h-16 w-32 md:h-20 md:w-40 hover:scale-105 transition-transform duration-300">
-                  <Image src={partner.src} alt={partner.name} fill className="object-contain" />
+                <div
+                  key={idx}
+                  className="relative flex items-center justify-center rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 p-4"
+                  style={{ height: "88px", width: "160px", backgroundColor: partner.bg || "#ffffff" }}
+                >
+                  <Image src={partner.src} alt={partner.name} fill className="object-contain p-3" />
                 </div>
               ))}
             </div>

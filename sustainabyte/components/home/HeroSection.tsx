@@ -15,7 +15,7 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/optibyte video.mp4" type="video/mp4" />
+          <source src="/sustainabyte.ai.mp4" type="video/mp4" />
         </video>
 
 
