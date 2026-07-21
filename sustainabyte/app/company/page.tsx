@@ -522,7 +522,7 @@ export default function CompanyPage() {
           100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 7s linear infinite;
+          animation: marquee 40s linear infinite;
         }
         .animate-marquee:hover {
           animation-play-state: paused;
