@@ -12,7 +12,7 @@ const videos = [
     desc: "AI-powered energy management platform delivering real-time insights for buildings & industries.",
   },
   {
-    src: "/optibyte video.mp4",
+    src: "/sustainabyte.ai.mp4",
     label: "Optibyte Solution",
     tag: "IoT & Automation",
     desc: "Smart IoT-driven automation and monitoring system for net-zero industrial operations.",
