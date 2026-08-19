@@ -167,10 +167,7 @@ const navLinks: NavLink[] = [
           title: "Blogs",
           href: "/blogs",
           items: [
-            { name: "Sustainability Insights", href: "/blogs" },
-            { name: "What is AI Energy Management?", href: "/blogs/what-is-ai-energy-management-guide" },
-            { name: "The Future of Smart Utilities", href: "/blogs/future-of-smart-utilities-autonomous-optimization" },
-            { name: "ASHRAE Energy Audits", href: "/blogs/ashrae-energy-audits-building-efficiency" }
+            { name: "Sustainability Insights", href: "/blogs" }
           ]
         },
         {
