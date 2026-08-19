@@ -1,0 +1,28 @@
+# Sustainabyte Technologies
+> AI-powered energy intelligence, IoT telemetry, and industrial decarbonization solutions for sustainable buildings and manufacturing facilities.
+
+## About
+Sustainabyte Technologies Private Limited is a climate-tech company headquartered in Chennai (Tambaram), Tamil Nadu, India. The company helps commercial buildings, factories, and industrial estates reduce energy waste, cut peak power spikes, optimize chiller and compressor plants, and achieve verifiable Net Zero alignment.
+
+## Core Products & Solutions
+- **OptiByte**: AI-native energy intelligence and autonomous optimization platform.
+- **Compass**: Comprehensive energy & facility management system for multi-site industrial telemetry.
+- **Chiller Plant Manager (CPM)**: Real-time autonomous chiller plant optimization algorithms.
+- **InByte**: AI audit intelligence and automated digital energy auditing.
+- **FixByte**: Predictive maintenance, vibration analysis, and asset health monitoring.
+- **FusionByte**: Edge-to-cloud industrial IoT integration and SCADA aggregation.
+- **DigiWeld**: Smart IoT & AI welding quality monitoring.
+
+## Services
+- Industrial & Commercial Energy Audits (BEE compliant)
+- Electrical Safety & Power Quality Audits
+- Energy Management System (EMS) Implementation
+- Corporate Carbon Accounting & BRSR Compliance
+
+## Contact & Locations
+- **Headquarters**: Chennai (Tambaram), Tamil Nadu, India
+- **Website**: https://sustainabyte.ai
+- **Email**: contact@sustainabyte.ai
+- **Phone**: +91 83770 07638
+- **LinkedIn**: https://www.linkedin.com/company/sustainabyte-ai/
+- **YouTube**: https://www.youtube.com/@SustainabyteTechnologies

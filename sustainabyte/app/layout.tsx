@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import ScrollProgressBar from "@/components/layout/ScrollProgressBar";
 import { Toaster } from "react-hot-toast";
-import { organizationSchema, websiteSchema } from "@/lib/seo";
+import { organizationSchema, websiteSchema, localBusinessSchema, siteNavigationSchema } from "@/lib/seo";
 import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 
 const Footer = dynamic(() => import("@/components/layout/Footer"));
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sustainabyte.ai"),
   title: "Sustainabyte Technologies | AI Energy Management India",
   description:
-    "Sustainabyte Technologies helps industrial facilities and commercial buildings monitor, control, and decarbonize energy usage using AI and IoT. Achieve verified savings and Net Zero alignment.",
+    "Sustainabyte Technologies delivers AI & IoT-powered energy intelligence, chiller optimization, and industrial decarbonization for Net Zero facilities.",
   keywords: [
     "AI energy management India",
     "energy efficiency",
@@ -133,6 +133,10 @@ export default function RootLayout({
         <meta name="geo.region" content="KR" />
         <meta name="geo.placename" content="India, United Arab Emirates, Saudi Arabia, Singapore, Malaysia, Qatar, Bahrain, Kuwait, Oman, Indonesia, Philippines, Thailand, Vietnam, United Kingdom, United States, Australia, Canada, Germany, France, Japan, South Korea" />
         <meta name="ICBM" content="20.5937, 78.9629" />
+        {/* Author / Publisher Attribution */}
+        <meta name="author" content="Sustainabyte Technologies" />
+        <meta name="publisher" content="Sustainabyte Technologies" />
+
         {/* JSON-LD Structured Data */}
         <Script
           id="organization-schema"
@@ -144,6 +148,18 @@ export default function RootLayout({
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="site-navigation-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
           strategy="afterInteractive"
         />
       </head>
