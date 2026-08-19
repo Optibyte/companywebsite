@@ -16,22 +16,26 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "Sustainabyte Technologies",
   url: "https://sustainabyte.ai",
-  logo: "https://sustainabyte.ai/logo.png",
-  description: "AI and IoT solutions for energy efficiency, sustainability, and net-zero decarbonization",
+  logo: "https://sustainabyte.ai/icon.png",
+  description: "AI and IoT solutions for industrial energy efficiency, sustainability, and net-zero decarbonization.",
   sameAs: [
-    "https://www.linkedin.com/company/sustainabyte-technologies",
-    "https://twitter.com/sustainabyte",
+    "https://www.linkedin.com/company/sustainabyte-ai/",
+    "https://www.youtube.com/@SustainabyteTechnologies",
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Mumbai, India",
+    streetAddress: "Tambaram",
+    addressLocality: "Chennai",
+    addressRegion: "Tamil Nadu",
+    postalCode: "600045",
     addressCountry: "IN",
   },
   contactPoint: {
     "@type": "ContactPoint",
-    contactType: "Sales",
+    contactType: "Customer Support & Sales",
+    telephone: "+91-83770-07638",
     email: "contact@sustainabyte.ai",
-    availableLanguage: "en",
+    availableLanguage: ["en", "ta", "hi"],
   },
 };
 
@@ -51,6 +55,55 @@ export const websiteSchema = {
   },
 };
 
+// SiteNavigationElement Schema for Google Sitelinks
+export const siteNavigationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SiteNavigationElement",
+      name: "Technology & AI Products",
+      description: "Explore AI-powered energy intelligence platforms: OptiByte, InByte, FixByte, and IoT solutions.",
+      url: "https://sustainabyte.ai/technology",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Energy Solutions & Audits",
+      description: "Industrial energy management, efficiency consulting, and BEE-compliant energy audits.",
+      url: "https://sustainabyte.ai/energy",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Careers & Internships",
+      description: "Explore open engineering roles, tech jobs, and internships in Chennai (Tambaram).",
+      url: "https://sustainabyte.ai/careers",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Our Team & Leadership",
+      description: "Meet the engineers, leadership, and sustainability innovators at Sustainabyte.",
+      url: "https://sustainabyte.ai/people",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Blogs & Sustainability Insights",
+      description: "In-depth articles on Agentic AI, smart utilities, ASHRAE energy audits, and industrial decarbonization.",
+      url: "https://sustainabyte.ai/blogs",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "News & Media Insights",
+      description: "Latest media coverage, publications, and thought leadership articles.",
+      url: "https://sustainabyte.ai/news",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Contact Us",
+      description: "Get in touch with our team in Chennai for product demos, audits, and inquiries.",
+      url: "https://sustainabyte.ai/contact",
+    },
+  ],
+};
+
 // Service Schema
 export const serviceSchema = (
   name: string,
@@ -67,7 +120,7 @@ export const serviceSchema = (
     name: "Sustainabyte Technologies",
     url: "https://sustainabyte.ai",
   },
-  image: image || "https://sustainabyte.ai/logo.png",
+  image: image || "https://sustainabyte.ai/icon.png",
   url,
   serviceArea: {
     "@type": "Country",
@@ -81,23 +134,37 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Sustainabyte Technologies",
-  image: "https://sustainabyte.ai/logo.png",
-  description: "Energy efficiency and sustainability solutions provider",
+  image: "https://sustainabyte.ai/icon.png",
+  description: "AI-powered industrial energy intelligence, IoT monitoring, and net-zero sustainability solutions provider.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Mumbai",
-    addressLocality: "Mumbai",
+    streetAddress: "Tambaram",
+    addressLocality: "Chennai",
+    addressRegion: "Tamil Nadu",
+    postalCode: "600045",
     addressCountry: "IN",
   },
-  telephone: "+91-XXXX-XXXX-XX",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "12.9249",
+    longitude: "80.1000",
+  },
+  telephone: "+91-83770-07638",
   email: "contact@sustainabyte.ai",
-  url: "https://sustainabyte.ai/contact",
+  url: "https://sustainabyte.ai",
+  priceRange: "$$",
+  currenciesAccepted: "INR, USD, AED",
+  paymentAccepted: "Cash, Credit Card, Bank Transfer",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     opens: "09:00",
     closes: "18:00",
   },
+  sameAs: [
+    "https://www.linkedin.com/company/sustainabyte-ai/",
+    "https://www.youtube.com/@SustainabyteTechnologies",
+  ],
 };
 
 // BlogPosting Schema
@@ -106,7 +173,9 @@ export const blogPostSchema = (
   description: string,
   image: string,
   datePublished: string,
-  author: string = "Sustainabyte Technologies"
+  authorName: string = "Sustainabyte Technologies",
+  authorLinkedIn?: string,
+  dateModified?: string
 ) => ({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -114,13 +183,46 @@ export const blogPostSchema = (
   description,
   image,
   datePublished,
+  dateModified: dateModified || datePublished,
   author: {
+    "@type": "Person",
+    name: authorName,
+    ...(authorLinkedIn && { sameAs: authorLinkedIn }),
+    worksFor: {
+      "@type": "Organization",
+      name: "Sustainabyte Technologies",
+      url: "https://sustainabyte.ai",
+    },
+  },
+  publisher: {
     "@type": "Organization",
-    name: author,
+    name: "Sustainabyte Technologies",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://sustainabyte.ai/logo.png",
+    },
   },
 });
 
-// Blog Schema (for news/blog listing page)
+// Blog Schema (for blogs listing page)
+export const blogsSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Sustainabyte Sustainability & Energy AI Blogs",
+  description: "Expert articles on smart utilities, Agentic AI, ASHRAE energy audits, and industrial decarbonization.",
+  url: "https://sustainabyte.ai/blogs",
+  publisher: {
+    "@type": "Organization",
+    name: "Sustainabyte Technologies",
+    url: "https://sustainabyte.ai",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://sustainabyte.ai/logo.png",
+    },
+  },
+};
+
+// News Schema (for news listing page)
 export const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
@@ -130,6 +232,11 @@ export const blogSchema = {
   publisher: {
     "@type": "Organization",
     name: "Sustainabyte Technologies",
+    url: "https://sustainabyte.ai",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://sustainabyte.ai/logo.png",
+    },
   },
 };
 
@@ -191,7 +298,8 @@ export const newsArticleSchema = (
   image: string,
   datePublished: string,
   dateModified?: string,
-  author: string = "Sustainabyte Technologies"
+  authorName: string = "Sustainabyte Technologies",
+  authorLinkedIn?: string
 ) => ({
   "@context": "https://schema.org",
   "@type": "NewsArticle",
@@ -201,8 +309,14 @@ export const newsArticleSchema = (
   datePublished,
   dateModified: dateModified || datePublished,
   author: {
-    "@type": "Organization",
-    name: author,
+    "@type": "Person",
+    name: authorName,
+    ...(authorLinkedIn && { sameAs: authorLinkedIn }),
+    worksFor: {
+      "@type": "Organization",
+      name: "Sustainabyte Technologies",
+      url: "https://sustainabyte.ai",
+    },
   },
   publisher: {
     "@type": "Organization",
@@ -218,7 +332,7 @@ export const newsArticleSchema = (
 export const jobPostingSchema = (
   title: string,
   description: string,
-  jobLocation: string = "Mumbai, India",
+  jobLocation: string = "Chennai, India",
   employmentType: string = "FULL_TIME",
   salary?: { currency: string; value: { minValue: number; maxValue: number } }
 ) => ({
@@ -261,7 +375,8 @@ export const personSchema = (
   jobTitle: string,
   image?: string,
   url?: string,
-  email?: string
+  email?: string,
+  sameAs?: string | string[]
 ) => ({
   "@context": "https://schema.org",
   "@type": "Person",
@@ -270,9 +385,11 @@ export const personSchema = (
   image: image || undefined,
   url: url || undefined,
   email: email || undefined,
+  ...(sameAs && { sameAs }),
   worksFor: {
     "@type": "Organization",
     name: "Sustainabyte Technologies",
+    url: "https://sustainabyte.ai",
   },
 });
 
@@ -290,16 +407,16 @@ export const localBusinessRegionalSchema = (city: string) => ({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Sustainabyte Technologies",
-  image: "https://sustainabyte.ai/logo.png",
+  image: "https://sustainabyte.ai/icon.png",
   description: `Sustainabyte Technologies - Energy efficiency and sustainability solutions in ${city}, India`,
   address: {
     "@type": "PostalAddress",
     addressLocality: city,
     addressRegion: city,
-    postalCode: "XXXX",
+    postalCode: "600045",
     addressCountry: "IN",
   },
-  telephone: "+91-XXXX-XXXX-XX",
+  telephone: "+91-83770-07638",
   email: "contact@sustainabyte.ai",
   url: "https://sustainabyte.ai/contact",
   priceRange: "$$",

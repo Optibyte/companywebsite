@@ -98,7 +98,7 @@ export default function IntroSection() {
               </motion.span>
             </motion.div>
 
-            <motion.h2
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -111,7 +111,7 @@ export default function IntroSection() {
               </span>
               <br />
               for Buildings & Industries
-            </motion.h2>
+            </motion.h1>
 
             {/* Rotating Sub-Tagline */}
             <div className="h-8 mb-6 overflow-hidden flex items-center">

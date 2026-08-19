@@ -24,7 +24,7 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { name: "Home", href: "/" },
-  
+
   {
     name: "Services",
     href: "/energy",
@@ -78,7 +78,7 @@ const navLinks: NavLink[] = [
           items: [
             { name: "OptiByte (AIoT Energy)", href: "/technology/optibyte" },
 
-          
+
             { name: "FixiByte (CMMS & Maintenance)", href: "/technology/fixbyte" },
 
             { name: "Digiweld", href: "/technology/digiweld" },
@@ -155,7 +155,7 @@ const navLinks: NavLink[] = [
       ]
     }
   },
- 
+
   {
     name: "Resources",
     href: "/resources",
@@ -165,12 +165,17 @@ const navLinks: NavLink[] = [
       columns: [
         {
           title: "Blogs",
+          href: "/blogs",
           items: [
-            { name: "Sustainability Insights", href: "/sustainability/insights" }
+            { name: "Sustainability Insights", href: "/blogs" },
+            { name: "What is AI Energy Management?", href: "/blogs/what-is-ai-energy-management-guide" },
+            { name: "The Future of Smart Utilities", href: "/blogs/future-of-smart-utilities-autonomous-optimization" },
+            { name: "ASHRAE Energy Audits", href: "/blogs/ashrae-energy-audits-building-efficiency" }
           ]
         },
         {
           title: "News",
+          href: "/news",
           items: [
             { name: "Latest News", href: "/news" }
           ]
@@ -370,8 +375,8 @@ export default function Navbar() {
                   <div className="flex flex-col items-center">
                     <button
                       className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${isNavActive(link) || activeDropdown === link.name
-                          ? "text-[#3DD68C]"
-                          : "text-white hover:text-white/80"
+                        ? "text-[#3DD68C]"
+                        : "text-white hover:text-white/80"
                         }`}
                       onClick={() =>
                         setActiveDropdown(activeDropdown === link.name ? null : link.name)
@@ -386,8 +391,8 @@ export default function Navbar() {
                     {/* Active underline indicator */}
                     <span
                       className={`block h-0.5 rounded-full transition-all duration-300 ${isNavActive(link) || activeDropdown === link.name
-                          ? "w-4/5 bg-[#3DD68C]"
-                          : "w-0 bg-transparent"
+                        ? "w-4/5 bg-[#3DD68C]"
+                        : "w-0 bg-transparent"
                         }`}
                     />
                   </div>
@@ -396,8 +401,8 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`flex items-center gap-1 px-3 xl:px-4 py-2 text-sm xl:text-base transition-colors duration-200 font-semibold ${isNavActive(link)
-                          ? "text-[#3DD68C]"
-                          : "text-white hover:text-white/80"
+                        ? "text-[#3DD68C]"
+                        : "text-white hover:text-white/80"
                         }`}
                     >
                       {link.name}
@@ -405,8 +410,8 @@ export default function Navbar() {
                     {/* Active underline indicator */}
                     <span
                       className={`block h-0.5 rounded-full transition-all duration-300 ${isNavActive(link)
-                          ? "w-4/5 bg-[#3DD68C]"
-                          : "w-0 bg-transparent"
+                        ? "w-4/5 bg-[#3DD68C]"
+                        : "w-0 bg-transparent"
                         }`}
                     />
                   </div>
@@ -462,9 +467,8 @@ export default function Navbar() {
                   {!(link.megaMenu || link.dropdown) ? (
                     <Link
                       href={link.href}
-                      className={`block py-3.5 text-lg font-semibold transition-colors duration-200 ${
-                        isActive(link.href) ? "text-[#3DD68C]" : "text-white/80 hover:text-[#3DD68C]"
-                      }`}
+                      className={`block py-3.5 text-lg font-semibold transition-colors duration-200 ${isActive(link.href) ? "text-[#3DD68C]" : "text-white/80 hover:text-[#3DD68C]"
+                        }`}
                       onClick={() => setMobileOpen(false)}
                     >
                       {link.name}
@@ -477,17 +481,15 @@ export default function Navbar() {
                             expandedMobileMenu === link.name ? null : link.name
                           )
                         }
-                        className={`w-full flex items-center justify-between py-2.5 text-lg font-semibold transition-colors duration-200 ${
-                          isNavActive(link) || expandedMobileMenu === link.name
+                        className={`w-full flex items-center justify-between py-2.5 text-lg font-semibold transition-colors duration-200 ${isNavActive(link) || expandedMobileMenu === link.name
                             ? "text-[#3DD68C]"
                             : "text-white/80 hover:text-[#3DD68C]"
-                        }`}
+                          }`}
                       >
                         <span className={isNavActive(link) ? "text-[#3DD68C]" : ""}>{link.name}</span>
                         <ChevronDown
-                          className={`w-5 h-5 transition-transform duration-300 ${
-                            expandedMobileMenu === link.name ? "rotate-180 text-[#3DD68C]" : "text-white/40"
-                          }`}
+                          className={`w-5 h-5 transition-transform duration-300 ${expandedMobileMenu === link.name ? "rotate-180 text-[#3DD68C]" : "text-white/40"
+                            }`}
                         />
                       </button>
 
@@ -539,11 +541,10 @@ export default function Navbar() {
                                           <li key={itemIdx}>
                                             <Link
                                               href={item.href}
-                                              className={`block text-xs py-1 transition-colors ${
-                                                pathname === item.href.split("#")[0]
+                                              className={`block text-xs py-1 transition-colors ${pathname === item.href.split("#")[0]
                                                   ? "text-[#3DD68C] font-semibold"
                                                   : "text-white/60 hover:text-white"
-                                              }`}
+                                                }`}
                                               onClick={() => setMobileOpen(false)}
                                             >
                                               {item.name}
@@ -561,11 +562,10 @@ export default function Navbar() {
                                     <li key={subIdx}>
                                       <Link
                                         href={sub.href}
-                                        className={`block text-xs py-1 transition-colors ${
-                                          pathname === sub.href.split("#")[0]
+                                        className={`block text-xs py-1 transition-colors ${pathname === sub.href.split("#")[0]
                                             ? "text-[#3DD68C] font-semibold"
                                             : "text-white/60 hover:text-white"
-                                        }`}
+                                          }`}
                                         onClick={() => setMobileOpen(false)}
                                       >
                                         {sub.name}

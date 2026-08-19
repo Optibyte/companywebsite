@@ -3,12 +3,20 @@ import Script from "next/script";
 import { profilePageSchema, personSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "People | Careers | Sustainabyte",
-  description: "Join Sustainabyte's team of energy and sustainability experts. Explore career opportunities and meet our leadership team driving climate tech innovation.",
-  keywords: ["careers", "jobs", "team", "employment", "leadership"],
+  title: "Our Team | People at Sustainabyte Technologies",
+  description:
+    "Meet the passionate team at Sustainabyte Technologies driving AI-powered energy efficiency and sustainability in India and beyond.",
+  keywords: [
+    "sustainabyte team",
+    "energy management experts",
+    "IoT engineers India",
+    "sustainability professionals",
+    "AI energy team",
+  ],
   openGraph: {
-    title: "Careers | Sustainabyte",
-    description: "Join our team",
+    title: "Meet the People at Sustainabyte Technologies",
+    description:
+      "Our team of energy engineers, IoT specialists, and software developers are building AI-powered solutions to accelerate industrial sustainability worldwide.",
     type: "website",
     url: "https://sustainabyte.ai/people",
     images: [
@@ -16,9 +24,16 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Sustainabyte Careers",
+        alt: "The Sustainabyte Technologies team – Energy & AI experts",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Meet the Sustainabyte Team",
+    description:
+      "Energy engineers, IoT specialists & AI developers building sustainability solutions for industries worldwide.",
+    images: ["/opengraph-image.png"],
   },
   alternates: {
     canonical: "https://sustainabyte.ai/people",
@@ -30,13 +45,33 @@ export default function PeopleLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const founderSchema = personSchema(
-    "Thanakarthik",
-    "Founder & CEO",
-    "/people/thanakarthik.jpg",
-    "https://sustainabyte.ai/people",
-    "thanakarthik@sustainabyte.ai"
-  );
+  // Team member schemas — add LinkedIn sameAs URLs when available
+  const teamSchemas = [
+    personSchema(
+      "Satish Kumar N",
+      "Sales Manager",
+      "https://sustainabyte.ai/people/Satish%20Kumar%20N.jpeg",
+      "https://sustainabyte.ai/people"
+    ),
+    personSchema(
+      "Vijayan R",
+      "Assistant Manager – Energy Solutions",
+      "https://sustainabyte.ai/people/Vijayan.png",
+      "https://sustainabyte.ai/people"
+    ),
+    personSchema(
+      "Gowtham D",
+      "Assistant Manager – Energy Solutions",
+      "https://sustainabyte.ai/people/Gowtham%20D.jpeg",
+      "https://sustainabyte.ai/people"
+    ),
+    personSchema(
+      "Yedunath M",
+      "IoT & Controls Project Engineer",
+      "https://sustainabyte.ai/people/yedunath.jpeg",
+      "https://sustainabyte.ai/people"
+    ),
+  ];
 
   return (
     <>
@@ -46,13 +81,17 @@ export default function PeopleLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         strategy="afterInteractive"
       />
-      <Script
-        id="founder-person-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderSchema) }}
-        strategy="afterInteractive"
-      />
+      {teamSchemas.map((schema, index) => (
+        <Script
+          key={index}
+          id={`team-person-schema-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          strategy="afterInteractive"
+        />
+      ))}
       {children}
     </>
   );
 }
+
