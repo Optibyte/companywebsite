@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Cpu, Zap, Activity, ShieldCheck } from "lucide-react";
 import GreenButton from "@/components/ui/GreenButton";
 
@@ -29,24 +30,24 @@ export default function IntroSection() {
     <section className="relative py-20 sm:py-28 bg-[#0D1B3E] overflow-hidden">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Background Image with Ken Burns effect */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/Net%20Zero.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-          animate={{
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        {/* Background Image — using Next.js Image for optimizer + LCP preload */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image
+              src="/Net Zero.webp"
+              alt="Net Zero energy management background"
+              fill
+              priority
+              fetchPriority="high"
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </motion.div>
+        </div>
         {/* Subtle dark gradient from the left for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E]/90 via-[#0D1B3E]/60 to-transparent" />
         {/* Subtle dark gradient from bottom */}

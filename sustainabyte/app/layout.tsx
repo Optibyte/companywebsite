@@ -180,6 +180,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <head>
+        {/* Preconnect to critical third-party origins — reduces LCP by ~400-500ms */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+        {/* llms.txt — Agentic Browsing / AI agent discoverability */}
+        <link rel="describedby" href="/llms.txt" type="text/plain" />
+        {/* Preload logo to prevent it being a late-discovered LCP resource */}
+        <link rel="preload" as="image" href="/Company-Logo-3-1.webp" fetchPriority="high" />
+
         {/* Global Geo Meta Tags */}
         <meta name="geo.region" content="IN" />
         <meta name="geo.region" content="AE" />

@@ -4,7 +4,14 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["nodemailer"],
 
   images: {
-    unoptimized: true,
+    // Re-enabled Next.js built-in image optimization.
+    // This auto-resizes, converts to WebP/AVIF and compresses images on demand.
+    // The 2.4 MB Net Zero Focusbg.webp will be served as ~150 KB at actual display size.
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 86400, // cache optimised images for 24h
+    dangerouslyAllowSVG: false,
   },
 
   allowedDevOrigins: [

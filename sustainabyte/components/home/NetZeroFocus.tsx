@@ -63,6 +63,8 @@ export default function NetZeroFocus() {
           className="object-cover opacity-80"
           priority
           fetchPriority="high"
+          sizes="100vw"
+          quality={75}
         />
         {/* Gradient Overlay for content protection and depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E] via-[#0D1B3E]/50 to-transparent" />

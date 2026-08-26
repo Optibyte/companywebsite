@@ -354,6 +354,9 @@ export default function Navbar() {
               height={60}
               className="h-14 w-auto object-contain group-hover:brightness-110 transition-all duration-300"
               priority
+              fetchPriority="high"
+              sizes="(max-width: 768px) 160px, 280px"
+              quality={85}
             />
           </Link>
 
