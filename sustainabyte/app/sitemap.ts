@@ -13,6 +13,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
 
+    // Chennai dedicated landing page — highest priority
+    {
+      url: `${baseUrl}/energy/energy-audit-chennai`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.98,
+    },
+
     // Main Section Pages - high priority
     {
       url: `${baseUrl}/energy`,
@@ -194,13 +202,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/news`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.6,
+      priority: 0.80,
     },
     {
       url: `${baseUrl}/resources`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.80,
     },
 
     // Company Pages - lower priority
@@ -208,19 +216,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/company`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/people`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.80,
     },
     {
       url: `${baseUrl}/careers`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
+      changeFrequency: 'weekly',
+      priority: 0.90,
     },
     {
       url: `${baseUrl}/contact`,

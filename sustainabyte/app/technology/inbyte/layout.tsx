@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "InByte - AI Audit Intelligence | Sustainabyte",
-  description: "InByte transforms energy audits with AI assistance - auto-flagging inefficiencies, generating recommendations, and calculating verified savings potential.",
-  keywords: ["InByte", "AI audit intelligence", "energy audit automation"],
+  title: "InByte - AI Energy Audit Intelligence & Automated M&V | Sustainabyte",
+  description: "InByte accelerates energy audits with AI - auto-flagging thermal & electrical inefficiencies, generating IPMVP-compliant M&V reports, and calculating verified ROI.",
+  keywords: [
+    "energy audit services",
+    "InByte",
+    "AI audit intelligence",
+    "energy audit automation",
+    "measurement and verification software",
+    "industrial energy efficiency",
+  ],
   openGraph: {
     title: "InByte - AI Audit Platform",
     description: "AI-assisted energy audits with verified savings calculations",

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DigiWeld - Welding Process Intelligence | Sustainabyte",
-  description: "DigiWeld optimizes welding processes with real-time monitoring, quality control, and energy efficiency insights powered by AI and IoT sensors.",
-  keywords: ["DigiWeld", "welding optimization", "process intelligence"],
+  title: "DigiWeld - Smart Welding Monitoring System & Bluetooth Control | Sustainabyte",
+  description: "Bluetooth-enabled welding monitoring system and quality management software. Real-time WPS enforcement, arc telemetry, and automated Non-Conformance Reporting (NCR).",
+  keywords: [
+    "welding monitoring system",
+    "digital welding production tracking",
+    "welding quality management software",
+    "Bluetooth welding control",
+    "DigiWeld",
+  ],
   openGraph: {
     title: "DigiWeld - Welding Intelligence",
     description: "AI-powered welding process optimization and quality monitoring",

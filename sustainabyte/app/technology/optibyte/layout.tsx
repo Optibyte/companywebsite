@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "OptiByte - AI Energy Intelligence Platform | Sustainabyte",
-  description: "OptiByte consolidates energy data, runs predictive models, and orchestrates autonomous optimization across your facility portfolio. The central AI brain.",
+  title: "OptiByte - Industrial Energy Management System & IoT Monitoring | Sustainabyte",
+  description: "Enterprise energy management system (EnMS) and AIoT monitoring platform. Optimize boilers, compressors, chillers, and furnaces with real-time analytics.",
   keywords: [
+    "industrial energy management",
+    "energy monitoring system",
+    "energy optimization solutions",
+    "AI energy monitoring",
+    "IoT energy monitoring",
     "OptiByte",
-    "energy intelligence platform",
-    "AI energy management",
     "OptiByte dashboard",
     "OptiByte reports",
     "OptiByte alarms",

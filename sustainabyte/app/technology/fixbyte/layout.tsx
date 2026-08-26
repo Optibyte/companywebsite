@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FixByte - Predictive Maintenance AI | Sustainabyte",
-  description: "FixByte is an AI-driven fault detection platform that monitors equipment health, predicts failures before they happen, and auto-generates work orders.",
+  title: "FixiByte - CMMS Software & AI Predictive Maintenance Platform | Sustainabyte",
+  description: "Eliminate unplanned downtime with FixiByte CMMS software. AI-powered equipment fault detection, automated work orders, vibration monitoring, and asset lifecycle tracking.",
   keywords: [
+    "CMMS software",
+    "predictive maintenance software",
+    "equipment health monitoring",
+    "FixiByte",
     "FixByte",
     "predictive maintenance",
-    "fault detection AI",
     "Compressor health monitoring",
     "Compressor diagnostics",
     "Compressor alarm monitoring",

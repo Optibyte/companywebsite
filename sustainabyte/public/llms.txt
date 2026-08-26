@@ -1,28 +1,47 @@
 # Sustainabyte Technologies
-> AI-powered energy intelligence, IoT telemetry, and industrial decarbonization solutions for sustainable buildings and manufacturing facilities.
 
-## About
-Sustainabyte Technologies Private Limited is a climate-tech company headquartered in Chennai (Tambaram), Tamil Nadu, India. The company helps commercial buildings, factories, and industrial estates reduce energy waste, cut peak power spikes, optimize chiller and compressor plants, and achieve verifiable Net Zero alignment.
+> Sustainabyte Technologies is the leading energy audit company in Chennai, India. We provide BEE-certified industrial and commercial energy audits, AI-powered energy management systems, ISO 50001 consulting, and Net Zero decarbonization solutions for factories, hospitals, hotels, IT parks, and commercial buildings across Chennai, Tamil Nadu, and 20+ countries.
 
-## Core Products & Solutions
-- **OptiByte**: AI-native energy intelligence and autonomous optimization platform.
-- **Compass**: Comprehensive energy & facility management system for multi-site industrial telemetry.
-- **Chiller Plant Manager (CPM)**: Real-time autonomous chiller plant optimization algorithms.
-- **InByte**: AI audit intelligence and automated digital energy auditing.
-- **FixByte**: Predictive maintenance, vibration analysis, and asset health monitoring.
-- **FusionByte**: Edge-to-cloud industrial IoT integration and SCADA aggregation.
-- **DigiWeld**: Smart IoT & AI welding quality monitoring.
+Sustainabyte Technologies Private Limited is a climate-tech company headquartered in Chennai (Tambaram), Tamil Nadu, India. Contact: contact@sustainabyte.ai | +91 83770 07638
 
-## Services
-- Industrial & Commercial Energy Audits (BEE compliant)
-- Electrical Safety & Power Quality Audits
-- Energy Management System (EMS) Implementation
-- Corporate Carbon Accounting & BRSR Compliance
+## Energy Audit & Management Services
 
-## Contact & Locations
-- **Headquarters**: Chennai (Tambaram), Tamil Nadu, India
-- **Website**: https://sustainabyte.ai
-- **Email**: contact@sustainabyte.ai
-- **Phone**: +91 83770 07638
-- **LinkedIn**: https://www.linkedin.com/company/sustainabyte-ai/
-- **YouTube**: https://www.youtube.com/@SustainabyteTechnologies
+- [Energy Audit Services in Chennai](https://sustainabyte.ai/energy/energy-audit-chennai): BEE certified industrial and commercial energy audits in Chennai. Factory, hospital, hotel, IT park, HVAC, electrical and chiller plant audits.
+- [Energy Audit Services](https://sustainabyte.ai/energy/energy-audit): ASHRAE Level 1-3, ISO 50002, BEE compliant energy audits across India, UAE, Saudi Arabia, Singapore and 20+ countries.
+- [Energy Management Solutions](https://sustainabyte.ai/energy/management-solutions): ISO 50001 Energy Management System implementation and consulting.
+- [Energy Efficiency Consulting](https://sustainabyte.ai/energy/efficiency-consulting): Expert energy efficiency consulting and optimization for industrial operations.
+- [Energy Solutions Overview](https://sustainabyte.ai/energy): Comprehensive energy management, efficiency consulting, and analytics solutions.
+
+## Technology Products
+
+- [OptiByte](https://sustainabyte.ai/technology/optibyte): AI-driven chiller plant optimization platform for industrial and commercial HVAC systems.
+- [InByte](https://sustainabyte.ai/technology/inbyte): Real-time IoT energy monitoring and analytics platform.
+- [FixByte](https://sustainabyte.ai/technology/fixbyte): AI-powered predictive maintenance and fault detection for industrial equipment.
+- [FusionByte](https://sustainabyte.ai/technology/fusionbyte): Edge-to-cloud industrial IoT data fusion and integration.
+- [Chiller Plant Manager](https://sustainabyte.ai/technology/chiller-plant-manager): Comprehensive chiller plant management and optimization.
+- [Compass](https://sustainabyte.ai/technology/compass): AI analytics and decision intelligence platform for energy and operations.
+- [DigiWeld](https://sustainabyte.ai/technology/digiweld): Digital welding process monitoring and optimization.
+- [Technology Overview](https://sustainabyte.ai/technology): All AI and IoT products from Sustainabyte Technologies.
+
+## Sustainability Solutions
+
+- [Net Zero Roadmap](https://sustainabyte.ai/sustainability/net-zero-roadmap): Science-based Net Zero planning and decarbonization roadmaps for industrial companies.
+- [Carbon Accounting](https://sustainabyte.ai/sustainability/carbon-accounting): Scope 1, 2 and 3 GHG emissions tracking and carbon accounting for enterprises.
+- [Industrial Decarbonization](https://sustainabyte.ai/sustainability/decarbonization): End-to-end industrial decarbonization solutions and implementation support.
+- [Water Management](https://sustainabyte.ai/sustainability/water-management): Industrial water management, efficiency monitoring, and conservation solutions.
+- [Sustainability Overview](https://sustainabyte.ai/sustainability): Net Zero roadmaps, carbon accounting, ESG reporting, and decarbonization strategies.
+
+## Company & Careers
+
+- [About Sustainabyte](https://sustainabyte.ai/company): Mission, vision, founder, team, and company culture of Sustainabyte Technologies.
+- [Our Team](https://sustainabyte.ai/people): Engineers, leadership, and sustainability innovators at Sustainabyte.
+- [Careers & Jobs](https://sustainabyte.ai/careers): Open roles in software engineering, energy engineering, DevOps, and internships at Sustainabyte in Chennai.
+- [Contact](https://sustainabyte.ai/contact): Reach Sustainabyte Technologies in Chennai for product demos, energy audits, and inquiries.
+
+## Optional
+
+- [Blogs & Insights](https://sustainabyte.ai/blogs): Articles on Agentic AI, smart utilities, ASHRAE energy audits, and industrial decarbonization.
+- [News & Media](https://sustainabyte.ai/news): Latest news, media coverage, and thought leadership from Sustainabyte Technologies.
+- [Resources](https://sustainabyte.ai/resources): Whitepapers, case studies, and downloadable resources on energy efficiency and sustainability.
+- [Analytics Dashboard](https://sustainabyte.ai/analytics): Real-time energy and sustainability analytics dashboard.
+- [Regions & Global Presence](https://sustainabyte.ai/regions): Sustainabyte service regions across India, Middle East, and Southeast Asia.

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Cpu, Zap, Activity, ShieldCheck } from "lucide-react";
 import GreenButton from "@/components/ui/GreenButton";
 
@@ -29,24 +30,24 @@ export default function IntroSection() {
     <section className="relative py-20 sm:py-28 bg-[#0D1B3E] overflow-hidden">
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Background Image with Ken Burns effect */}
-        <motion.div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/Net%20Zero.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-          animate={{
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        {/* Background Image — using Next.js Image for optimizer + LCP preload */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image
+              src="/Net Zero.webp"
+              alt="Net Zero energy management background"
+              fill
+              priority
+              fetchPriority="high"
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </motion.div>
+        </div>
         {/* Subtle dark gradient from the left for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E]/90 via-[#0D1B3E]/60 to-transparent" />
         {/* Subtle dark gradient from bottom */}
@@ -103,15 +104,26 @@ export default function IntroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-[family-name:var(--font-sora)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-4 sm:mb-6 text-white"
+              className="font-[family-name:var(--font-sora)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight mb-3 sm:mb-4 text-white"
             >
               AI-Powered{" "}
               <span className="bg-gradient-to-r from-[#3DD68C] to-[#00FFAA] bg-clip-text text-transparent">
-                Energy Intelligence
+                Energy Management System
               </span>
               <br />
-              for Buildings & Industries
+              for Industrial Energy Efficiency
             </motion.h1>
+
+            {/* SEO Supporting Heading — visible to Google, subtle in UI */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-sm sm:text-base font-normal text-white/50 mb-4 sm:mb-5 tracking-wide"
+            >
+              Energy Audit, Energy Management &amp; Energy Efficiency Services in Chennai
+            </motion.h2>
 
             {/* Rotating Sub-Tagline */}
             <div className="h-8 mb-6 overflow-hidden flex items-center">
@@ -136,7 +148,7 @@ export default function IntroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-[#B0BEC5] text-base sm:text-lg md:text-xl max-w-2xl mb-8 sm:mb-10 leading-relaxed font-[family-name:var(--font-dm-sans)]"
             >
-              We are a climate-tech company empowering industries and buildings to achieve smarter energy efficiency and Net Zero goals through AI and IoT-driven solutions.
+              We empower commercial facilities and manufacturing plants to cut utility costs with real-time energy monitoring systems, chiller plant optimization, and automated Net Zero decarbonization solutions.
             </motion.p>
 
             <motion.div
