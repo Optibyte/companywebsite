@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   description:
     "Join Sustainabyte Technologies in Chennai. Open roles in Frontend Dev, Full Stack, DevOps, Energy Engineering & Digital Marketing. Internships available.",
   keywords: [
+    // Brand job / career keywords
+    "Sustainabyte jobs",
+    "Sustainabyte careers",
+    "Sustainabyte hiring",
+    "Sustainabyte recruitment",
+    "Sustainabyte vacancies",
+    "Sustainabyte developer jobs",
+    "Sustainabyte software engineer jobs",
+    "Sustainabyte full stack developer jobs",
+    "Sustainabyte Python developer jobs",
+    "Sustainabyte JavaScript developer jobs",
+    "Sustainabyte React developer jobs",
+    "Sustainabyte Node.js developer jobs",
+    // Location-specific job keywords
     "careers sustainabyte",
     "jobs Chennai",
     "frontend developer jobs Chennai",

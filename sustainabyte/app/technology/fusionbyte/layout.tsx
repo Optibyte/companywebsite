@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FusionByte - AI Production Intelligence | Sustainabyte",
-  description: "FusionByte integrates production and energy data through AI to reveal the true cost of every process and where to cut without cutting output.",
-  keywords: ["FusionByte", "production intelligence", "energy production AI"],
+  title: "FusionByte - Digital Welding Production Tracking & Quality AI | Sustainabyte",
+  description: "Digital welding production tracking and energy intelligence platform. Correlate weld arc energy with joint quality, detect anomalies, and lower fabrication costs.",
+  keywords: [
+    "digital welding production tracking",
+    "welding quality management software",
+    "welding monitoring system",
+    "FusionByte",
+  ],
   openGraph: {
     title: "FusionByte - Production Intelligence",
     description: "AI-powered production and energy cost analysis",

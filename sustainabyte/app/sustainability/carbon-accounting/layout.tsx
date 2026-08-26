@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Carbon Accounting & Reporting | Sustainabyte",
-  description: "Carbon accounting software for measuring, tracking, and reporting Scope 1, 2, and 3 emissions with ISO 14064 and CDP compliance.",
-  keywords: ["Carbon accounting", "emissions reporting", "carbon tracking"],
+  title: "ESG & Carbon Reporting Software (Scope 1, 2, 3 Emissions) | Sustainabyte",
+  description: "Automate corporate ESG reporting, GHG Protocol accounting, and Scope 1, 2, and 3 emissions tracking. Fully compliant with SEBI BRSR, CDP, and ISO 14064 standards.",
+  keywords: [
+    "ESG reporting",
+    "carbon reporting",
+    "carbon management",
+    "Scope 1 2 3 emissions",
+    "GHG reporting",
+    "Net Zero solutions",
+    "decarbonization solutions",
+    "sustainability management",
+    "Carbon accounting",
+  ],
   openGraph: {
     title: "Carbon Accounting",
     description: "ISO 14064 compliant carbon emissions accounting and reporting",

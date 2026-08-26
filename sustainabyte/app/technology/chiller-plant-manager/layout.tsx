@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Chiller Plant Manager | Sustainabyte",
-  description: "Optimize chiller plant performance with real-time monitoring, predictive maintenance, and autonomous controls powered by AI and IoT.",
+  title: "AI Chiller Plant Optimization & Energy Management (CPO) | Sustainabyte",
+  description: "Reduce chiller plant power consumption by 12-28% with Sustainabyte AI Chiller Plant Optimization (CPO). Real-time COP improvement, dynamic setpoint steering, and automated staging.",
   keywords: [
-    "Chiller Plant Manager",
-    "chiller optimization",
-    "plant management",
-    "Chiller COP",
-    "Chiller efficiency",
-    "Chiller kW/TR",
+    "chiller plant optimization",
+    "HVAC energy optimization",
+    "AI chiller optimization",
+    "chiller energy management",
+    "chiller COP improvement",
+    "chiller kW/TR reduction",
     "Chiller energy saving",
     "Chiller audit",
     "Chiller performance",
