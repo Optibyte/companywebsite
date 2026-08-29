@@ -120,7 +120,7 @@ export default function BlogModal({ post, onClose }: BlogModalProps) {
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover"
+                  className={`${post.imageFit === "contain" ? "object-contain" : "object-cover"} ${post.imagePosition || "object-center"}`}
                   priority
                   sizes="(max-width: 1024px) 100vw, 850px"
                 />
@@ -212,6 +212,64 @@ export default function BlogModal({ post, onClose }: BlogModalProps) {
                             </p>
                           </div>
                         ))}
+                      </div>
+                    )}
+
+                    {/* Inline Image */}
+                    {section.image && (
+                      <div className="my-5 space-y-1.5">
+                        <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm bg-gray-50 border border-gray-100">
+                          <Image
+                            src={section.image.src}
+                            alt={section.image.alt}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 800px"
+                          />
+                        </div>
+                        {section.image.caption && (
+                          <p className="text-center text-[11px] text-gray-500 italic">
+                            {section.image.caption}
+                          </p>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Responsive Table */}
+                    {section.table && (
+                      <div className="my-5 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                        <table className="min-w-full divide-y divide-gray-200 text-xs sm:text-sm">
+                          <thead className="bg-[#0D1B3E] text-white">
+                            <tr>
+                              {section.table.headers.map((header, idx) => (
+                                <th
+                                  key={idx}
+                                  scope="col"
+                                  className="px-4 py-2.5 text-left font-semibold tracking-wider"
+                                >
+                                  {header}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-gray-100 bg-white">
+                            {section.table.rows.map((row, rowIdx) => (
+                              <tr
+                                key={rowIdx}
+                                className={rowIdx % 2 === 0 ? "bg-white" : "bg-gray-50/50"}
+                              >
+                                {row.map((cell, cellIdx) => (
+                                  <td
+                                    key={cellIdx}
+                                    className="px-4 py-3 text-gray-700 whitespace-pre-line align-top"
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </div>
                     )}
                   </div>

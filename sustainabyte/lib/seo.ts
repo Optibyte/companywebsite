@@ -15,9 +15,18 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Sustainabyte Technologies",
+  legalName: "Sustainabyte Technologies Private Limited",
   url: "https://sustainabyte.ai",
   logo: "https://sustainabyte.ai/icon.png",
   description: "AI and IoT solutions for industrial energy efficiency, sustainability, and net-zero decarbonization.",
+  foundingDate: "2024-05",
+  founder: [
+    {
+      "@type": "Person",
+      name: "Thanakarthik Kumar ",
+      jobTitle: "Founder & CEO"
+    }
+  ],
   sameAs: [
     "https://www.linkedin.com/company/sustainabyte-ai/",
     "https://www.youtube.com/@SustainabyteTechnologies",
@@ -59,13 +68,7 @@ export const websiteSchema = {
 export const siteNavigationSchema = {
   "@context": "https://schema.org",
   "@graph": [
-    // ── Primary Navigation ──────────────────────────────────────────────────
-    {
-      "@type": "SiteNavigationElement",
-      name: "Energy Audit Company in Chennai",
-      description: "BEE certified energy audit services in Chennai — industrial, commercial, HVAC & electrical audits. 10–30% energy savings.",
-      url: "https://sustainabyte.ai/energy/energy-audit-chennai",
-    },
+    // ── Top 6 Primary Sitelinks for Google Search ────────────────────────────
     {
       "@type": "SiteNavigationElement",
       name: "Contact Us",
@@ -74,27 +77,27 @@ export const siteNavigationSchema = {
     },
     {
       "@type": "SiteNavigationElement",
-      name: "Careers & Jobs",
-      description: "Open roles in software engineering, energy engineering, DevOps, and internships at Sustainabyte in Chennai.",
-      url: "https://sustainabyte.ai/careers",
+      name: "Technology & AI Products",
+      description: "Explore AI-powered energy intelligence platforms: OptiByte, InByte, FixByte, FusionByte, and IoT solutions.",
+      url: "https://sustainabyte.ai/technology",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: "Energy Solutions & Audits",
+      description: "Industrial energy management, efficiency consulting, and BEE-certified energy audit services in Chennai.",
+      url: "https://sustainabyte.ai/energy",
     },
     {
       "@type": "SiteNavigationElement",
       name: "About Sustainabyte",
-      description: "Learn about Sustainabyte Technologies — our mission, vision, founder, and company culture.",
+      description: "Learn about Sustainabyte Technologies — our mission, vision, leadership, and company profile.",
       url: "https://sustainabyte.ai/company",
     },
     {
       "@type": "SiteNavigationElement",
-      name: "Our Team & People",
-      description: "Meet the engineers, leadership, and sustainability innovators at Sustainabyte Technologies.",
-      url: "https://sustainabyte.ai/people",
-    },
-    {
-      "@type": "SiteNavigationElement",
-      name: "News & Media",
-      description: "Latest news, media coverage, and thought leadership from Sustainabyte Technologies.",
-      url: "https://sustainabyte.ai/news",
+      name: "Careers & Jobs",
+      description: "Explore open career opportunities in software engineering, energy systems, and AI in Chennai.",
+      url: "https://sustainabyte.ai/careers",
     },
     {
       "@type": "SiteNavigationElement",
@@ -105,15 +108,14 @@ export const siteNavigationSchema = {
     {
       "@type": "SiteNavigationElement",
       name: "Resources",
-      description: "Whitepapers, case studies, and downloadable resources on energy efficiency and sustainability.",
+      description: "Case studies, whitepapers, and guides on industrial energy efficiency and sustainability.",
       url: "https://sustainabyte.ai/resources",
     },
-    // ── Technology & Products ───────────────────────────────────────────────
     {
       "@type": "SiteNavigationElement",
-      name: "Technology & AI Products",
-      description: "Explore AI-powered energy intelligence platforms: OptiByte, InByte, FixByte, FusionByte, and IoT solutions.",
-      url: "https://sustainabyte.ai/technology",
+      name: "Energy Audit Chennai",
+      description: "BEE certified energy audit services in Chennai — industrial, commercial, HVAC & electrical audits.",
+      url: "https://sustainabyte.ai/energy/energy-audit-chennai",
     },
     {
       "@type": "SiteNavigationElement",

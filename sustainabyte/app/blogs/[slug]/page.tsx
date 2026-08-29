@@ -173,7 +173,7 @@ export default async function BlogPostPage({
             src={post.image}
             alt={post.title}
             fill
-            className="object-cover"
+            className={`${post.imageFit === "contain" ? "object-contain" : "object-cover"} ${post.imagePosition || "object-center"}`}
             priority
             sizes="(max-width: 1200px) 100vw, 1100px"
           />
@@ -274,6 +274,64 @@ export default async function BlogPostPage({
                       ))}
                     </div>
                   )}
+
+                  {/* Inline Image */}
+                  {section.image && (
+                    <div className="my-8 space-y-2">
+                      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-md bg-gray-50 border border-gray-100">
+                        <Image
+                          src={section.image.src}
+                          alt={section.image.alt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1200px) 100vw, 800px"
+                        />
+                      </div>
+                      {section.image.caption && (
+                        <p className="text-center text-xs text-gray-500 italic">
+                          {section.image.caption}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Responsive Table */}
+                  {section.table && (
+                    <div className="my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+                      <table className="min-w-full divide-y divide-gray-200 text-sm">
+                        <thead className="bg-[#0D1B3E] text-white">
+                          <tr>
+                            {section.table.headers.map((header, idx) => (
+                              <th
+                                key={idx}
+                                scope="col"
+                                className="px-6 py-3.5 text-left font-semibold tracking-wider"
+                              >
+                                {header}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100 bg-white">
+                          {section.table.rows.map((row, rowIdx) => (
+                            <tr
+                              key={rowIdx}
+                              className={rowIdx % 2 === 0 ? "bg-white" : "bg-gray-50/50"}
+                            >
+                              {row.map((cell, cellIdx) => (
+                                <td
+                                  key={cellIdx}
+                                  className="px-6 py-4 text-gray-700 whitespace-pre-line align-top"
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </section>
               ))}
             </div>
@@ -364,7 +422,7 @@ export default async function BlogPostPage({
                       src={rel.image}
                       alt={rel.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className={`group-hover:scale-105 transition-transform duration-500 ${rel.imageFit === "contain" ? "object-contain" : "object-cover"} ${rel.imagePosition || "object-center"}`}
                     />
                   </div>
                   <div className="p-6 flex flex-col justify-between flex-1">

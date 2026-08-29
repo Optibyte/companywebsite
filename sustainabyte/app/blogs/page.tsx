@@ -224,7 +224,7 @@ export default function BlogsPage() {
                         src={article.image}
                         alt={article.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        className={`group-hover:scale-105 transition-transform duration-500 ease-out ${article.imageFit === "contain" ? "object-contain" : "object-cover"} ${article.imagePosition || "object-center"}`}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
                       />
                       <div className="absolute top-3 left-3">
