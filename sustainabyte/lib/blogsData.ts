@@ -14,6 +14,8 @@ export interface BlogPost {
   };
   excerpt: string;
   image: string;
+  imageFit?: "cover" | "contain";
+  imagePosition?: string;
   tableOfContents: { id: string; title: string }[];
   content: {
     intro: string;
@@ -29,6 +31,15 @@ export interface BlogPost {
         text: string;
       };
       metrics?: { label: string; value: string; description: string }[];
+      table?: {
+        headers: string[];
+        rows: string[][];
+      };
+      image?: {
+        src: string;
+        alt: string;
+        caption?: string;
+      };
     }[];
     conclusion: string;
     keyTakeaways: string[];
@@ -484,6 +495,233 @@ export const blogPosts: BlogPost[] = [
         "ASHRAE Level 2 audit",
         "HVAC optimization audit",
         "Industrial energy audit Chennai",
+      ],
+    },
+  },
+  {
+    id: 4,
+    slug: "iso-50001-vs-iso-50002-key-differences",
+    tag: "Energy Audits",
+    category: "Energy Management",
+    title: "ISO 50001 vs ISO 50002: Understanding the Key Differences",
+    date: "August 29, 2026",
+    isoDate: "2026-08-29T09:00:00.000Z",
+    readTime: "6 min read",
+    author: {
+      name: "Sustainabyte Energy Engineering Team",
+      role: "Certified Energy Auditors & EnMS Specialists",
+    },
+    excerpt:
+      "Learn the differences and synergy between ISO 50001 (Energy Management Systems) and ISO 50002-1 (Energy Audits) to improve energy performance, reduce costs, and identify efficiency opportunities.",
+    image: "/blogs/iso-50001-vs-iso-50002-guide.jpg",
+    imagePosition: "object-top",
+    tableOfContents: [
+      { id: "what-is-iso-50001", title: "What Is ISO 50001?" },
+      { id: "what-is-iso-50002", title: "What Is ISO 50002-1?" },
+      { id: "key-differences", title: "Key Differences" },
+      { id: "how-they-work-together", title: "How Do They Work Together?" },
+      { id: "benefits-iso-50001", title: "Benefits of ISO 50001" },
+      { id: "benefits-iso-50002", title: "Benefits of ISO 50002-1" },
+      { id: "three-audit-levels", title: "Three Energy Audit Levels" },
+      { id: "which-should-you-choose", title: "Which Standard Should You Choose?" },
+      { id: "practical-approach", title: "ISO 50001 + ISO 50002-1 Roadmap" },
+      { id: "faqs", title: "Frequently Asked Questions" },
+    ],
+    content: {
+      intro:
+        "Energy efficiency is becoming an increasingly important priority for organizations across manufacturing, commercial buildings, transportation, and other sectors. Rising energy costs, sustainability objectives, and the need to improve operational efficiency are encouraging businesses to take a more structured approach to managing energy. Two important standards in this area are ISO 50001 and ISO 50002-1. Although both standards focus on improving energy performance, they have different purposes: ISO 50002-1 helps you understand where and how energy is being used, while ISO 50001 helps you manage and continuously improve energy performance.",
+      sections: [
+        {
+          id: "what-is-iso-50001",
+          heading: "What Is ISO 50001?",
+          subheading: "A framework for establishing and continually improving an Energy Management System (EnMS)",
+          paragraphs: [
+            "ISO 50001:2018 – Energy Management Systems is an international standard that provides organizations with a framework for establishing, implementing, maintaining, and continually improving an Energy Management System.",
+            "The standard is designed to help organizations improve energy use and energy performance through a systematic management approach. Organizations can seek certification to ISO 50001, although certification itself is not mandatory for implementing the standard. ISO itself does not perform certification.",
+          ],
+          bulletPoints: [
+            "Establishing an energy policy",
+            "Understanding energy use and consumption",
+            "Conducting an energy review",
+            "Identifying significant energy uses",
+            "Establishing energy performance indicators (EnPIs)",
+            "Setting energy objectives and targets",
+            "Developing action plans",
+            "Monitoring and measuring energy performance",
+            "Evaluating results",
+            "Continually improving the Energy Management System",
+          ],
+          image: {
+            src: "/blogs/iso-50001-cycle-infographic.jpg",
+            alt: "ISO 50001:2018 Energy Management Systems Continual Improvement Cycle",
+            caption: "The structured Plan-Do-Check-Act cycle for continuous energy performance improvement.",
+          },
+        },
+        {
+          id: "what-is-iso-50002",
+          heading: "What Is ISO 50002-1?",
+          subheading: "Structured general requirements and guidance for conducting energy audits",
+          paragraphs: [
+            "ISO 50002-1:2025 – Energy Audits: Part 1: General Requirements with Guidance for Use provides requirements and guidance for conducting energy audits.",
+            "The standard establishes a structured methodology for evaluating energy use and identifying opportunities to improve energy performance across buildings, processes, systems, and transport.",
+            "The purpose is to collect and analyze relevant information and identify practical Energy Performance Improvement Actions (EPIAs).",
+            "Important Update: The previous ISO 50002:2014 standard has been replaced by ISO 50002-1:2025. The new ISO 50002 series provides a broader structure for energy audits. The current series includes: Part 1 (General Requirements), Part 2 (Guidance for Buildings), and Part 3 (Guidance for Processes). This update is particularly important for organizations publishing or updating energy-management content in 2026.",
+          ],
+          bulletPoints: [
+            "Electrical systems, motors, and drives",
+            "HVAC systems, boilers, and steam systems",
+            "Compressed air and production processes",
+            "Lighting, heating, and cooling",
+            "Transportation and other significant energy-consuming systems",
+          ],
+          image: {
+            src: "/blogs/sustainable-manufacturing-dashboard.jpg",
+            alt: "Sustainable Manufacturing Energy Audit Dashboard",
+            caption: "Detailed energy audits help identify opportunities across HVAC, compressed air, and production processes.",
+          },
+        },
+        {
+          id: "key-differences",
+          heading: "ISO 50001 vs ISO 50002-1: Key Differences",
+          subheading: "Comparing organizational framework and technical audit processes",
+          paragraphs: [
+            "ISO 50002-1:2025 can be used independently or as part of a broader energy-management approach such as ISO 50001. While they address the same core goal of energy efficiency, their scopes and structures are fundamentally different:",
+          ],
+          table: {
+            headers: ["Area", "ISO 50001", "ISO 50002-1"],
+            rows: [
+              ["Primary focus", "Energy Management System", "Energy audit"],
+              ["Main objective", "Continually improve energy performance", "Identify energy-saving opportunities"],
+              ["Approach", "Management system", "Audit methodology"],
+              ["Main activity", "Manage energy performance", "Assess energy use"],
+              ["Scope", "Organization's energy management", "Buildings, processes, systems and transport"],
+              ["Data usage", "Continuous monitoring and analysis", "Data collection and analysis during an audit"],
+              ["Improvement", "Continual", "Recommendations/actions identified through audit"],
+              ["Certification", "Certification is possible", "It is an energy-audit standard"],
+              ["Relationship", "Provides ongoing management framework", "Can support the ISO 50001 energy review"],
+            ],
+          },
+        },
+        {
+          id: "how-they-work-together",
+          heading: "ISO 50001 and ISO 50002-1: How Do They Work Together?",
+          subheading: "Complementing continuous improvement with periodic deep-dive audits",
+          paragraphs: [
+            "The two standards should not necessarily be viewed as competing. Instead, they complement each other.",
+            "Think of it this way: ISO 50002-1 is about finding the opportunities (conducting audits, collecting data, analyzing consumption, identifying inefficiencies), whereas ISO 50001 is about managing the improvements (setting objectives, prioritizing actions, implementing plans, monitoring performance, and continually improving).",
+            "ISO states that ISO 50002-1:2025 can support the energy review process required by ISO 50001, while also being usable independently.",
+          ],
+          quote: "ISO 50002-1 = Find the opportunities 🔍 | ISO 50001 = Manage the improvements 📊",
+        },
+        {
+          id: "benefits-iso-50001",
+          heading: "What Are the Benefits of ISO 50001?",
+          subheading: "Establishing an ongoing systematic culture of energy efficiency",
+          paragraphs: [
+            "Implementing ISO 50001 can help organizations create a systematic approach to energy management, resulting in several key advantages:",
+          ],
+          bulletPoints: [
+            "Improved energy performance: Establish objectives, monitor performance, and continually identify opportunities for improvement.",
+            "Better energy management: Make energy management a core part of normal organizational processes instead of an isolated project.",
+            "Data-driven decisions: Leverage energy data and performance indicators to make informed operational and investment decisions.",
+            "Support for sustainability goals: Reduce carbon emissions to support wider environmental and corporate sustainability objectives.",
+            "Continual improvement: Ensure that energy efficiency isn't a one-off campaign but a continuous, structured management cycle.",
+          ],
+        },
+        {
+          id: "benefits-iso-50002",
+          heading: "What Are the Benefits of ISO 50002-1?",
+          subheading: "Standardizing audit quality to identify high-confidence savings",
+          paragraphs: [
+            "ISO 50002-1:2025 provides a structured approach to energy auditing. Its benefits include:",
+          ],
+          bulletPoints: [
+            "Identify energy-saving opportunities: Pinpoint inefficient equipment, processes, and systems.",
+            "Support investment decisions: Provide clear technical and financial findings to evaluate energy-performance improvement projects.",
+            "Improve energy data: Create a highly structured, accurate, and baseline-verified understanding of energy consumption.",
+            "Support decarbonization: Leverage new 2025 guidelines highlighting opportunities to support net-zero strategies.",
+            "Create a structured audit process: Define clear principles, processes, roles, and deliverables for energy auditors.",
+          ],
+        },
+        {
+          id: "three-audit-levels",
+          heading: "The Three Energy Audit Levels in ISO 50002-1:2025",
+          subheading: "Tailoring the depth of assessment to your specific operational needs",
+          paragraphs: [
+            "ISO 50002-1:2025 defines three distinct levels of energy audits, allowing organizations to select the appropriate level of detail depending on their objectives and circumstances:",
+          ],
+          bulletPoints: [
+            "Level 1 – Walk-Through Audit: A high-level assessment designed to quickly identify potential energy-performance improvement opportunities with minimal resource usage.",
+            "Level 2 – Detailed Survey and Analysis: A comprehensive assessment involving thorough data collection, equipment measurements, and financial calculations.",
+            "Level 3 – Comprehensive Engineering Analysis: A deep technical assessment designed for complex industrial systems, utilizing extensive sub-metering and thermodynamic simulation.",
+          ],
+        },
+        {
+          id: "which-should-you-choose",
+          heading: "Which Standard Should Your Organization Choose?",
+          subheading: "Aligning your choice with immediate technical and long-term organizational goals",
+          paragraphs: [
+            "The choice depends entirely on your objective. Consider using both if your organization wants both a detailed technical baseline and a long-term, certified management framework.",
+          ],
+          bulletPoints: [
+            "Choose ISO 50001 if: You want a formal Energy Management System, continual improvement, and option for certification integrated into business processes.",
+            "Consider ISO 50002-1 if: You need to conduct a structured energy audit, understand where energy is consumed, and identify practical energy-saving opportunities.",
+          ],
+        },
+        {
+          id: "practical-approach",
+          heading: "ISO 50001 + ISO 50002-1: A Practical Process",
+          subheading: "Step-by-step roadmap to implement a hybrid energy performance strategy",
+          paragraphs: [
+            "For many organizations, the two standards can work together as part of a broader energy-performance strategy. Here is a practical roadmap:",
+          ],
+          bulletPoints: [
+            "1. Understand energy use: Collect historical and current utility bills and metering data.",
+            "2. Conduct an energy audit: Use ISO 50002-1 methodology to evaluate energy use and identify improvement opportunities.",
+            "3. Prioritize opportunities: Assess potential savings, technical feasibility, investment requirements, and operational impact.",
+            "4. Establish EnMS: Use ISO 50001 to create policies, objectives, targets, responsibilities, and action plans.",
+            "5. Implement and Monitor: Put selected actions into practice, track performance indicators, and review for continuous improvement.",
+          ],
+        },
+        {
+          id: "faqs",
+          heading: "Frequently Asked Questions",
+          subheading: "Common questions about implementing energy management and auditing standards",
+          paragraphs: [
+            "Is ISO 50002 the same as ISO 50001? No. ISO 50001 is an Energy Management System standard, whereas ISO 50002-1 is an energy audit standard.",
+            "Can ISO 50002-1 be used without ISO 50001? Yes. ISO 50002-1:2025 can be used as a standalone energy-audit methodology or to support an Energy Management System such as ISO 50001.",
+            "Is ISO 50001 certification mandatory? No. Organizations can implement ISO 50001 without certification, although certification is available for organizations that want independent confirmation of conformity.",
+            "Is ISO 50002:2014 still the current standard? No. ISO 50002:2014 has been replaced by ISO 50002-1:2025. Organizations preparing new content or audit programs should refer to the current ISO 50002 series.",
+            "Can ISO 50002-1 support ISO 50001? Yes. ISO 50002-1:2025 can support the energy review process within ISO 50001, although an ISO 50002-1 audit is not itself a requirement for ISO 50001 certification.",
+          ],
+          callout: {
+            title: "Want to improve your organization's energy performance?",
+            text: "Discover how ISO 50001 Energy Management Systems and ISO 50002-1 Energy Audits can help your organization identify opportunities, improve efficiency, and build a structured approach to energy management. Contact our energy management experts today to learn more.",
+          },
+        },
+      ],
+      conclusion:
+        "ISO 50001 and ISO 50002-1 have different purposes, but they work effectively together. ISO 50001:2018 provides the framework for establishing and continually improving an Energy Management System, while ISO 50002-1:2025 provides requirements and guidance for conducting structured energy audits. For organizations looking to improve energy efficiency, reduce energy waste, make informed investment decisions, and support sustainability objectives, understanding the role of both standards can be valuable.",
+      keyTakeaways: [
+        "ISO 50001 focuses on the management system, while ISO 50002-1 defines the audit methodology.",
+        "ISO 50002:2014 has been replaced by the updated ISO 50002-1:2025 general requirements.",
+        "The standards complement each other; an energy audit serves as an excellent input for EnMS energy reviews.",
+        "ISO 50002-1 defines three levels of audits, from walk-throughs to comprehensive engineering analysis.",
+      ],
+    },
+    relatedSlugs: ["ashrae-energy-audits-building-efficiency", "what-is-ai-energy-management-guide"],
+    seo: {
+      metaTitle: "ISO 50001 vs ISO 50002: Key Differences, Benefits & How They Work Together",
+      metaDescription:
+        "Learn the difference between ISO 50001 and ISO 50002-1. Discover how energy management systems and energy audits help organizations improve performance and reduce costs.",
+      keywords: [
+        "ISO 50001 vs ISO 50002",
+        "ISO 50001 Energy Management System",
+        "ISO 50002 energy audit",
+        "energy efficiency standards",
+        "industrial energy audit",
+        "EnMS",
+        "Sustainabyte",
       ],
     },
   },

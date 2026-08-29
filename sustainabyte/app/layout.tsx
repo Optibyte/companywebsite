@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
@@ -178,7 +177,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* Preconnect to critical third-party origins — reduces LCP by ~400-500ms */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -218,34 +217,40 @@ export default function RootLayout({
         <meta name="author" content="Sustainabyte Technologies" />
         <meta name="publisher" content="Sustainabyte Technologies" />
 
-        {/* JSON-LD Structured Data */}
-        <Script
-          id="organization-schema"
+        {/* JSON-LD Structured Data - native static scripts for zero JS overhead and instant crawler pickup */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-          strategy="afterInteractive"
         />
-        <Script
-          id="website-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-          strategy="afterInteractive"
         />
-        <Script
-          id="local-business-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-          strategy="afterInteractive"
         />
-        <Script
-          id="site-navigation-schema"
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigationSchema) }}
-          strategy="afterInteractive"
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        <GoogleAnalytics gaId="G-06T4EBKHVW" />
+        {/* Lazy load Google Analytics after page is interactive so it never blocks mobile FCP/LCP */}
+        <Script
+          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=G-06T4EBKHVW"
+        />
+        <Script id="google-analytics-init" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-06T4EBKHVW', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
         <Toaster position="top-right" reverseOrder={false} />
         <ScrollProgressBar />
         <Navbar />

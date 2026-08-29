@@ -32,11 +32,7 @@ export default function IntroSection() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Background Image — using Next.js Image for optimizer + LCP preload */}
         <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute inset-0"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          >
+          <div className="absolute inset-0">
             <Image
               src="/Net Zero.webp"
               alt="Net Zero energy management background"
@@ -44,9 +40,10 @@ export default function IntroSection() {
               priority
               fetchPriority="high"
               sizes="100vw"
+              quality={80}
               className="object-cover object-center"
             />
-          </motion.div>
+          </div>
         </div>
         {/* Subtle dark gradient from the left for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B3E]/90 via-[#0D1B3E]/60 to-transparent" />
